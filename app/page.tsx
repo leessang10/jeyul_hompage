@@ -1,336 +1,438 @@
-import * as React from "react"
+import Link from "next/link"
 import { HugeiconsIcon } from "@hugeicons/react"
 import {
-  ChartIcon,
-  ChampionIcon,
-  Building01Icon,
-  PaintBoardIcon,
-  LicenseIcon,
-  Layers01Icon,
-  Money01Icon,
-  CheckmarkBadge01Icon,
   ArrowRight01Icon,
-  Mail01Icon,
-  CallIcon,
-  Location01Icon
+  Building01Icon,
+  ChartIcon,
+  CheckmarkBadge01Icon,
+  LicenseIcon,
+  PaintBoardIcon,
+  StackStarIcon,
 } from "@hugeicons/core-free-icons"
+import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Field, FieldLabel } from "@/components/ui/field"
+import { ProjectPlaceholder } from "@/components/site/project-placeholder"
+import { SectionShell } from "@/components/site/section-shell"
+import { siteContent } from "@/lib/site-content"
+
+function HomeHero() {
+  const { brand, hero, residentialPortfolio, commercialProjectGroups } = siteContent
+  const featuredResidential = residentialPortfolio[0]
+  const featuredCommercial = commercialProjectGroups[0]?.projects[0]
+
+  return (
+    <section className="relative overflow-hidden border-b border-border/60">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(18,133,131,0.18),transparent_28%),linear-gradient(180deg,rgba(250,249,246,0.96),rgba(239,242,238,0.78))]"
+      />
+      <div className="relative mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-14">
+        <div className="flex flex-col justify-between gap-8">
+          <div className="space-y-6">
+            <Badge variant="outline" className="border-border/70 bg-background/80 text-[10px] tracking-[0.28em] uppercase">
+              {hero.eyebrow}
+            </Badge>
+            <div className="space-y-4">
+              <h1 className="max-w-xl text-5xl font-semibold tracking-[-0.05em] text-foreground sm:text-6xl lg:text-7xl">
+                주거와 기업 공간, 제율은 시작부터 완성까지 함께합니다.
+              </h1>
+              <p className="max-w-lg text-base leading-7 text-muted-foreground sm:text-lg">
+                설계와 시공, 공정과 품질을 함께 살피며 오래 만족할 공간을 만듭니다.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Button asChild size="lg" className="h-11 px-6">
+                <Link href="/contact">
+                  상담하기
+                  <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 size-4" />
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="h-11 px-6">
+                <Link href="/residential">대표 포트폴리오</Link>
+              </Button>
+            </div>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="jeyul-surface-panel p-4">
+              <p className="jeyul-editorial-kicker">Trust</p>
+              <p className="mt-2 text-sm font-medium text-foreground">{brand.license}</p>
+            </div>
+            <div className="jeyul-surface-panel p-4">
+              <p className="jeyul-editorial-kicker">Reference</p>
+              <p className="mt-2 text-sm font-medium text-foreground">주거와 기업 프로젝트를 함께 수행합니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
+          <figure className="jeyul-content-frame relative min-h-[440px] overflow-hidden p-6 lg:min-h-[620px]">
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-[linear-gradient(145deg,rgba(16,24,40,0.96),rgba(58,74,84,0.76)_48%,rgba(220,225,221,0.16)),radial-gradient(circle_at_top_left,rgba(18,133,131,0.32),transparent_28%)]"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-x-8 bottom-8 top-26 border border-white/16 bg-[linear-gradient(180deg,rgba(255,255,255,0.14),rgba(255,255,255,0.03))]"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute bottom-14 left-14 right-14 h-px bg-white/18"
+            />
+            <div className="relative flex h-full flex-col justify-between text-white">
+              <div className="flex items-start justify-between gap-4">
+                <Badge variant="secondary" className="border-0 bg-white/12 text-white backdrop-blur-sm">
+                  Signature Residential
+                </Badge>
+                <div className="rounded-none border border-white/16 bg-black/12 px-3 py-2 backdrop-blur-sm">
+                  <p className="text-[10px] uppercase tracking-[0.28em] text-white/72">JEYUL D&C</p>
+                  <p className="mt-1 text-sm text-white">{featuredResidential?.area ?? "67평"}</p>
+                </div>
+              </div>
+              <div className="max-w-md space-y-3">
+                <p className="text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">
+                  {featuredResidential?.title ?? "강남권 주거 프로젝트"}
+                </p>
+                <p className="text-sm leading-6 text-white/76">
+                  {featuredResidential?.location} · {featuredResidential?.date} · {featuredResidential?.scope}
+                </p>
+              </div>
+            </div>
+          </figure>
+
+          <div className="grid gap-4">
+            <figure className="jeyul-surface-panel relative min-h-[220px] overflow-hidden p-5">
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-[linear-gradient(135deg,rgba(18,133,131,0.2),rgba(255,255,255,0)_56%),linear-gradient(180deg,rgba(247,246,242,0.98),rgba(226,231,227,0.78))]"
+              />
+              <div className="relative flex h-full flex-col justify-between">
+                <Badge variant="outline" className="w-fit border-border/70 bg-background/80">
+                  Corporate Reference
+                </Badge>
+                <div className="space-y-2">
+                  <p className="text-xl font-semibold tracking-[-0.03em] text-foreground">
+                    {featuredCommercial?.title ?? "LG · SK · LOTTE"}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {[featuredCommercial?.client, featuredCommercial?.location].filter(Boolean).join(" · ")}
+                  </p>
+                </div>
+              </div>
+            </figure>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="jeyul-surface-panel flex min-h-[180px] flex-col justify-between p-5">
+                <div className="flex size-11 items-center justify-center border border-border bg-secondary/60">
+                  <HugeiconsIcon icon={ChartIcon} className="size-5 text-primary" />
+                </div>
+                <div className="space-y-2">
+                  <p className="text-lg font-semibold text-foreground">설계 · 공정 · 원가 · 품질</p>
+                  <p className="text-sm leading-6 text-muted-foreground">
+                    프로젝트 전반을 놓치지 않도록 꼼꼼하게 살핍니다.
+                  </p>
+                </div>
+              </div>
+              <div className="jeyul-surface-panel flex min-h-[180px] flex-col justify-between p-5">
+                <div className="flex size-11 items-center justify-center border border-border bg-secondary/60">
+                  <HugeiconsIcon icon={CheckmarkBadge01Icon} className="size-5 text-primary" />
+                </div>
+                <div className="space-y-2">
+                  <p className="text-lg font-semibold text-foreground">면허 기반 시공 역량</p>
+                  <p className="text-sm leading-6 text-muted-foreground">
+                    주거와 기업 프로젝트 모두 책임 있게 수행합니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function HomeDirectory() {
+  const { homeSections } = siteContent
+
+  const icons = {
+    "/process": ChartIcon,
+    "/residential": Building01Icon,
+    "/commercial": StackStarIcon,
+  } as const
+
+  return (
+    <SectionShell className="jeyul-section-rhythm">
+      <div className="mb-8 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+        <div className="max-w-2xl space-y-3">
+          <p className="jeyul-editorial-kicker">Explore</p>
+          <h2 className="jeyul-editorial-section-title">원하시는 프로젝트에 맞춰 제율의 작업을 둘러보실 수 있습니다.</h2>
+          <p className="jeyul-editorial-section-copy">
+            주거 포트폴리오, 기업·오피스 실적, 공사관리 방식, 회사 정보를 페이지별로 나누어 담았습니다.
+          </p>
+        </div>
+        <Button asChild variant="outline" className="w-fit">
+          <Link href="/about">회사소개</Link>
+        </Button>
+      </div>
+
+      <div className="grid gap-4 md:grid-cols-3">
+        {homeSections.map((section) => {
+          const icon = icons[section.href as keyof typeof icons] ?? ChartIcon
+
+          return (
+            <Card key={section.href} className="jeyul-surface-panel jeyul-card-lift">
+              <CardHeader className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex size-11 items-center justify-center border border-border bg-secondary/60">
+                    <HugeiconsIcon icon={icon} className="size-5 text-primary" />
+                  </div>
+                  <Badge variant="outline" className="text-[10px] uppercase tracking-[0.28em]">
+                    {section.href.replace("/", "")}
+                  </Badge>
+                </div>
+                <CardTitle className="text-xl">{section.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-5">
+                <p className="text-sm leading-6 text-muted-foreground">{section.description}</p>
+                <Button asChild variant="link" className="h-auto p-0 text-sm font-medium text-foreground">
+                  <Link href={section.href} className="jeyul-link-underline">
+                    자세히 보기
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+          )
+        })}
+      </div>
+    </SectionShell>
+  )
+}
+
+function SignatureProjects() {
+  const { residentialPortfolio, commercialProjectGroups } = siteContent
+  const residential = residentialPortfolio.slice(0, 2)
+  const commercial = commercialProjectGroups.slice(0, 2)
+
+  return (
+    <SectionShell className="jeyul-section-rhythm">
+      <div className="mb-8 max-w-2xl space-y-3">
+        <p className="jeyul-editorial-kicker">Signature Projects</p>
+        <h2 className="jeyul-editorial-section-title">최근 프로젝트부터 제율의 작업을 살펴보실 수 있습니다.</h2>
+        <p className="jeyul-editorial-section-copy">
+          주거 프로젝트의 분위기와 기업 공간의 수행 이력을 함께 확인하실 수 있습니다.
+        </p>
+      </div>
+
+      <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="grid gap-4">
+          <ProjectPlaceholder
+            label="Hero Shot"
+            title="대표 주거 프로젝트 이미지 영역"
+            meta="실제 완공 사진 또는 메인 컷이 들어갈 자리"
+            variant="residential"
+            className="min-h-[360px]"
+          />
+          {residential.map((project, index) => (
+            <figure
+              key={project.title}
+              className={`jeyul-content-frame relative overflow-hidden p-6 ${index === 0 ? "min-h-[300px]" : "min-h-[220px]"}`}
+            >
+              <div
+                aria-hidden="true"
+                className={`absolute inset-0 ${index === 0
+                  ? "bg-[linear-gradient(140deg,rgba(25,34,50,0.94),rgba(75,92,103,0.72)_48%,rgba(231,235,231,0.18)),radial-gradient(circle_at_top_left,rgba(18,133,131,0.24),transparent_26%)]"
+                  : "bg-[linear-gradient(135deg,rgba(18,133,131,0.15),rgba(255,255,255,0)_58%),linear-gradient(180deg,rgba(245,244,240,0.98),rgba(227,231,228,0.78))]"}`
+                }
+              />
+              <div className={`relative flex h-full flex-col justify-between ${index === 0 ? "text-white" : ""}`}>
+                <div className="flex items-center justify-between gap-4">
+                  <Badge variant={index === 0 ? "secondary" : "outline"} className={index === 0 ? "border-0 bg-white/12 text-white" : "border-border/70 bg-background/80"}>
+                    Residential
+                  </Badge>
+                  <p className={`text-xs ${index === 0 ? "text-white/72" : "text-muted-foreground"}`}>{project.date}</p>
+                </div>
+                <div className="max-w-md space-y-3">
+                  <p className={`text-2xl font-semibold tracking-[-0.04em] ${index === 0 ? "sm:text-4xl" : "sm:text-3xl"} ${index === 0 ? "text-white" : "text-foreground"}`}>
+                    {project.title}
+                  </p>
+                  <p className={`text-sm leading-6 ${index === 0 ? "text-white/78" : "text-muted-foreground"}`}>
+                    {project.location} · {project.area} · {project.scope}
+                  </p>
+                </div>
+              </div>
+            </figure>
+          ))}
+        </div>
+
+        <div className="grid gap-4">
+          {commercial.map((group) => (
+            <Card key={group.title} className="jeyul-surface-panel">
+              <CardHeader className="space-y-3">
+                <div className="flex items-center justify-between gap-4">
+                  <CardTitle className="text-xl">{group.title}</CardTitle>
+                  <HugeiconsIcon icon={StackStarIcon} className="size-5 text-primary" />
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  {group.projects[0]?.client ?? group.projects[0]?.title}
+                </p>
+              </CardHeader>
+              <CardContent className="grid gap-3">
+                {group.projects.slice(0, 3).map((project) => (
+                  <div key={project.title} className="space-y-1 border-b border-border/60 pb-3 last:border-0 last:pb-0">
+                    <p className="text-sm font-medium text-foreground">{project.title}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {[project.client, project.location].filter(Boolean).join(" · ") || project.description}
+                    </p>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+          ))}
+          <Button asChild variant="outline" className="w-fit">
+            <Link href="/commercial">기업·오피스 실적 전체 보기</Link>
+          </Button>
+        </div>
+      </div>
+    </SectionShell>
+  )
+}
+
+function ProcessBand() {
+  const { processSteps } = siteContent
+  const highlights = processSteps.slice(0, 4)
+
+  const icons = [PaintBoardIcon, ChartIcon, CheckmarkBadge01Icon, LicenseIcon]
+
+  return (
+    <SectionShell className="jeyul-section-rhythm">
+      <div className="jeyul-content-frame grid gap-8 px-6 py-8 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:py-10">
+        <div className="space-y-3">
+          <p className="jeyul-editorial-kicker">ICM</p>
+          <h2 className="jeyul-editorial-section-title">제율은 공간의 결과만이 아니라 과정의 안정감까지 함께 챙깁니다.</h2>
+          <p className="jeyul-editorial-section-copy">
+            설계, 공정, 원가, 품질을 이어서 관리해 일정과 마감의 흐름을 안정적으로 맞춥니다.
+          </p>
+          <Button asChild variant="outline" className="mt-4 w-fit">
+            <Link href="/process">공사관리 방식 보기</Link>
+          </Button>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <ProjectPlaceholder
+            label="Process Board"
+            title="도면, 공정표, 현장 기록 이미지 영역"
+            meta="프로세스 다이어그램 또는 시공 기록 사진이 들어갈 자리"
+            variant="process"
+            className="sm:col-span-2 min-h-[240px]"
+          />
+          {highlights.map((step, index) => (
+            <Card key={step.title} className="jeyul-surface-panel">
+              <CardHeader className="space-y-3">
+                <div className="flex size-10 items-center justify-center border border-border bg-secondary/60">
+                  <HugeiconsIcon icon={icons[index] ?? ChartIcon} className="size-5 text-primary" />
+                </div>
+                <CardTitle className="text-lg">{step.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm leading-6 text-muted-foreground">{step.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </SectionShell>
+  )
+}
+
+function TrustBand() {
+  const { brand } = siteContent
+
+  return (
+    <SectionShell className="pt-0 pb-20">
+      <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+        <Card className="jeyul-content-frame">
+          <CardHeader className="space-y-3">
+            <p className="jeyul-editorial-kicker">Trust Signals</p>
+            <CardTitle className="text-2xl">{brand.koreanName}</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-5">
+            <p className="max-w-xl text-sm leading-6 text-muted-foreground">
+              최근 주거 포트폴리오와 기업 실적, 실내건축공사업 면허, 법인 전환 이력을 바탕으로 프로젝트를 진행합니다.
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div className="border-b border-border/60 pb-3">
+                <p className="jeyul-editorial-kicker">면허</p>
+                <p className="mt-1 text-sm font-medium text-foreground">{brand.license}</p>
+              </div>
+              <div className="border-b border-border/60 pb-3">
+                <p className="jeyul-editorial-kicker">법인 전환</p>
+                <p className="mt-1 text-sm font-medium text-foreground">2024.11 제율디앤씨 주식회사</p>
+              </div>
+              <div className="border-b border-border/60 pb-3 sm:border-b-0 sm:pb-0">
+                <p className="jeyul-editorial-kicker">사업자등록번호</p>
+                <p className="mt-1 text-sm font-medium text-foreground">{brand.registrationNumber}</p>
+              </div>
+              <div className="sm:border-b-0 sm:pb-0">
+                <p className="jeyul-editorial-kicker">주요 범위</p>
+                <p className="mt-1 text-sm font-medium text-foreground">프리미엄 주거 · 기업 · 오피스</p>
+              </div>
+            </div>
+            <div>
+              <Button asChild variant="outline" className="w-fit">
+                <Link href="/about">회사 정보 보기</Link>
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+
+        <div className="grid gap-4">
+          <ProjectPlaceholder
+            label="Office Shot"
+            title="기업·오피스 대표 이미지 영역"
+            meta="실제 기업 프로젝트 사진 또는 현장 컷이 들어갈 자리"
+            variant="commercial"
+            className="min-h-[240px]"
+          />
+          <Card className="jeyul-surface-panel">
+            <CardHeader className="space-y-3">
+              <p className="jeyul-editorial-kicker">Next Step</p>
+              <CardTitle className="text-2xl">프로젝트 성격에 맞는 페이지로 바로 이동하실 수 있습니다.</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-sm">
+              <p className="leading-6 text-muted-foreground">
+                주거 포트폴리오, 기업 실적, 상담 페이지로 바로 이어지도록 홈 구성을 간결하게 정리했습니다.
+              </p>
+              <div className="flex flex-wrap gap-3 pt-2">
+                <Button asChild className="w-full sm:w-auto">
+                  <Link href="/residential">
+                    주거 포트폴리오
+                    <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 size-4" />
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" className="w-full sm:w-auto">
+                  <Link href="/commercial">기업·오피스 실적</Link>
+                </Button>
+                <Button asChild variant="outline" className="w-full sm:w-auto">
+                  <Link href="/contact">상담하기</Link>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </SectionShell>
+  )
+}
 
 export default function Page() {
   return (
-    <div className="flex flex-col min-h-screen bg-background text-foreground">
-      {/* Navigation */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between mx-auto px-4">
-          <div className="flex items-center gap-2">
-            <span className="text-xl font-bold tracking-tighter">JEYUL D&C</span>
-          </div>
-          <nav className="hidden md:flex gap-8 text-sm font-medium">
-            <a href="#about" className="transition-colors hover:text-primary">회사소개</a>
-            <a href="#icm" className="transition-colors hover:text-primary">ICM 핵심역량</a>
-            <a href="#services" className="transition-colors hover:text-primary">주요분야</a>
-            <a href="#contact" className="transition-colors hover:text-primary">문의하기</a>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Button variant="outline" size="sm" className="hidden md:flex">
-              견적 문의
-            </Button>
-            <Button size="sm" className="md:hidden">메뉴</Button>
-          </div>
-        </div>
-      </header>
-
-      <main className="flex-1">
-        {/* Hero Section */}
-        <section className="relative py-24 md:py-32 overflow-hidden">
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-3xl space-y-6">
-              <Badge variant="secondary" className="px-3 py-1 text-sm">
-                실내건축공업 ICM 전문 시공사
-              </Badge>
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight">
-                통합 공사관리로 <br />
-                <span className="text-primary">건축의 가치</span>를 완성합니다
-              </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                제율디앤씨는 설계부터 시공, 원가관리까지 통합 관리하는 ICM(Integrated Construction Management)을 통해 투명하고 정밀한 건축 솔루션을 제공합니다.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Button size="lg" className="px-8 h-12">
-                  프로젝트 문의하기
-                  <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 h-4 w-4" />
-                </Button>
-                <Button size="lg" variant="outline" className="px-8 h-12">
-                  회사소개서 다운로드
-                </Button>
-              </div>
-            </div>
-          </div>
-          {/* Background Decorative Element */}
-          <div className="absolute right-0 top-0 -z-10 w-1/2 h-full opacity-10 hidden lg:block">
-            <svg viewBox="0 0 100 100" className="w-full h-full">
-              <defs>
-                <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                  <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" />
-                </pattern>
-              </defs>
-              <rect width="100" height="100" fill="url(#grid)" />
-            </svg>
-          </div>
-        </section>
-
-        {/* About Us Section */}
-        <section id="about" className="py-24 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <h2 className="text-3xl font-bold tracking-tight">제율디앤씨(JEYUL D&C)</h2>
-                <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
-                  <p>
-                    제율디앤씨는 실내건축공사업 면허를 기반으로 한 ICM 전문 시공사입니다. 우리는 단순히 짓는 것을 넘어, 공사의 모든 과정을 데이터와 전문성으로 통합 관리합니다.
-                  </p>
-                  <p>
-                    설계, 견적, 시공, 공정, 원가, 품질을 하나의 시스템으로 연결하여 고객의 예산 안에서 최상의 품질을 구현하는 것이 제율디앤씨의 약속입니다.
-                  </p>
-                </div>
-                <div className="grid grid-cols-2 gap-6 pt-4">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-full bg-primary/10 text-primary">
-                      <HugeiconsIcon icon={LicenseIcon} className="h-6 w-6" />
-                    </div>
-                    <span className="font-semibold text-sm">실내건축공사업 면허</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-full bg-primary/10 text-primary">
-                      <HugeiconsIcon icon={ChampionIcon} className="h-6 w-6" />
-                    </div>
-                    <span className="font-semibold text-sm">ICM 전문 시공사</span>
-                  </div>
-                </div>
-              </div>
-              <div className="relative aspect-video rounded-2xl overflow-hidden bg-muted flex items-center justify-center">
-                 <div className="text-center p-8 border-2 border-dashed border-muted-foreground/30 rounded-xl">
-                   <HugeiconsIcon icon={Building01Icon} className="h-16 w-16 mx-auto mb-4 text-muted-foreground/40" />
-                   <p className="text-muted-foreground font-medium italic">ICM Integrated Management Image Placeholder</p>
-                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ICM Section */}
-        <section id="icm" className="py-24">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <h2 className="text-3xl font-bold tracking-tight mb-4">ICM 핵심역량</h2>
-              <p className="text-muted-foreground">
-                설계부터 유지보수까지, 제율디앤씨만의 통합 관리 시스템으로 공사의 불확실성을 제거합니다.
-              </p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                {
-                  title: "설계 & 견적",
-                  desc: "정밀한 분석을 통한 최적의 설계와 투명한 내역 산출",
-                  icon: PaintBoardIcon
-                },
-                {
-                  title: "시공 & 공정",
-                  desc: "체계적인 공정표 관리로 오차 없는 공기 준수",
-                  icon: Layers01Icon
-                },
-                {
-                  title: "원가 & 품질",
-                  desc: "효율적인 자원 배분과 엄격한 품질 관리 시스템",
-                  icon: Money01Icon
-                },
-                {
-                  title: "통합 관리 (ICM)",
-                  desc: "공사 전 과정을 데이터화하여 실시간 의사결정 지원",
-                  icon: ChartIcon
-                },
-                {
-                  title: "시공 중심 관리",
-                  desc: "현장 경험을 바탕으로 한 실무 중심의 리스크 통제",
-                  icon: Building01Icon
-                },
-                {
-                  title: "신뢰 & 안전",
-                  desc: "원칙을 준수하는 시공으로 지속 가능한 공간 창조",
-                  icon: CheckmarkBadge01Icon
-                }
-              ].map((item, i) => (
-                <Card key={i} className="border-none shadow-md hover:shadow-lg transition-shadow bg-background">
-                  <CardHeader>
-                    <div className="p-3 w-fit rounded-xl bg-primary/10 text-primary mb-2">
-                      <HugeiconsIcon icon={item.icon} className="h-6 w-6" />
-                    </div>
-                    <CardTitle className="text-xl">{item.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{item.desc}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Service Fields Section */}
-        <section id="services" className="py-24 bg-primary text-primary-foreground">
-          <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
-              <div className="order-2 md:order-1">
-                 <div className="grid gap-4">
-                   <div className="bg-white/10 p-6 rounded-xl border border-white/20">
-                      <h3 className="text-xl font-bold mb-2">리모델링 & 대수선</h3>
-                      <p className="text-primary-foreground/80">노후화된 건물의 가치를 극대화하고 구조적 안정성을 확보하는 전문 시공 솔루션</p>
-                   </div>
-                   <div className="bg-white/10 p-6 rounded-xl border border-white/20">
-                      <h3 className="text-xl font-bold mb-2">공공 프로젝트</h3>
-                      <p className="text-primary-foreground/80">공공기관의 엄격한 기준을 충족하는 투명한 공정 관리와 성실 시공</p>
-                   </div>
-                   <div className="bg-white/10 p-6 rounded-xl border border-white/20">
-                      <h3 className="text-xl font-bold mb-2">민간 상업/오피스</h3>
-                      <p className="text-primary-foreground/80">브랜드 아이덴티티를 반영한 고품격 상업 공간 및 업무 시설 구축</p>
-                   </div>
-                 </div>
-              </div>
-              <div className="order-1 md:order-2 space-y-6">
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight">다양한 영역에서 증명된 <br />전문성을 경험하세요</h2>
-                <p className="text-primary-foreground/90 text-lg">
-                  제율디앤씨는 주거, 상업, 공공 시설을 아우르는 폭넓은 스펙트럼의 프로젝트를 수행하며 각 분야에 최적화된 ICM 프로세스를 적용합니다.
-                </p>
-                <div className="flex gap-4">
-                  <div className="flex flex-col">
-                    <span className="text-3xl font-bold">100+</span>
-                    <span className="text-sm opacity-80 text-nowrap">완료 프로젝트</span>
-                  </div>
-                  <div className="w-px h-12 bg-white/20 mx-4" />
-                  <div className="flex flex-col">
-                    <span className="text-3xl font-bold">98%</span>
-                    <span className="text-sm opacity-80 text-nowrap">고객 만족도</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Contact Section */}
-        <section id="contact" className="py-24">
-          <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto bg-card rounded-3xl overflow-hidden shadow-2xl border flex flex-col md:row gap-0">
-               <div className="grid md:grid-cols-5">
-                  <div className="md:col-span-2 bg-muted p-8 md:p-12 space-y-8">
-                    <div>
-                      <h2 className="text-2xl font-bold mb-2">문의하기</h2>
-                      <p className="text-muted-foreground text-sm">상담 및 견적 문의는 아래 채널을 통해 연락 주시면 신속히 답변 드리겠습니다.</p>
-                    </div>
-                    <div className="space-y-6">
-                      <div className="flex items-start gap-4">
-                         <HugeiconsIcon icon={Location01Icon} className="h-6 w-6 text-primary mt-1" />
-                         <div>
-                           <p className="font-semibold">위치</p>
-                           <p className="text-sm text-muted-foreground">서울특별시 [상세 주소 입력]</p>
-                         </div>
-                      </div>
-                      <div className="flex items-start gap-4">
-                         <HugeiconsIcon icon={CallIcon} className="h-6 w-6 text-primary mt-1" />
-                         <div>
-                           <p className="font-semibold">전화</p>
-                           <p className="text-sm text-muted-foreground">02-XXX-XXXX</p>
-                         </div>
-                      </div>
-                      <div className="flex items-start gap-4">
-                         <HugeiconsIcon icon={Mail01Icon} className="h-6 w-6 text-primary mt-1" />
-                         <div>
-                           <p className="font-semibold">이메일</p>
-                           <p className="text-sm text-muted-foreground">contact@jeyul.co.kr</p>
-                         </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="md:col-span-3 p-8 md:p-12">
-                    <form className="space-y-4">
-                      <div className="grid sm:grid-cols-2 gap-4">
-                        <Field>
-                          <FieldLabel>이름 / 업체명</FieldLabel>
-                          <Input placeholder="홍길동" />
-                        </Field>
-                        <Field>
-                          <FieldLabel>연락처</FieldLabel>
-                          <Input placeholder="010-0000-0000" />
-                        </Field>
-                      </div>
-                      <Field>
-                        <FieldLabel>문의 유형</FieldLabel>
-                        <Input placeholder="예: 리모델링 견적 문의" />
-                      </Field>
-                      <Field>
-                        <FieldLabel>문의 내용</FieldLabel>
-                        <Textarea placeholder="문의하실 내용을 상세히 적어주세요." className="min-h-[120px]" />
-                      </Field>
-                      <Button className="w-full h-12 text-lg">상담 신청하기</Button>
-                    </form>
-                  </div>
-               </div>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      {/* Footer */}
-      <footer className="border-t py-12 bg-muted/20">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-8">
-            <div className="space-y-4">
-              <span className="text-xl font-bold tracking-tighter">JEYUL D&C</span>
-              <p className="text-sm text-muted-foreground max-w-xs">
-                실내건축공업 ICM 전문 시공사 제율디앤씨. <br />
-                건축의 모든 과정을 정밀하게 관리합니다.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-12">
-              <div className="space-y-4">
-                <h4 className="text-sm font-semibold">회사</h4>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li><a href="#about" className="hover:text-primary transition-colors">회사소개</a></li>
-                  <li><a href="#" className="hover:text-primary transition-colors">연혁</a></li>
-                  <li><a href="#" className="hover:text-primary transition-colors">인증/면허</a></li>
-                </ul>
-              </div>
-              <div className="space-y-4">
-                <h4 className="text-sm font-semibold">서비스</h4>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li><a href="#icm" className="hover:text-primary transition-colors">ICM 관리</a></li>
-                  <li><a href="#services" className="hover:text-primary transition-colors">리모델링</a></li>
-                  <li><a href="#services" className="hover:text-primary transition-colors">공공공사</a></li>
-                </ul>
-              </div>
-              <div className="space-y-4">
-                <h4 className="text-sm font-semibold">고객지원</h4>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li><a href="#contact" className="hover:text-primary transition-colors">문의하기</a></li>
-                  <li><a href="#" className="hover:text-primary transition-colors">FAQ</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="border-t mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
-            <p>© 2026 제율디앤씨 (JEYUL D&C). All rights reserved.</p>
-            <div className="flex gap-6">
-              <a href="#" className="hover:text-primary transition-colors">개인정보처리방침</a>
-              <a href="#" className="hover:text-primary transition-colors">이용약관</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+    <div className="flex min-h-screen flex-col">
+      <HomeHero />
+      <HomeDirectory />
+      <SignatureProjects />
+      <ProcessBand />
+      <TrustBand />
     </div>
   )
 }
