@@ -2,286 +2,214 @@ import Link from "next/link"
 import { HugeiconsIcon } from "@hugeicons/react"
 import {
   ArrowRight01Icon,
-  Building01Icon,
-  CallIcon,
   CheckmarkBadge01Icon,
-  Location01Icon,
   PaintBoardIcon,
-  SparklesIcon,
+  Home01Icon,
+  MaximizeIcon,
+  SquareIcon,
 } from "@hugeicons/core-free-icons"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { PageHero } from "@/components/site/page-hero"
 import { ProjectPlaceholder } from "@/components/site/project-placeholder"
 import { SectionShell } from "@/components/site/section-shell"
 import { siteContent } from "@/lib/site-content"
 
 type ResidentialProject = (typeof siteContent.residentialPortfolio)[number]
 
+/**
+ * 프로젝트 카드: 비주얼 중심의 프리미엄 레이아웃
+ */
 function ProjectCard({
   project,
-  featured = false,
+  index,
 }: {
   project: ResidentialProject
-  featured?: boolean
+  index: number
 }) {
+  // 인덱스에 따라 카드 높이와 스타일 변주 (Masonry-like feel)
+  const isLarge = index % 3 === 0
+
   return (
-    <Card
-      className={
-        featured
-          ? "jeyul-content-frame overflow-hidden lg:grid lg:grid-cols-[1.1fr_0.9fr] lg:items-stretch"
-          : "jeyul-surface-panel jeyul-card-lift"
-      }
+    <Link 
+      href={`/residential/${index}`} // 상세 페이지가 있다면 연결, 현재는 예시
+      className={`group relative overflow-hidden bg-white border border-border/40 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 ${isLarge ? "md:col-span-2 md:row-span-2" : "col-span-1"}`}
     >
-      <div className={featured ? "bg-[linear-gradient(135deg,rgba(18,133,131,0.06),transparent_60%)] p-6 lg:p-8" : ""}>
-        <CardHeader className="space-y-4">
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex flex-wrap gap-2">
-              <Badge variant="secondary">{project.date}</Badge>
-              <Badge variant="outline">{project.projectType}</Badge>
-            </div>
-            <HugeiconsIcon icon={Building01Icon} className="size-5 text-primary" />
-          </div>
-          <CardTitle className={featured ? "text-2xl leading-tight sm:text-3xl" : "text-lg leading-tight"}>
-            {project.title}
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="grid gap-3 text-sm text-muted-foreground sm:grid-cols-3">
-            <div className="space-y-1">
-              <p className="jeyul-editorial-kicker">Location</p>
-              <p className="text-foreground">{project.location}</p>
-            </div>
-            <div className="space-y-1">
-              <p className="jeyul-editorial-kicker">Area</p>
-              <p className="text-foreground">{project.area}</p>
-            </div>
-            <div className="space-y-1">
-              <p className="jeyul-editorial-kicker">Scope</p>
-              <p className="text-foreground">{project.scope}</p>
-            </div>
-          </div>
-          {featured ? (
-            <div className="grid gap-3 rounded-none border border-border/70 bg-background/70 p-4 sm:grid-cols-2">
-              <div className="flex items-start gap-3">
-                <HugeiconsIcon icon={PaintBoardIcon} className="mt-0.5 size-4 text-primary" />
-                <div>
-                  <p className="text-sm font-medium text-foreground">주거 감도</p>
-                  <p className="text-sm text-muted-foreground">공간의 질감과 동선을 먼저 읽고, 생활 방식에 맞춰 구조를 정리합니다.</p>
-                </div>
+      <div className="relative aspect-[4/3] sm:aspect-square md:aspect-auto md:h-full overflow-hidden">
+        <ProjectPlaceholder
+          label={project.title}
+          title={project.title}
+          variant="residential"
+          className="h-full w-full transition-transform duration-700 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+        
+        {/* 상단 배지 */}
+        <div className="absolute top-6 left-6 flex gap-2">
+          <Badge variant="outline" className="bg-white/10 backdrop-blur-md text-white border-white/20 py-1 px-3">
+            {project.date}
+          </Badge>
+          <Badge variant="outline" className="bg-primary/20 backdrop-blur-md text-white border-primary/30 py-1 px-3">
+            {project.projectType}
+          </Badge>
+        </div>
+
+        {/* 하단 정보 */}
+        <div className="absolute bottom-0 left-0 right-0 p-8 text-white translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+          <div className="space-y-4">
+            <h3 className={`${isLarge ? "text-3xl sm:text-4xl" : "text-xl sm:text-2xl"} font-semibold leading-tight tracking-tight`}>
+              {project.title}
+            </h3>
+            
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/70 font-light">
+              <div className="flex items-center gap-2">
+                <HugeiconsIcon icon={Home01Icon} className="size-4" />
+                <span>{project.location}</span>
               </div>
-              <div className="flex items-start gap-3">
-                <HugeiconsIcon icon={CheckmarkBadge01Icon} className="mt-0.5 size-4 text-primary" />
-                <div>
-                  <p className="text-sm font-medium text-foreground">관리 기준</p>
-                  <p className="text-sm text-muted-foreground">디자인의 분위기와 실제 사용감을 함께 살피며 마감까지 꼼꼼하게 완성합니다.</p>
-                </div>
+              <div className="flex items-center gap-2">
+                <HugeiconsIcon icon={SquareIcon} className="size-4" />
+                <span>{project.area}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <HugeiconsIcon icon={MaximizeIcon} className="size-4" />
+                <span>{project.scope}</span>
               </div>
             </div>
-          ) : null}
-        </CardContent>
+
+            <div className="pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center text-xs font-bold tracking-widest uppercase text-white/90">
+              VIEW CASE STUDY <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 size-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+        </div>
       </div>
-    </Card>
-  )
-}
-
-function EmptyStateCard() {
-  return (
-    <Card className="jeyul-content-frame border-dashed">
-      <CardHeader className="space-y-3">
-        <div className="flex size-10 items-center justify-center border border-border bg-secondary/60">
-          <HugeiconsIcon icon={Building01Icon} className="size-5 text-primary" />
-        </div>
-        <CardTitle className="text-xl">등록된 주거 포트폴리오가 없습니다.</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p className="text-sm leading-6 text-muted-foreground">
-          현재 표시할 주거 프로젝트가 준비되지 않았습니다. 상담을 통해 진행 중인 사례와 향후 레퍼런스를 확인하실 수 있습니다.
-        </p>
-      </CardContent>
-    </Card>
-  )
-}
-
-function ApproachCard({
-  title,
-  description,
-  icon,
-}: {
-  title: string
-  description: string
-  icon: typeof SparklesIcon
-}) {
-  return (
-    <Card className="jeyul-surface-panel jeyul-card-lift">
-      <CardHeader className="space-y-3">
-        <div className="flex size-10 items-center justify-center border border-border bg-secondary/60">
-          <HugeiconsIcon icon={icon} className="size-5 text-primary" />
-        </div>
-        <CardTitle className="text-xl">{title}</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p className="text-sm leading-6 text-muted-foreground">{description}</p>
-      </CardContent>
-    </Card>
+    </Link>
   )
 }
 
 export default function Page() {
-  const { brand, residentialPortfolio, contact } = siteContent
-  const [featuredProject, ...restProjects] = residentialPortfolio
-  const hasProjects = residentialPortfolio.length > 0
+  const { residentialPortfolio } = siteContent
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <PageHero
-        eyebrow="Residential Portfolio"
-        title="주거는 기능보다 먼저 감도와 생활의 리듬을 읽어야 완성됩니다."
-        description="제율은 거주자의 생활 방식과 공간의 분위기를 함께 살피며 주거 프로젝트를 완성합니다."
-        actions={
-          <>
-            <Button asChild size="lg" className="h-11 px-6">
-              <Link href="/contact">
-                주거 상담
-                <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 size-4" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="h-11 px-6">
-              <Link href="/process">제율의 방식 보기</Link>
-            </Button>
-          </>
-        }
-        note={
-          <div className="space-y-4">
-            <p className="jeyul-editorial-kicker">Residential Focus</p>
-            <p className="text-lg font-semibold text-foreground">{brand.koreanName}</p>
-            <p className="text-sm leading-6 text-muted-foreground">
-              주거의 핵심은 예산과 미감의 균형입니다. 제율은 그 균형을 공정 관리로 유지합니다.
-            </p>
-            <div className="grid gap-2 text-sm text-foreground">
-              <div className="flex items-center gap-2">
-                <HugeiconsIcon icon={Location01Icon} className="size-4 text-primary" />
-                <span>서울 중심권 프리미엄 주거 사례</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <HugeiconsIcon icon={CallIcon} className="size-4 text-primary" />
-                <span>{contact.phone}</span>
-              </div>
+    <div className="flex min-h-screen flex-col bg-[#FDFDFB]">
+      {/* Hero Section: 타이포그래피 중심의 압도적 헤더 */}
+      <section className="relative pt-32 pb-20 overflow-hidden border-b border-border/40">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(18,133,131,0.05),transparent_30%)]" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl space-y-10">
+            <div className="space-y-6">
+              <Badge variant="outline" className="jeyul-badge-premium py-1.5 px-4 bg-white/50 backdrop-blur-sm">
+                RESIDENTIAL PORTFOLIO
+              </Badge>
+              <h1 className="text-5xl sm:text-7xl lg:text-8xl font-semibold tracking-[-0.06em] leading-[0.95] text-foreground">
+                삶의 궤적을 <br />
+                <span className="text-primary italic">아름다운</span> 공간으로.
+              </h1>
+              <p className="max-w-2xl text-lg sm:text-xl leading-relaxed text-muted-foreground font-light">
+                주거 프로젝트는 기능보다 먼저 거주자의 라이프스타일과 공간의 감도를 읽어야 합니다. <br className="hidden sm:block" />
+                제율디앤씨는 절제된 미학과 정밀한 시공으로 프리미엄 주거의 기준을 제시합니다.
+              </p>
             </div>
-          </div>
-        }
-      />
-
-      <SectionShell className="jeyul-section-rhythm">
-        <div className="mb-8 max-w-2xl space-y-3">
-          <p className="jeyul-editorial-kicker">Featured work</p>
-          <h2 className="jeyul-editorial-section-title">최근 프로젝트부터 차분히 살펴보실 수 있습니다.</h2>
-          <p className="jeyul-editorial-section-copy">
-            최근에 완성한 주거 공간을 중심으로 제율의 분위기와 마감 감도를 담았습니다.
-          </p>
-        </div>
-
-        <div className="grid gap-4">
-          <ProjectPlaceholder
-            label="Main Residential Shot"
-            title="대표 주거 프로젝트 메인 이미지 영역"
-            meta="실제 완공 사진 또는 공간 전경 컷이 들어갈 자리"
-            variant="residential"
-            className="min-h-[360px]"
-          />
-          {hasProjects && featuredProject ? (
-            <>
-              <ProjectCard project={featuredProject} featured />
-              {restProjects.length > 0 ? (
-                <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-                  {restProjects.map((project) => (
-                    <ProjectCard key={project.title} project={project} />
-                  ))}
-                </div>
-              ) : null}
-            </>
-          ) : (
-            <EmptyStateCard />
-          )}
-        </div>
-      </SectionShell>
-
-      <SectionShell className="jeyul-section-rhythm">
-        <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="space-y-4">
-            <p className="jeyul-editorial-kicker">Residential approach</p>
-            <h2 className="jeyul-editorial-section-title">주거 프로젝트는 생활 방식에 맞춰 디테일의 순서를 조정합니다.</h2>
-            <p className="jeyul-editorial-section-copy">
-              평형이 같아도 거주 방식이 다르면 공간의 우선순위는 달라집니다. 제율은 동선, 수납, 마감, 유지관리의 균형을 먼저 맞추고 그 위에 감도를 얹습니다.
-            </p>
-            <div className="flex flex-wrap gap-3 pt-2">
-              <Badge variant="outline" className="border-border/70">동선</Badge>
-              <Badge variant="outline" className="border-border/70">수납</Badge>
-              <Badge variant="outline" className="border-border/70">마감</Badge>
-              <Badge variant="outline" className="border-border/70">유지관리</Badge>
-            </div>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            <ProjectPlaceholder
-              label="Detail Shot"
-              title="디테일 컷 이미지 영역"
-              meta="마감, 재료, 수납, 디테일 사진이 들어갈 자리"
-              variant="residential"
-              className="sm:col-span-2 min-h-[220px]"
-            />
-            <ApproachCard
-              icon={PaintBoardIcon}
-              title="미감은 구조 위에서 안정적으로 보입니다"
-              description="공간의 첫 인상은 마감이 아니라 구조와 비례에서 결정됩니다. 제율은 디테일보다 먼저 전체 감도를 맞춥니다."
-            />
-            <ApproachCard
-              icon={CheckmarkBadge01Icon}
-              title="시공 품질은 생활 만족도로 연결됩니다"
-              description="눈에 보이지 않는 수평, 틈새, 접합부가 장기 만족도를 만듭니다. 주거 공사는 결국 사용 경험의 품질입니다."
-            />
-            <ApproachCard
-              icon={Building01Icon}
-              title="프리미엄은 과장보다 절제가 맞습니다"
-              description="주거 공간은 많은 것을 덧붙이는 방식보다 필요한 것만 정확하게 남길 때 더 고급스럽게 읽힙니다."
-            />
-            <ApproachCard
-              icon={Location01Icon}
-              title="현장마다 해법은 달라집니다"
-              description="같은 평형과 같은 지역이라도 구조와 생활 방식은 모두 다릅니다. 제율은 현장에 맞는 답을 차분히 찾아갑니다."
-            />
-          </div>
-        </div>
-      </SectionShell>
-
-      <SectionShell className="pt-0 pb-20">
-        <div className="jeyul-content-frame grid gap-6 px-6 py-8 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-10">
-          <div className="space-y-3">
-            <p className="jeyul-editorial-kicker">Inquiry</p>
-            <h2 className="text-3xl font-semibold tracking-[-0.03em] text-foreground sm:text-4xl">
-              집에 대한 생각을 들려주시면 제율이 함께 방향을 잡아드립니다.
-            </h2>
-            <p className="max-w-2xl text-base leading-7 text-muted-foreground">
-              평형, 가족 구성, 예산 범위, 원하는 분위기 정도만 남겨주셔도 상담을 시작하실 수 있습니다.
-            </p>
-          </div>
-          <div className="flex flex-col justify-between gap-4 lg:items-end">
-            <div className="flex flex-wrap gap-3">
-              <Button asChild size="lg" className="h-11 px-6">
+            
+            <div className="flex flex-wrap gap-4">
+              <Button asChild size="lg" className="h-14 px-10 rounded-none text-base group">
                 <Link href="/contact">
-                  상담하기
-                  <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 size-4" />
+                  상담 신청하기
+                  <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="h-11 px-6">
-                <Link href="/commercial">기업 실적 보기</Link>
-              </Button>
             </div>
-            <p className="jeyul-editorial-kicker">Official site: {brand.officialHomepageUrl}</p>
           </div>
         </div>
+      </section>
+
+      {/* Portfolio Grid: 리듬감 있는 레이아웃 */}
+      <SectionShell className="py-24">
+        <div className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+          <div className="max-w-2xl space-y-4">
+            <p className="text-xs font-bold text-primary tracking-[0.2em] uppercase">Selection of Works</p>
+            <h2 className="text-4xl font-semibold tracking-tight">제율이 완성한 주거 공간</h2>
+          </div>
+          <div className="flex gap-4 border-b border-border/60 pb-2 overflow-x-auto whitespace-nowrap scrollbar-hide">
+            <button className="text-sm font-semibold border-b-2 border-primary px-4 pb-2">ALL PROJECTS</button>
+            <button className="text-sm font-medium text-muted-foreground px-4 pb-2 transition-colors hover:text-foreground">APARTMENT</button>
+            <button className="text-sm font-medium text-muted-foreground px-4 pb-2 transition-colors hover:text-foreground">VILLA</button>
+            <button className="text-sm font-medium text-muted-foreground px-4 pb-2 transition-colors hover:text-foreground">REMODELING</button>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[450px]">
+          {residentialPortfolio.map((project, index) => (
+            <ProjectCard key={project.title} project={project} index={index} />
+          ))}
+        </div>
       </SectionShell>
+
+      {/* Philosophy Section: 주거 철학 */}
+      <section className="py-32 bg-foreground text-background">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div className="space-y-12">
+              <div className="space-y-6">
+                <Badge variant="outline" className="border-white/20 text-white/60 tracking-[0.2em]">PHILOSOPHY</Badge>
+                <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight leading-tight">
+                  단순히 예쁜 집을 넘어, <br />
+                  시간이 흐를수록 <br />
+                  가치를 더하는 공간.
+                </h2>
+              </div>
+              <div className="grid gap-8">
+                <div className="flex gap-6">
+                  <div className="size-12 shrink-0 flex items-center justify-center border border-white/20 text-white/80">
+                    <HugeiconsIcon icon={PaintBoardIcon} className="size-6" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-medium">비례와 질감의 조화</h3>
+                    <p className="text-background/60 leading-relaxed font-light">
+                      과한 장식보다는 공간의 본질적인 비례와 소재의 질감을 살려 <br />
+                      시각적 편안함과 고급스러움을 동시에 확보합니다.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-6">
+                  <div className="size-12 shrink-0 flex items-center justify-center border border-white/20 text-white/80">
+                    <HugeiconsIcon icon={CheckmarkBadge01Icon} className="size-6" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-medium">사용자 중심의 정밀한 시공</h3>
+                    <p className="text-background/60 leading-relaxed font-light">
+                      보이지 않는 부분의 마감이 실제 거주 만족도를 결정합니다. <br />
+                      제율은 1mm의 오차도 허용하지 않는 정밀 시공을 지향합니다.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative aspect-square">
+              <ProjectPlaceholder label="Detail" title="주거 디테일 컷" variant="residential" className="h-full w-full grayscale opacity-40" />
+              <div className="absolute inset-0 border border-white/10 -m-6 -z-10" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Inquiry Band */}
+      <section className="py-24 bg-[#F9F8F6] text-center">
+        <div className="max-w-4xl mx-auto px-4 space-y-8">
+          <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight">
+            당신의 일상이 머무는 곳, <br /> 제율과 함께 그리세요.
+          </h2>
+          <div className="flex flex-wrap justify-center gap-4 pt-4">
+            <Button asChild size="lg" className="h-14 px-12 rounded-none text-base group">
+              <Link href="/contact">
+                상담 문의하기
+                <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 size-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="h-14 px-12 rounded-none text-base bg-white">
+              <Link href="/process">시공 공정 보기</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
