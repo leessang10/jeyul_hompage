@@ -7,242 +7,216 @@ import {
   CheckmarkBadge01Icon,
   Location01Icon,
   StackStarIcon,
+  Briefcase01Icon,
+  FactoryIcon,
+  OfficeIcon,
+  Store01Icon,
 } from "@hugeicons/core-free-icons"
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { PageHero } from "@/components/site/page-hero"
 import { ProjectPlaceholder } from "@/components/site/project-placeholder"
 import { SectionShell } from "@/components/site/section-shell"
 import { siteContent } from "@/lib/site-content"
 
-type ProjectGroup = (typeof siteContent.commercialProjectGroups)[number]
-
-function GroupCard({ group }: { group: ProjectGroup }) {
-  const firstProject = group.projects[0]
+/**
+ * 1. 실적 그룹 카드: 기업 담당자가 보기 편한 리스트 형태
+ */
+function ProjectGroupSection({ group }: { group: (typeof siteContent.commercialProjectGroups)[number] }) {
+  const icons = {
+    "오피스": OfficeIcon,
+    "공장/연구시설": FactoryIcon,
+    "리테일": Store01Icon,
+    "기타": Briefcase01Icon,
+  }
+  const Icon = icons[group.title as keyof typeof icons] ?? Briefcase01Icon
 
   return (
-    <Card className="jeyul-surface-panel jeyul-card-lift">
-      <CardHeader className="space-y-3">
-        <div className="flex items-center justify-between gap-4">
-          <CardTitle className="text-xl">{group.title}</CardTitle>
-          <HugeiconsIcon icon={StackStarIcon} className="size-5 text-primary" />
+    <div className="space-y-6">
+      <div className="flex items-center gap-4">
+        <div className="size-10 bg-primary/10 flex items-center justify-center text-primary">
+          <HugeiconsIcon icon={Icon} className="size-5" />
         </div>
-        <p className="text-sm text-muted-foreground">
-          {firstProject ? firstProject.client ?? firstProject.title : "등록된 프로젝트가 없습니다."}
-        </p>
-      </CardHeader>
-      <CardContent className="grid gap-3">
-        {group.projects.length > 0 ? (
-          group.projects.map((project) => (
-            <div key={project.title} className="space-y-1 border-b border-border/60 pb-3 last:border-0 last:pb-0">
-              <p className="text-sm font-medium text-foreground">{project.title}</p>
-              <p className="text-sm text-muted-foreground">
-                {[project.client, project.location].filter(Boolean).join(" · ") || project.description}
-              </p>
-              <p className="text-xs leading-5 text-muted-foreground">{project.description}</p>
-            </div>
-          ))
-        ) : (
-          <p className="text-sm leading-6 text-muted-foreground">
-            현재 이 그룹에 표시할 프로젝트가 없습니다.
-          </p>
-        )}
-      </CardContent>
-    </Card>
-  )
-}
-
-function InsightCard({
-  title,
-  description,
-  icon,
-}: {
-  title: string
-  description: string
-  icon: typeof ChartIcon
-}) {
-  return (
-    <Card className="jeyul-content-frame">
-      <CardHeader className="space-y-3">
-        <div className="flex size-10 items-center justify-center border border-border bg-secondary/60">
-          <HugeiconsIcon icon={icon} className="size-5 text-primary" />
-        </div>
-        <CardTitle className="text-lg">{title}</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p className="text-sm leading-6 text-muted-foreground">{description}</p>
-      </CardContent>
-    </Card>
-  )
-}
-
-function ArchiveYearCard({
-  year,
-  categories,
-}: (typeof siteContent.constructionArchive)[number]) {
-  return (
-    <Card className="jeyul-surface-panel">
-      <CardHeader className="space-y-3">
-        <p className="text-3xl font-semibold tracking-[-0.04em] text-primary">{year}</p>
-      </CardHeader>
-      <CardContent className="grid gap-5">
-        {categories.map((category) => (
-          <div key={`${year}-${category.title}`} className="space-y-2 border-b border-border/60 pb-4 last:border-0 last:pb-0">
-            <p className="text-sm font-semibold tracking-[0.16em] text-foreground">{category.title}</p>
-            <div className="grid gap-1.5">
-              {category.projects.map((project) => (
-                <p key={project} className="text-sm leading-6 text-muted-foreground">{project}</p>
-              ))}
+        <h3 className="text-2xl font-bold tracking-tight">{group.title}</h3>
+      </div>
+      
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {group.projects.map((project) => (
+          <div key={project.title} className="p-6 bg-white border border-border/60 hover:border-primary/40 transition-all group">
+            <div className="space-y-4">
+              <div className="space-y-1">
+                <p className="text-xs font-bold text-primary tracking-widest uppercase">{project.client ?? "Corporate"}</p>
+                <h4 className="text-lg font-semibold group-hover:text-primary transition-colors">{project.title}</h4>
+              </div>
+              <div className="pt-4 border-t border-border/40 flex justify-between items-end">
+                <div className="space-y-1">
+                   <p className="text-[10px] text-muted-foreground uppercase tracking-wider">Location</p>
+                   <p className="text-xs font-medium">{project.location}</p>
+                </div>
+                <Badge variant="outline" className="text-[10px] py-0 px-2 rounded-none border-border/60">REF</Badge>
+              </div>
             </div>
           </div>
         ))}
-      </CardContent>
-    </Card>
+      </div>
+    </div>
+  )
+}
+
+/**
+ * 2. 아카이브 테이블: 방대한 데이터를 정제해서 보여주는 영역
+ */
+function ArchiveTable({ archive }: { archive: typeof siteContent.constructionArchive }) {
+  return (
+    <div className="overflow-hidden border border-border/60 bg-white">
+      <table className="w-full text-left border-collapse">
+        <thead>
+          <tr className="bg-secondary/30 border-b border-border/60">
+            <th className="p-6 text-sm font-bold tracking-wider text-muted-foreground uppercase w-24 text-center">Year</th>
+            <th className="p-6 text-sm font-bold tracking-wider text-muted-foreground uppercase">Category & Project Experience</th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-border/40">
+          {archive.map((yearData) => (
+            <tr key={yearData.year} className="group hover:bg-secondary/10 transition-colors">
+              <td className="p-6 align-top">
+                <span className="text-2xl font-bold text-primary leading-none">{yearData.year}</span>
+              </td>
+              <td className="p-6 py-8">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {yearData.categories.map((cat) => (
+                    <div key={cat.title} className="space-y-3">
+                      <p className="text-xs font-bold tracking-widest text-foreground uppercase border-b border-primary/20 pb-2">{cat.title}</p>
+                      <ul className="space-y-1.5">
+                        {cat.projects.map((proj) => (
+                          <li key={proj} className="text-sm text-muted-foreground leading-relaxed flex items-start gap-2">
+                             <span className="size-1 bg-primary/40 mt-2 shrink-0" />
+                             {proj}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   )
 }
 
 export default function Page() {
-  const { brand, commercialProjectGroups, constructionArchive } = siteContent
+  const { commercialProjectGroups, constructionArchive } = siteContent
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <PageHero
-        eyebrow="Commercial Projects"
-        title="기업과 오피스 공간은 일정과 운영 흐름까지 함께 맞춰야 합니다."
-        description="제율은 대기업, 공장, 연구시설, 리테일 공간에서 쌓은 경험을 바탕으로 기업 프로젝트를 수행합니다."
-        actions={
-          <>
-            <Button asChild size="lg" className="h-11 px-6">
-              <Link href="/contact">
-                기업 상담
-                <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 size-4" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="h-11 px-6">
-              <Link href="/process">관리 방식 보기</Link>
-            </Button>
-          </>
-        }
-        note={
-          <div className="space-y-4">
-            <p className="jeyul-editorial-kicker">Business Scope</p>
-            <p className="text-lg font-semibold text-foreground">{brand.englishName}</p>
-            <p className="text-sm leading-6 text-muted-foreground">
-              오피스, 생산시설, 리테일 공간의 조건을 살피며 프로젝트를 안정적으로 진행합니다.
-            </p>
-            <div className="grid gap-2 text-sm text-foreground">
-              <div className="flex items-center gap-2">
-                <HugeiconsIcon icon={Building01Icon} className="size-4 text-primary" />
-                <span>오피스 · 공장 · 연구시설 · 리테일 수행</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <HugeiconsIcon icon={Location01Icon} className="size-4 text-primary" />
-                <span>대기업 및 시설 프로젝트 수행 경험</span>
-              </div>
+    <div className="flex min-h-screen flex-col bg-[#FDFDFB]">
+      {/* Hero Section: 기업형 직선적 타이포그래피 */}
+      <section className="relative pt-32 pb-24 overflow-hidden border-b border-border/40">
+        <div className="absolute inset-y-0 right-0 w-1/3 bg-secondary/20 -skew-x-12 translate-x-1/2" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl space-y-12">
+            <div className="space-y-6">
+              <Badge variant="outline" className="jeyul-badge-premium py-1.5 px-4 bg-white/50 backdrop-blur-sm">
+                COMMERCIAL & INDUSTRIAL PERFORMANCE
+              </Badge>
+              <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-[-0.04em] leading-[0.95] text-foreground uppercase">
+                대기업이 선택한 <br />
+                <span className="text-primary">정밀한 공사관리.</span>
+              </h1>
+              <p className="max-w-2xl text-lg sm:text-xl leading-relaxed text-muted-foreground font-medium">
+                LG, SK하이닉스, 롯데 등 국내 주요 기업의 생산시설과 오피스를 성공적으로 수행했습니다. <br className="hidden sm:block" />
+                복잡한 공정과 엄격한 품질 기준이 요구되는 현장일수록 제율의 ICM 시스템은 빛을 발합니다.
+              </p>
             </div>
-          </div>
-        }
-      />
-
-      <SectionShell className="jeyul-section-rhythm">
-        <div className="mb-8 max-w-2xl space-y-3">
-          <p className="jeyul-editorial-kicker">Project references</p>
-          <h2 className="jeyul-editorial-section-title">주요 기업 프로젝트를 분야별로 살펴보실 수 있습니다.</h2>
-          <p className="jeyul-editorial-section-copy">
-            오피스, 생산·연구시설, 리테일 등 다양한 환경에서 진행한 프로젝트를 정리했습니다.
-          </p>
-        </div>
-
-        <div className="grid gap-4 lg:grid-cols-2">
-          <ProjectPlaceholder
-            label="Corporate Shot"
-            title="기업·오피스 대표 이미지 영역"
-            meta="사무공간 또는 현장 전경 사진이 들어갈 자리"
-            variant="commercial"
-            className="lg:col-span-2 min-h-[260px]"
-          />
-          {commercialProjectGroups.map((group) => (
-            <GroupCard key={group.title} group={group} />
-          ))}
-        </div>
-      </SectionShell>
-
-      <SectionShell className="jeyul-section-rhythm">
-        <div className="mb-8 max-w-2xl space-y-3">
-          <p className="jeyul-editorial-kicker">Why it matters</p>
-          <h2 className="jeyul-editorial-section-title">발주처는 결과 사진보다 운영의 예측 가능성을 봅니다.</h2>
-          <p className="jeyul-editorial-section-copy">
-            공장, 연구시설, 오피스, 리테일은 모두 요구 조건이 다르지만, 관리 원칙은 같아야 합니다. 제율은 설계 이후의 예외 상황까지 포함해서 프로젝트를 정리합니다.
-          </p>
-        </div>
-
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          <InsightCard
-            icon={ChartIcon}
-            title="일정 관리"
-            description="작업 지연과 승인 지연을 구분해 프로젝트의 실제 리스크를 빠르게 읽습니다."
-          />
-          <InsightCard
-            icon={CheckmarkBadge01Icon}
-            title="품질 관리"
-            description="체크리스트와 현장 기준을 하나의 품질 루틴으로 이어갑니다."
-          />
-          <InsightCard
-            icon={Building01Icon}
-            title="현장 대응"
-            description="오피스와 생산시설은 사용 중단을 최소화하는 계획이 중요합니다."
-          />
-          <InsightCard
-            icon={StackStarIcon}
-            title="레퍼런스 신뢰"
-            description="브랜드와 시설 특성이 다른 프로젝트를 연속 수행한 경험이 축적되어 있습니다."
-          />
-        </div>
-      </SectionShell>
-
-      <SectionShell className="jeyul-section-rhythm">
-        <div className="mb-8 max-w-3xl space-y-3">
-          <p className="jeyul-editorial-kicker">Actual Construction</p>
-          <h2 className="jeyul-editorial-section-title">최근 실적뿐 아니라 축적된 시공 이력도 함께 확인하실 수 있습니다.</h2>
-          <p className="jeyul-editorial-section-copy">
-            오피스, 주거, 리테일, 교육, 모델하우스까지 이어진 수행 이력을 연도별로 정리했습니다.
-          </p>
-        </div>
-
-        <div className="grid gap-4 xl:grid-cols-3">
-          {constructionArchive.map((year) => (
-            <ArchiveYearCard key={year.year} year={year.year} categories={year.categories} />
-          ))}
-        </div>
-      </SectionShell>
-
-      <SectionShell className="pt-0 pb-20">
-        <div className="jeyul-content-frame grid gap-6 px-6 py-8 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-10">
-          <div className="space-y-3">
-            <p className="jeyul-editorial-kicker">Inquiry</p>
-            <h2 className="text-3xl font-semibold tracking-[-0.03em] text-foreground sm:text-4xl">
-              검토 중인 현장 조건을 알려주시면 보다 정확하게 상담해드립니다.
-            </h2>
-            <p className="max-w-2xl text-base leading-7 text-muted-foreground">
-              발주 방식, 일정 제약, 운영 시간, 내부 승인 구조를 남겨주시면 준비 방향을 더 구체적으로 안내드릴 수 있습니다.
-            </p>
-          </div>
-          <div className="flex flex-col justify-between gap-4 lg:items-end">
-            <div className="flex flex-wrap gap-3">
-              <Button asChild size="lg" className="h-11 px-6">
+            
+            <div className="flex flex-wrap gap-4">
+              <Button asChild size="lg" className="h-14 px-10 rounded-none text-base font-bold group">
                 <Link href="/contact">
-                  상담하기
-                  <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 size-4" />
+                  기업 프로젝트 상담신청
+                  <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="h-11 px-6">
-                <Link href="/residential">주거 포트폴리오 보기</Link>
-              </Button>
+              <div className="flex items-center gap-6 px-4">
+                <div className="h-10 w-px bg-border/60" />
+                <div className="space-y-1">
+                   <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Main Clients</p>
+                   <p className="text-sm font-bold">LG · SK · LOTTE · POSCO</p>
+                </div>
+              </div>
             </div>
-            <p className="jeyul-editorial-kicker">Official site: {brand.officialHomepageUrl}</p>
           </div>
         </div>
+      </section>
+
+      {/* 실적 섹션 */}
+      <SectionShell className="py-24 space-y-24">
+        {commercialProjectGroups.map((group) => (
+          <ProjectGroupSection key={group.title} group={group} />
+        ))}
       </SectionShell>
+
+      {/* Insight Banner: 신뢰 강조 */}
+      <section className="py-24 bg-white border-y border-border/40">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
+              <div className="space-y-4">
+                 <HugeiconsIcon icon={ChartIcon} className="size-8 text-primary" />
+                 <h4 className="text-xl font-bold">공기 준수율 100%</h4>
+                 <p className="text-sm text-muted-foreground leading-relaxed">기업 운영에 차질이 없도록 철저한 공정 관리를 통해 약속된 기간 내에 반드시 완공합니다.</p>
+              </div>
+              <div className="space-y-4">
+                 <HugeiconsIcon icon={CheckmarkBadge01Icon} className="size-8 text-primary" />
+                 <h4 className="text-xl font-bold">엄격한 품질 안전</h4>
+                 <p className="text-sm text-muted-foreground leading-relaxed">대기업 현장의 품질 및 안전 기준을 상회하는 자체 매뉴얼을 적용하여 리스크를 관리합니다.</p>
+              </div>
+              <div className="space-y-4">
+                 <HugeiconsIcon icon={Location01Icon} className="size-8 text-primary" />
+                 <h4 className="text-xl font-bold">전국 수행 네트워크</h4>
+                 <p className="text-sm text-muted-foreground leading-relaxed">서울 본사를 중심으로 수도권 및 전국 주요 산업 단지의 프로젝트를 안정적으로 수행합니다.</p>
+              </div>
+              <div className="space-y-4">
+                 <HugeiconsIcon icon={StackStarIcon} className="size-8 text-primary" />
+                 <h4 className="text-xl font-bold">법인 기반의 신뢰</h4>
+                 <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">제율디앤씨 주식회사는 실내건축공사업 면허를 보유한 정식 시공사로 안정적인 계약과 시공을 보장합니다.</p>
+              </div>
+           </div>
+        </div>
+      </section>
+
+      {/* Archive Section: 표 형식의 데이터 정리 */}
+      <SectionShell className="py-24 bg-[#F9F9F9]">
+        <div className="mb-16 space-y-4">
+          <p className="text-xs font-bold text-primary tracking-[0.2em] uppercase">Construction Archive</p>
+          <h2 className="text-4xl font-bold tracking-tight">전체 시공 실적 아카이브</h2>
+          <p className="text-muted-foreground max-w-2xl">
+            2021년부터 현재까지 수행한 모든 프로젝트 이력을 투명하게 공개합니다. <br />
+            오피스부터 리테일, 주거 시설까지 폭넓은 스펙트럼의 전문성을 확인해 보세요.
+          </p>
+        </div>
+        
+        <ArchiveTable archive={constructionArchive} />
+      </SectionShell>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-foreground text-background text-center">
+        <div className="max-w-4xl mx-auto px-4 space-y-8">
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight uppercase text-white">
+            Your Trusted Construction Partner.
+          </h2>
+          <p className="text-lg font-medium max-w-xl mx-auto text-white/70">
+            제율디앤씨는 발주처의 비즈니스 가치를 최우선으로 생각합니다. <br />
+            전문적인 기술 검토가 필요하신가요?
+          </p>
+          <Button asChild size="lg" className="h-14 px-12 rounded-none text-base font-bold bg-white text-foreground hover:bg-white/90 group">
+            <Link href="/contact">
+              전문가 상담 시작하기
+              <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </Button>
+        </div>
+      </section>
     </div>
   )
 }

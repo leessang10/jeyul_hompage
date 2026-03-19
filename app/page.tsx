@@ -41,7 +41,7 @@ function HomeHero() {
               <Badge variant="outline" className="jeyul-badge-premium py-1.5 px-4 bg-white/50 backdrop-blur-sm">
                 {hero.eyebrow}
               </Badge>
-              <h1 className="text-5xl sm:text-7xl lg:text-8xl font-semibold tracking-[-0.06em] leading-[0.95] text-foreground">
+              <h1 className="text-4xl sm:text-7xl lg:text-8xl font-semibold tracking-[-0.06em] leading-[0.95] text-foreground">
                 공간의 가치를 <br />
                 <span className="text-primary">정밀하게</span> 설계합니다.
               </h1>
@@ -51,30 +51,30 @@ function HomeHero() {
               </p>
             </div>
             
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Button asChild size="lg" className="h-14 px-10 rounded-none text-base group">
+            <div className="flex flex-col gap-4 pt-4 sm:flex-row sm:flex-wrap">
+              <Button asChild size="lg" className="h-14 w-full px-10 rounded-none text-base group sm:w-auto">
                 <Link href="/contact">
                   프로젝트 문의하기
                   <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="h-14 px-10 rounded-none text-base bg-white/40 backdrop-blur-sm">
+              <Button asChild size="lg" variant="outline" className="h-14 w-full px-10 rounded-none text-base bg-white/40 backdrop-blur-sm sm:w-auto">
                 <Link href="/residential">포트폴리오 둘러보기</Link>
               </Button>
             </div>
 
-            <div className="flex items-center gap-12 pt-8 border-t border-border/40 max-w-md">
-              <div>
+            <div className="grid grid-cols-3 gap-4 pt-8 border-t border-border/40 sm:flex sm:items-center sm:gap-12 max-w-md">
+              <div className="min-w-0">
                 <p className="text-2xl font-bold tracking-tight">100+</p>
                 <p className="text-xs uppercase tracking-widest text-muted-foreground mt-1">Projects</p>
               </div>
-              <div className="w-px h-8 bg-border/60" />
-              <div>
+              <div className="hidden w-px h-8 bg-border/60 sm:block" />
+              <div className="min-w-0">
                 <p className="text-2xl font-bold tracking-tight">ICM</p>
                 <p className="text-xs uppercase tracking-widest text-muted-foreground mt-1">Management</p>
               </div>
-              <div className="w-px h-8 bg-border/60" />
-              <div>
+              <div className="hidden w-px h-8 bg-border/60 sm:block" />
+              <div className="min-w-0">
                 <p className="text-2xl font-bold tracking-tight">Premium</p>
                 <p className="text-xs uppercase tracking-widest text-muted-foreground mt-1">Quality</p>
               </div>

@@ -150,7 +150,7 @@ export default function Page() {
             <div className="space-y-12">
               <div className="space-y-6">
                 <Badge variant="outline" className="border-white/20 text-white/60 tracking-[0.2em]">PHILOSOPHY</Badge>
-                <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight leading-tight">
+                <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight leading-tight text-white">
                   단순히 예쁜 집을 넘어, <br />
                   시간이 흐를수록 <br />
                   가치를 더하는 공간.
@@ -162,8 +162,8 @@ export default function Page() {
                     <HugeiconsIcon icon={PaintBoardIcon} className="size-6" />
                   </div>
                   <div className="space-y-2">
-                    <h3 className="text-xl font-medium">비례와 질감의 조화</h3>
-                    <p className="text-background/60 leading-relaxed font-light">
+                    <h3 className="text-xl font-medium text-white">비례와 질감의 조화</h3>
+                    <p className="leading-relaxed font-light text-white/70">
                       과한 장식보다는 공간의 본질적인 비례와 소재의 질감을 살려 <br />
                       시각적 편안함과 고급스러움을 동시에 확보합니다.
                     </p>
@@ -174,8 +174,8 @@ export default function Page() {
                     <HugeiconsIcon icon={CheckmarkBadge01Icon} className="size-6" />
                   </div>
                   <div className="space-y-2">
-                    <h3 className="text-xl font-medium">사용자 중심의 정밀한 시공</h3>
-                    <p className="text-background/60 leading-relaxed font-light">
+                    <h3 className="text-xl font-medium text-white">사용자 중심의 정밀한 시공</h3>
+                    <p className="leading-relaxed font-light text-white/70">
                       보이지 않는 부분의 마감이 실제 거주 만족도를 결정합니다. <br />
                       제율은 1mm의 오차도 허용하지 않는 정밀 시공을 지향합니다.
                     </p>

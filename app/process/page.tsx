@@ -242,7 +242,7 @@ export default function Page() {
                 <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 size-5 transition-transform" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="h-14 px-12 rounded-none text-base border-white/20 text-white hover:bg-white/10 hover:text-white">
+            <Button asChild size="lg" variant="outline" className="h-14 px-12 rounded-none text-base border-white/20 bg-white text-foreground hover:bg-white/90 hover:text-foreground">
               <Link href="/residential">포트폴리오 보기</Link>
             </Button>
           </div>

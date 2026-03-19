@@ -1,11 +1,13 @@
 import { HugeiconsIcon } from "@hugeicons/react"
 import {
   ArrowRight01Icon,
+  Building01Icon,
   CallIcon,
   CheckmarkBadge01Icon,
   Location01Icon,
   Mail01Icon,
   Message01Icon,
+  GlobeIcon,
 } from "@hugeicons/core-free-icons"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -18,8 +20,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { PageHero } from "@/components/site/page-hero"
-import { ProjectPlaceholder } from "@/components/site/project-placeholder"
+import { Badge } from "@/components/ui/badge"
 import { SectionShell } from "@/components/site/section-shell"
 import { siteContent } from "@/lib/site-content"
 
@@ -27,147 +28,165 @@ export default function Page() {
   const { brand, contact } = siteContent
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <PageHero
-        eyebrow="Contact"
-        title="프로젝트 상담을 남겨주시면 제율이 직접 연락드립니다."
-        description="주거와 기업 프로젝트 모두 상담 가능합니다. 필요한 내용을 남겨주시면 확인 후 안내드립니다."
-        note={
-          <div className="space-y-4">
-            <p className="jeyul-editorial-kicker">Project Scope</p>
-            <p className="text-lg font-semibold text-foreground">{brand.koreanName}</p>
-            <p className="text-sm leading-6 text-muted-foreground">
-              주거 인테리어, 오피스, 기업 시설, 리모델링 상담을 받고 있습니다.
-            </p>
-            <div className="grid gap-2 text-sm text-foreground">
-              <div className="flex items-center gap-2">
-                <HugeiconsIcon icon={CheckmarkBadge01Icon} className="size-4 text-primary" />
-                <span>주거와 기업 프로젝트 상담 가능</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <HugeiconsIcon icon={Message01Icon} className="size-4 text-primary" />
-                <span>기본 정보만 남겨도 상담 시작 가능</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <HugeiconsIcon icon={Location01Icon} className="size-4 text-primary" />
-                <span>서울 및 수도권 중심 대응</span>
-              </div>
-            </div>
-          </div>
-        }
-      />
-
-      <SectionShell className="jeyul-section-rhythm">
-        <div className="grid gap-6 lg:grid-cols-[1fr_0.95fr]">
-          <div className="jeyul-content-frame p-6 sm:p-8">
-            <div className="mb-6 space-y-3">
-              <p className="jeyul-editorial-kicker">Inquiry</p>
-              <h2 className="jeyul-editorial-section-title">편하게 남겨 주세요.</h2>
-              <p className="jeyul-editorial-section-copy">
-                공간 유형, 일정, 예산 등 기본 정보만 남겨주셔도 상담을 시작하실 수 있습니다.
+    <div className="flex min-h-screen flex-col bg-[#FDFDFB]">
+      {/* Hero Section: 명확하고 신뢰감 있는 헤더 */}
+      <section className="relative pt-32 pb-20 overflow-hidden border-b border-border/40 bg-white">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(circle_at_70%_30%,rgba(18,133,131,0.03),transparent_50%)]" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl space-y-10">
+            <div className="space-y-6">
+              <Badge variant="outline" className="jeyul-badge-premium py-1.5 px-4 bg-white/50 backdrop-blur-sm">
+                CONTACT US
+              </Badge>
+              <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-[-0.04em] leading-[0.95] text-foreground uppercase">
+                당신의 공간, <br />
+                제율과 함께 <br />
+                시작하십시오.
+              </h1>
+              <p className="max-w-2xl text-lg sm:text-xl leading-relaxed text-muted-foreground font-medium">
+                프로젝트의 규모와 성격에 관계없이, 제율디앤씨의 전문가 그룹이 <br className="hidden sm:block" />
+                귀하의 요구사항을 정밀하게 검토하여 최적의 솔루션을 제안해 드립니다.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <form className="space-y-4">
-              <div className="grid gap-4 sm:grid-cols-2">
-                <Field>
-                  <FieldLabel>이름 / 업체명</FieldLabel>
-                  <Input placeholder="홍길동 / 회사명" />
-                </Field>
-                <Field>
-                  <FieldLabel>연락처</FieldLabel>
-                  <Input placeholder="010-0000-0000" />
-                </Field>
+      <SectionShell className="py-24">
+        <div className="grid gap-20 lg:grid-cols-[1.2fr_0.8fr] items-start">
+          {/* 문의 폼 섹션 */}
+          <div className="space-y-12">
+            <div className="space-y-4">
+               <p className="text-xs font-bold text-primary tracking-[0.2em] uppercase">Project Brief</p>
+               <h2 className="text-4xl font-bold tracking-tight">상담 문의 신청</h2>
+            </div>
+            
+            <form className="space-y-8 bg-white p-8 sm:p-12 border border-border/60 shadow-sm">
+              <div className="grid gap-8 sm:grid-cols-2">
+                <div className="space-y-3">
+                  <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground">이름 / 업체명</label>
+                  <Input className="rounded-none border-0 border-b border-border/60 focus-visible:ring-0 focus-visible:border-primary px-0 text-base font-medium placeholder:text-muted-foreground/40" placeholder="성함 혹은 법인명을 입력하세요" />
+                </div>
+                <div className="space-y-3">
+                  <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground">연락처</label>
+                  <Input className="rounded-none border-0 border-b border-border/60 focus-visible:ring-0 focus-visible:border-primary px-0 text-base font-medium placeholder:text-muted-foreground/40" placeholder="010-0000-0000" />
+                </div>
               </div>
 
-              <Field>
-                <FieldLabel>프로젝트 유형</FieldLabel>
+              <div className="space-y-3">
+                <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground">프로젝트 유형</label>
                 <Select>
-                  <SelectTrigger>
-                    <SelectValue placeholder="선택해 주세요" />
+                  <SelectTrigger className="rounded-none border-0 border-b border-border/60 focus:ring-0 px-0 text-base font-medium">
+                    <SelectValue placeholder="프로젝트 유형을 선택해 주세요" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="rounded-none border-border/60">
                     {contact.projectTypes.map((type) => (
-                      <SelectItem key={type} value={type}>
+                      <SelectItem key={type} value={type} className="rounded-none">
                         {type}
                       </SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
-              </Field>
+              </div>
 
-              <Field>
-                <FieldLabel>문의 내용</FieldLabel>
+              <div className="space-y-3">
+                <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground">상세 문의 내용</label>
                 <Textarea
-                  placeholder="공간의 종류, 평형 또는 면적, 원하는 일정, 예산 범위 등을 적어 주세요."
-                  className="min-h-[150px]"
+                  placeholder="공간의 용도, 면적, 예상 일정 및 예산 등 구체적인 내용을 남겨주시면 더욱 정확한 상담이 가능합니다."
+                  className="min-h-[200px] rounded-none border-border/60 focus-visible:ring-0 focus-visible:border-primary p-4 text-base font-medium placeholder:text-muted-foreground/40 leading-relaxed"
                 />
-              </Field>
+              </div>
 
-              <Button className="h-11 w-full px-6">
-                상담 남기기
-                <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 size-4" />
-              </Button>
+              <div className="pt-4">
+                <Button className="h-16 w-full rounded-none text-base font-bold uppercase tracking-widest group">
+                  상담 신청 완료
+                  <HugeiconsIcon icon={ArrowRight01Icon} className="ml-3 size-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+                <p className="mt-4 text-center text-xs text-muted-foreground">
+                  보내주신 정보는 프로젝트 검토를 위해서만 사용되며, 제율디앤씨가 직접 확인 후 연락드립니다.
+                </p>
+              </div>
             </form>
           </div>
 
-          <div className="space-y-4">
-            <ProjectPlaceholder
-              label="Consulting"
-              title="상담 이미지 영역"
-              meta="미팅, 브리프, 현장 상담 사진이 들어갈 자리"
-              variant="contact"
-              className="min-h-[220px]"
-            />
-            <div className="jeyul-surface-panel p-6">
-              <p className="jeyul-editorial-kicker">Contact Info</p>
-              <h3 className="mt-2 text-2xl font-semibold tracking-[-0.03em] text-foreground">
-                바로 연락하실 수 있습니다.
-              </h3>
-              <div className="mt-4 grid gap-3 text-sm">
-                <div className="flex items-center justify-between gap-4 border-b border-border/60 pb-3">
-                  <span className="jeyul-editorial-kicker">Website</span>
-                  <a className="text-foreground transition-colors hover:text-muted-foreground" href={contact.website} target="_blank" rel="noreferrer">
-                    {contact.website}
-                  </a>
-                </div>
-                <div className="flex items-center justify-between gap-4 border-b border-border/60 pb-3">
-                  <span className="jeyul-editorial-kicker">Phone</span>
-                  <a className="text-foreground transition-colors hover:text-muted-foreground" href={`tel:${contact.phone.replace(/-/g, "")}`}>
-                    {contact.phone}
-                  </a>
-                </div>
-                <div className="flex items-center justify-between gap-4">
-                  <span className="jeyul-editorial-kicker">Email</span>
-                  <a className="text-foreground transition-colors hover:text-muted-foreground" href={`mailto:${contact.email}`}>
-                    {contact.email}
-                  </a>
-                </div>
+          {/* 정보 및 연락처 섹션 */}
+          <div className="lg:sticky lg:top-32 space-y-12">
+            <div className="space-y-8">
+              <div className="space-y-4">
+                 <p className="text-xs font-bold text-primary tracking-[0.2em] uppercase">Contact Details</p>
+                 <h2 className="text-4xl font-bold tracking-tight">빠른 상담 안내</h2>
+              </div>
+              
+              <div className="grid gap-6">
+                 <div className="flex gap-6 p-6 bg-white border border-border/60 group hover:border-primary/40 transition-colors">
+                    <div className="size-12 bg-secondary/50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                       <HugeiconsIcon icon={CallIcon} className="size-6" />
+                    </div>
+                    <div className="space-y-1">
+                       <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Office Phone</p>
+                       <p className="text-xl font-bold">{contact.phone}</p>
+                    </div>
+                 </div>
+                 
+                 <div className="flex gap-6 p-6 bg-white border border-border/60 group hover:border-primary/40 transition-colors">
+                    <div className="size-12 bg-secondary/50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                       <HugeiconsIcon icon={Mail01Icon} className="size-6" />
+                    </div>
+                    <div className="space-y-1">
+                       <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Email Address</p>
+                       <p className="text-xl font-bold">{contact.email}</p>
+                    </div>
+                 </div>
+
+                 <div className="flex gap-6 p-6 bg-white border border-border/60 group hover:border-primary/40 transition-colors">
+                    <div className="size-12 bg-secondary/50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                       <HugeiconsIcon icon={Location01Icon} className="size-6" />
+                    </div>
+                    <div className="space-y-1">
+                       <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Headquarters</p>
+                       <p className="text-sm font-bold leading-relaxed">{brand.address}</p>
+                    </div>
+                 </div>
               </div>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-              <div className="jeyul-content-frame p-6">
-                <p className="jeyul-editorial-kicker">Before You Contact</p>
-                <div className="mt-3 grid gap-3 text-sm text-muted-foreground">
+            <div className="p-8 bg-foreground text-background space-y-8">
+               <div className="space-y-4">
+                  <h4 className="text-xl font-bold text-white">Check Points</h4>
+                  <p className="text-sm leading-relaxed font-medium text-white/70">상담 전 다음 사항을 확인해 주시면 더욱 원활한 프로젝트 검토가 가능합니다.</p>
+               </div>
+               <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <HugeiconsIcon icon={Message01Icon} className="mt-0.5 size-4 text-primary" />
-                    <p>원하시는 공간 유형과 현재 상태를 간단히 남겨 주세요.</p>
+                     <HugeiconsIcon icon={CheckmarkBadge01Icon} className="mt-1 size-4 text-primary" />
+                     <p className="text-sm font-medium text-white">원하시는 시공 시점과 완료 일정을 알려주세요.</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <HugeiconsIcon icon={Location01Icon} className="mt-0.5 size-4 text-primary" />
-                    <p>평형, 면적, 지역, 사용 중 여부를 함께 남겨주시면 좋습니다.</p>
+                     <HugeiconsIcon icon={CheckmarkBadge01Icon} className="mt-1 size-4 text-primary" />
+                     <p className="text-sm font-medium text-white">대략적인 예산 범위를 고려해 주시면 예산에 최적화된 마감을 제안해 드립니다.</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <HugeiconsIcon icon={CheckmarkBadge01Icon} className="mt-0.5 size-4 text-primary" />
-                    <p>예산 범위와 일정 조건이 있으면 상담이 더 정확해집니다.</p>
+                     <HugeiconsIcon icon={CheckmarkBadge01Icon} className="mt-1 size-4 text-primary" />
+                     <p className="text-sm font-medium text-white">현장 주소와 공간의 면적(평형)을 확인해 주세요.</p>
                   </div>
-                </div>
-              </div>
+               </div>
             </div>
           </div>
         </div>
       </SectionShell>
+
+      {/* Footer Info */}
+      <section className="py-12 border-t border-border/40 text-center">
+         <div className="flex flex-wrap justify-center gap-6">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground">
+               <HugeiconsIcon icon={GlobeIcon} className="size-3 text-primary" />
+               <span>Official Site: {brand.officialHomepageUrl}</span>
+            </div>
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground">
+               <HugeiconsIcon icon={Building01Icon} className="size-3 text-primary" />
+               <span>Business ID: {brand.registrationNumber}</span>
+            </div>
+         </div> 
+      </section>
     </div>
   )
 }
