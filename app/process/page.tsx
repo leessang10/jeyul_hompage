@@ -105,7 +105,7 @@ export default function Page() {
             </Badge>
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-[-0.04em] leading-[1.1] text-foreground">
               설계와 현장의 간극을 <br />
-              <span className="text-primary italic">시스템</span>으로 채웁니다.
+              <span className="text-primary">시스템</span>으로 채웁니다.
             </h1>
             <p className="max-w-2xl text-lg sm:text-xl leading-relaxed text-muted-foreground font-light">
               제율디앤씨의 ICM(통합 공사관리)은 기획, 설계, 시공, 사후관리까지 <br className="hidden sm:block" />

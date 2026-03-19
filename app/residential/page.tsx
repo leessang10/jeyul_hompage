@@ -101,7 +101,7 @@ export default function Page() {
               </Badge>
               <h1 className="text-5xl sm:text-7xl lg:text-8xl font-semibold tracking-[-0.06em] leading-[0.95] text-foreground">
                 삶의 궤적을 <br />
-                <span className="text-primary italic">아름다운</span> 공간으로.
+                <span className="text-primary">아름다운</span> 공간으로.
               </h1>
               <p className="max-w-2xl text-lg sm:text-xl leading-relaxed text-muted-foreground font-light">
                 주거 프로젝트는 기능보다 먼저 거주자의 라이프스타일과 공간의 감도를 읽어야 합니다. <br className="hidden sm:block" />
