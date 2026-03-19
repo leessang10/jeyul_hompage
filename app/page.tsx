@@ -118,7 +118,12 @@ function SplitEntry() {
           className="group relative overflow-hidden bg-[#F2F1ED] py-32 px-8 flex flex-col items-center justify-center text-center transition-all duration-700 hover:bg-[#EAE8E2]"
         >
           <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-700">
-            <ProjectPlaceholder variant="residential" className="h-full w-full grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" />
+            <ProjectPlaceholder
+              label="Residential"
+              title="고급 주거 인테리어"
+              variant="residential"
+              className="h-full w-full grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+            />
           </div>
           <div className="relative z-10 space-y-6">
             <HugeiconsIcon icon={Home01Icon} className="size-12 mx-auto text-primary/80" />
@@ -137,7 +142,12 @@ function SplitEntry() {
           className="group relative overflow-hidden bg-[#E9EBE8] py-32 px-8 flex flex-col items-center justify-center text-center transition-all duration-700 hover:bg-[#DEE1DD]"
         >
           <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-700">
-            <ProjectPlaceholder variant="commercial" className="h-full w-full grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" />
+            <ProjectPlaceholder
+              label="Commercial"
+              title="기업 · 오피스 · 공공"
+              variant="commercial"
+              className="h-full w-full grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+            />
           </div>
           <div className="relative z-10 space-y-6">
             <HugeiconsIcon icon={Briefcase01Icon} className="size-12 mx-auto text-primary/80" />
@@ -243,18 +253,18 @@ function TrustSection() {
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-4 pt-12">
             <div className="jeyul-content-frame aspect-square">
-              <ProjectPlaceholder label="Commercial" variant="commercial" className="h-full w-full" />
+              <ProjectPlaceholder label="Commercial" title="기업 프로젝트" variant="commercial" className="h-full w-full" />
             </div>
             <div className="jeyul-content-frame aspect-[4/3]">
-              <ProjectPlaceholder label="Detail" variant="process" className="h-full w-full" />
+              <ProjectPlaceholder label="Detail" title="공정 디테일" variant="process" className="h-full w-full" />
             </div>
           </div>
           <div className="space-y-4">
             <div className="jeyul-content-frame aspect-[4/3]">
-              <ProjectPlaceholder label="Residential" variant="residential" className="h-full w-full" />
+              <ProjectPlaceholder label="Residential" title="주거 프로젝트" variant="residential" className="h-full w-full" />
             </div>
             <div className="jeyul-content-frame aspect-square">
-              <ProjectPlaceholder label="Office" variant="commercial" className="h-full w-full" />
+              <ProjectPlaceholder label="Office" title="오피스 공간" variant="commercial" className="h-full w-full" />
             </div>
           </div>
         </div>
