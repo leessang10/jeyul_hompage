@@ -44,9 +44,18 @@ export function ProjectPlaceholder({
       <div
         aria-hidden="true"
         className={cn(
-          "absolute inset-x-8 bottom-8 top-20 border",
+          "absolute inset-x-8 bottom-8 top-20 border transition-[border-color,background-color,box-shadow,opacity] duration-500 group-hover:border-white/48 group-hover:bg-white/16",
           lightText ? "border-white/16 bg-white/6" : "border-foreground/8 bg-white/18"
         )}
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-8 bottom-8 top-20 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        style={{
+          background:
+            "radial-gradient(circle at 52% 42%, rgba(255,255,255,0.28), transparent 42%), linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.04) 44%, transparent 72%)",
+          boxShadow: "inset 0 0 96px rgba(255,255,255,0.14), 0 0 80px rgba(255,255,255,0.14)"
+        }}
       />
       <div
         aria-hidden="true"
@@ -54,6 +63,14 @@ export function ProjectPlaceholder({
           "absolute left-8 top-8 h-px w-24",
           lightText ? "bg-white/24" : "bg-foreground/12"
         )}
+      />
+      <div
+        aria-hidden="true"
+        className="absolute left-[10%] top-[14%] h-28 w-28 rounded-full bg-white/22 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-[18%] top-[12%] h-16 bg-white/12 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
       />
       <div
         aria-hidden="true"
