@@ -1,87 +1,114 @@
-import { HugeiconsIcon } from "@hugeicons/react"
+import { HugeiconsIcon } from "@hugeicons/react";
 import {
   ArrowRight01Icon,
   Building01Icon,
   CallIcon,
   CheckmarkBadge01Icon,
+  GlobeIcon,
   Location01Icon,
   Mail01Icon,
-  Message01Icon,
-  GlobeIcon,
-} from "@hugeicons/core-free-icons"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Field, FieldLabel } from "@/components/ui/field"
+} from "@hugeicons/core-free-icons";
+import { PageHero } from "@/components/site/page-hero";
+import { SectionShell } from "@/components/site/section-shell";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Badge } from "@/components/ui/badge"
-import { SectionShell } from "@/components/site/section-shell"
-import { siteContent } from "@/lib/site-content"
+} from "@/components/ui/select";
+import { siteContent } from "@/lib/site-content";
+
+function ContactInfoCard({
+  icon,
+  label,
+  value,
+}: {
+  icon: typeof CallIcon;
+  label: string;
+  value: string;
+}) {
+  return (
+    <div className="flex gap-5 border border-border/60 bg-white/92 p-6 transition-colors hover:border-primary/30">
+      <div className="flex size-12 items-center justify-center border border-border/60 bg-secondary/30 text-primary">
+        <HugeiconsIcon icon={icon} className="size-6" />
+      </div>
+      <div>
+        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">{label}</p>
+        <p className="mt-2 text-lg font-semibold tracking-[-0.03em]">{value}</p>
+      </div>
+    </div>
+  );
+}
 
 export default function Page() {
-  const { brand, contact } = siteContent
+  const { brand, contact } = siteContent;
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#FDFDFB]">
-      {/* Hero Section: 명확하고 신뢰감 있는 헤더 */}
-      <section className="relative pt-32 pb-20 overflow-hidden border-b border-border/40 bg-white">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(circle_at_70%_30%,rgba(18,133,131,0.03),transparent_50%)]" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl space-y-10">
-            <div className="space-y-6">
-              <Badge variant="outline" className="jeyul-badge-premium py-1.5 px-4 bg-white/50 backdrop-blur-sm">
-                CONTACT US
-              </Badge>
-              <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-[-0.04em] leading-[0.95] text-foreground uppercase">
-                당신의 공간, <br />
-                제율과 함께 <br />
-                시작하십시오.
-              </h1>
-              <p className="max-w-2xl text-lg sm:text-xl leading-relaxed text-muted-foreground font-medium">
-                프로젝트의 규모와 성격에 관계없이, 제율디앤씨의 전문가 그룹이 <br className="hidden sm:block" />
-                귀하의 요구사항을 정밀하게 검토하여 최적의 솔루션을 제안해 드립니다.
-              </p>
+    <div className="flex min-h-screen flex-col bg-[#f6f2eb]">
+      <PageHero
+        eyebrow="Contact Us"
+        title={
+          <>
+            프로젝트의 조건을 알려주시면,
+            <br />
+            실행 가능한 방향부터 제안합니다.
+          </>
+        }
+        description={
+          <>
+            프로젝트의 규모와 성격에 맞춰 제율의 전문가 그룹이 요구사항을 검토하고, 현실적인 공정과
+            범위를 제안합니다.
+          </>
+        }
+        aside={
+          <div className="flex h-full flex-col justify-between bg-[linear-gradient(180deg,rgba(17,24,39,0.88),rgba(17,24,39,0.68))] p-8 text-white">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">Contact Details</p>
+              <h3 className="mt-4 text-3xl font-semibold tracking-[-0.04em]">빠른 상담 안내</h3>
+            </div>
+            <div className="space-y-5 text-sm leading-7 text-white/72">
+              <p>주거 인테리어부터 오피스, 기업 시설, 리모델링까지 프로젝트 성격에 맞춰 상담해 드립니다.</p>
+              <p>{contact.phone}</p>
+              <p>{contact.email}</p>
+              <p>{brand.address}</p>
             </div>
           </div>
-        </div>
-      </section>
+        }
+      />
 
-      <SectionShell className="py-24">
-        <div className="grid gap-20 lg:grid-cols-[1.2fr_0.8fr] items-start">
-          {/* 문의 폼 섹션 */}
-          <div className="space-y-12">
+      <SectionShell className="py-24 sm:py-28 lg:py-32">
+        <div className="grid items-start gap-16 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="space-y-8">
             <div className="space-y-4">
-               <p className="text-xs font-bold text-primary tracking-[0.2em] uppercase">Project Brief</p>
-               <h2 className="text-4xl font-bold tracking-tight">상담 문의 신청</h2>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">Project Brief</p>
+              <h2 className="text-4xl font-semibold tracking-[-0.05em] sm:text-5xl">상담 문의 신청</h2>
             </div>
-            
-            <form className="space-y-8 bg-white p-8 sm:p-12 border border-border/60 shadow-sm">
+
+            <form className="space-y-8 border border-border/60 bg-white/92 p-8 shadow-sm sm:p-10">
               <div className="grid gap-8 sm:grid-cols-2">
                 <div className="space-y-3">
-                  <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground">이름 / 업체명</label>
-                  <Input className="rounded-none border-0 border-b border-border/60 focus-visible:ring-0 focus-visible:border-primary px-0 text-base font-medium placeholder:text-muted-foreground/40" placeholder="성함 혹은 법인명을 입력하세요" />
+                  <label className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">이름 / 업체명</label>
+                  <Input className="rounded-none border-0 border-b border-border/60 px-0 text-base font-medium focus-visible:ring-0" placeholder="성함 혹은 법인명" />
                 </div>
                 <div className="space-y-3">
-                  <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground">연락처</label>
-                  <Input className="rounded-none border-0 border-b border-border/60 focus-visible:ring-0 focus-visible:border-primary px-0 text-base font-medium placeholder:text-muted-foreground/40" placeholder="010-0000-0000" />
+                  <label className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">연락처</label>
+                  <Input className="rounded-none border-0 border-b border-border/60 px-0 text-base font-medium focus-visible:ring-0" placeholder="연락 가능한 번호를 입력해 주세요" />
                 </div>
               </div>
 
               <div className="space-y-3">
-                <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground">프로젝트 유형</label>
+                <label className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">프로젝트 유형</label>
                 <Select>
-                  <SelectTrigger className="rounded-none border-0 border-b border-border/60 focus:ring-0 px-0 text-base font-medium">
+                  <SelectTrigger className="rounded-none border-0 border-b border-border/60 px-0 text-base font-medium focus:ring-0">
                     <SelectValue placeholder="프로젝트 유형을 선택해 주세요" />
                   </SelectTrigger>
                   <SelectContent className="rounded-none border-border/60">
                     {contact.projectTypes.map((type) => (
-                      <SelectItem key={type} value={type} className="rounded-none">
+                      <SelectItem key={type} value={type}>
                         {type}
                       </SelectItem>
                     ))}
@@ -90,103 +117,63 @@ export default function Page() {
               </div>
 
               <div className="space-y-3">
-                <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground">상세 문의 내용</label>
+                <label className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">상세 문의 내용</label>
                 <Textarea
-                  placeholder="공간의 용도, 면적, 예상 일정 및 예산 등 구체적인 내용을 남겨주시면 더욱 정확한 상담이 가능합니다."
-                  className="min-h-[200px] rounded-none border-border/60 focus-visible:ring-0 focus-visible:border-primary p-4 text-base font-medium placeholder:text-muted-foreground/40 leading-relaxed"
+                  className="min-h-[220px] rounded-none border-border/60 p-4 text-base leading-7 focus-visible:ring-0"
+                  placeholder="공간의 용도, 면적, 예상 일정, 예산 범위, 요청 사항을 남겨주세요."
                 />
               </div>
 
-              <div className="pt-4">
-                <Button className="h-16 w-full rounded-none text-base font-bold uppercase tracking-widest group">
-                  상담 신청 완료
-                  <HugeiconsIcon icon={ArrowRight01Icon} className="ml-3 size-5 transition-transform group-hover:translate-x-1" />
-                </Button>
-                <p className="mt-4 text-center text-xs text-muted-foreground">
-                  보내주신 정보는 프로젝트 검토를 위해서만 사용되며, 제율디앤씨가 직접 확인 후 연락드립니다.
-                </p>
-              </div>
+              <Button className="h-14 w-full rounded-none text-sm font-semibold uppercase tracking-[0.16em]">
+                문의 남기기
+                <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 size-4" />
+              </Button>
             </form>
           </div>
 
-          {/* 정보 및 연락처 섹션 */}
-          <div className="lg:sticky lg:top-32 space-y-12">
-            <div className="space-y-8">
-              <div className="space-y-4">
-                 <p className="text-xs font-bold text-primary tracking-[0.2em] uppercase">Contact Details</p>
-                 <h2 className="text-4xl font-bold tracking-tight">빠른 상담 안내</h2>
-              </div>
-              
-              <div className="grid gap-6">
-                 <div className="flex gap-6 p-6 bg-white border border-border/60 group hover:border-primary/40 transition-colors">
-                    <div className="size-12 bg-secondary/50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                       <HugeiconsIcon icon={CallIcon} className="size-6" />
-                    </div>
-                    <div className="space-y-1">
-                       <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Office Phone</p>
-                       <p className="text-xl font-bold">{contact.phone}</p>
-                    </div>
-                 </div>
-                 
-                 <div className="flex gap-6 p-6 bg-white border border-border/60 group hover:border-primary/40 transition-colors">
-                    <div className="size-12 bg-secondary/50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                       <HugeiconsIcon icon={Mail01Icon} className="size-6" />
-                    </div>
-                    <div className="space-y-1">
-                       <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Email Address</p>
-                       <p className="text-xl font-bold">{contact.email}</p>
-                    </div>
-                 </div>
-
-                 <div className="flex gap-6 p-6 bg-white border border-border/60 group hover:border-primary/40 transition-colors">
-                    <div className="size-12 bg-secondary/50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                       <HugeiconsIcon icon={Location01Icon} className="size-6" />
-                    </div>
-                    <div className="space-y-1">
-                       <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Headquarters</p>
-                       <p className="text-sm font-bold leading-relaxed">{brand.address}</p>
-                    </div>
-                 </div>
-              </div>
+          <div className="space-y-8 lg:sticky lg:top-32">
+            <div className="space-y-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">Contact Details</p>
+              <h2 className="text-4xl font-semibold tracking-[-0.05em] sm:text-5xl">빠른 상담 안내</h2>
             </div>
 
-            <div className="p-8 bg-foreground text-background space-y-8">
-               <div className="space-y-4">
-                  <h4 className="text-xl font-bold text-white">Check Points</h4>
-                  <p className="text-sm leading-relaxed font-medium text-white/70">상담 전 다음 사항을 확인해 주시면 더욱 원활한 프로젝트 검토가 가능합니다.</p>
-               </div>
-               <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                     <HugeiconsIcon icon={CheckmarkBadge01Icon} className="mt-1 size-4 text-primary" />
-                     <p className="text-sm font-medium text-white">원하시는 시공 시점과 완료 일정을 알려주세요.</p>
+            <div className="space-y-4">
+              <ContactInfoCard icon={CallIcon} label="Office Phone" value={contact.phone} />
+              <ContactInfoCard icon={Mail01Icon} label="Email Address" value={contact.email} />
+              <ContactInfoCard icon={Location01Icon} label="Headquarters" value={brand.address} />
+            </div>
+
+            <div className="bg-foreground p-8 text-white">
+              <h3 className="text-2xl font-semibold tracking-[-0.04em]">Check Points</h3>
+              <div className="mt-6 space-y-4">
+                {[
+                  "원하시는 착수 시점과 완료 희망일을 알려주세요.",
+                  "예산 범위를 알려주시면 마감과 공정 방향을 더 정확히 제안할 수 있습니다.",
+                  "현장 주소와 공간 면적을 함께 주시면 검토가 더 빨라집니다.",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <HugeiconsIcon icon={CheckmarkBadge01Icon} className="mt-1 size-4 text-primary" />
+                    <p className="text-sm leading-7 text-white/76">{item}</p>
                   </div>
-                  <div className="flex items-start gap-3">
-                     <HugeiconsIcon icon={CheckmarkBadge01Icon} className="mt-1 size-4 text-primary" />
-                     <p className="text-sm font-medium text-white">대략적인 예산 범위를 고려해 주시면 예산에 최적화된 마감을 제안해 드립니다.</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                     <HugeiconsIcon icon={CheckmarkBadge01Icon} className="mt-1 size-4 text-primary" />
-                     <p className="text-sm font-medium text-white">현장 주소와 공간의 면적(평형)을 확인해 주세요.</p>
-                  </div>
-               </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </SectionShell>
 
-      {/* Footer Info */}
-      <section className="py-12 border-t border-border/40 text-center">
-         <div className="flex flex-wrap justify-center gap-6">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground">
-               <HugeiconsIcon icon={GlobeIcon} className="size-3 text-primary" />
-               <span>Official Site: {brand.officialHomepageUrl}</span>
-            </div>
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground">
-               <HugeiconsIcon icon={Building01Icon} className="size-3 text-primary" />
-               <span>Business ID: {brand.registrationNumber}</span>
-            </div>
-         </div> 
+      <section className="border-t border-border/40 py-12 text-center">
+        <div className="flex flex-wrap justify-center gap-6 px-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+          <span className="inline-flex items-center gap-2">
+            <HugeiconsIcon icon={GlobeIcon} className="size-3 text-primary" />
+            {brand.officialHomepageUrl}
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <HugeiconsIcon icon={Building01Icon} className="size-3 text-primary" />
+            {brand.registrationNumber}
+          </span>
+        </div>
       </section>
     </div>
-  )
+  );
 }

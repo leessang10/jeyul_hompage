@@ -7,6 +7,7 @@ type ProjectPlaceholderProps = {
   meta?: string
   variant?: "residential" | "commercial" | "process" | "company" | "contact"
   className?: string
+  decorative?: boolean
 }
 
 const variantStyles: Record<NonNullable<ProjectPlaceholderProps["variant"]>, string> = {
@@ -28,6 +29,7 @@ export function ProjectPlaceholder({
   meta,
   variant = "residential",
   className,
+  decorative = false,
 }: ProjectPlaceholderProps) {
   const lightText = variant === "residential" || variant === "commercial"
 
@@ -60,35 +62,37 @@ export function ProjectPlaceholder({
           lightText ? "border-white/12" : "border-foreground/10"
         )}
       />
-      <div className="relative flex h-full flex-col justify-between">
-        <div className="flex items-start justify-between gap-4">
-          <Badge
-            variant={lightText ? "secondary" : "outline"}
-            className={cn(
-              "w-fit",
-              lightText
-                ? "border-0 bg-white/12 text-white backdrop-blur-sm"
-                : "border-border/70 bg-background/78"
-            )}
-          >
-            {label}
-          </Badge>
-          <p className={cn("text-[10px] uppercase tracking-[0.28em]", lightText ? "text-white/72" : "text-muted-foreground")}>
-            Placeholder Visual
-          </p>
-        </div>
-
-        <div className="max-w-md space-y-3">
-          <p className={cn("text-2xl font-semibold tracking-[-0.04em] sm:text-4xl", lightText ? "text-white" : "text-foreground")}>
-            {title}
-          </p>
-          {meta ? (
-            <p className={cn("text-sm leading-6", lightText ? "text-white/78" : "text-muted-foreground")}>
-              {meta}
+      {!decorative ? (
+        <div className="relative flex h-full flex-col justify-between">
+          <div className="flex items-start justify-between gap-4">
+            <Badge
+              variant={lightText ? "secondary" : "outline"}
+              className={cn(
+                "w-fit",
+                lightText
+                  ? "border-0 bg-white/12 text-white backdrop-blur-sm"
+                  : "border-border/70 bg-background/78"
+              )}
+            >
+              {label}
+            </Badge>
+            <p className={cn("text-[10px] uppercase tracking-[0.28em]", lightText ? "text-white/72" : "text-muted-foreground")}>
+              Placeholder Visual
             </p>
-          ) : null}
+          </div>
+
+          <div className="max-w-md space-y-3">
+            <p className={cn("text-2xl font-semibold tracking-[-0.04em] sm:text-4xl", lightText ? "text-white" : "text-foreground")}>
+              {title}
+            </p>
+            {meta ? (
+              <p className={cn("text-sm leading-6", lightText ? "text-white/78" : "text-muted-foreground")}>
+                {meta}
+              </p>
+            ) : null}
+          </div>
         </div>
-      </div>
+      ) : null}
     </figure>
   )
 }

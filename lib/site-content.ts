@@ -26,6 +26,40 @@ export type HeroContent = {
   secondaryCta: string;
 };
 
+export type HomeHeroMedia = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  primaryCta: string;
+  secondaryCta: string;
+  scrollCue: string;
+  videoSrc?: string;
+  posterSrc?: string;
+};
+
+export type FeaturedStoryItem = {
+  label: string;
+  category: string;
+  title: string;
+  description: string;
+  meta: string;
+  href: string;
+  variant: "residential" | "commercial";
+  align: "left" | "right";
+};
+
+export type HomeTrustPoint = {
+  title: string;
+  description: string;
+};
+
+export type HomeFinalCta = {
+  title: string;
+  description: string;
+  primaryCta: string;
+  secondaryCta: string;
+};
+
 export type HomeSection = {
   title: string;
   description: string;
@@ -56,6 +90,21 @@ export type CommercialProjectItem = {
 export type CommercialProjectGroup = {
   title: string;
   projects: CommercialProjectItem[];
+};
+
+export type PortfolioType = "residential" | "commercial";
+
+export type PortfolioItem = {
+  slug: string;
+  title: string;
+  type: PortfolioType;
+  category: string;
+  location: string;
+  date?: string;
+  summary: string;
+  metaPrimary: string;
+  metaSecondary: string;
+  variant: "residential" | "commercial";
 };
 
 export type AboutFact = {
@@ -113,10 +162,14 @@ export type SiteContent = {
   };
   navigation: NavigationItem[];
   hero: HeroContent;
+  homeHeroMedia: HomeHeroMedia;
+  featuredStories: FeaturedStoryItem[];
   homeSections: HomeSection[];
   processSteps: ProcessStep[];
   residentialPortfolio: ResidentialPortfolioItem[];
   commercialProjectGroups: CommercialProjectGroup[];
+  portfolioItems: PortfolioItem[];
+  trustPoints: HomeTrustPoint[];
   organization: {
     ceoTitle: string;
     support: OrganizationDepartment;
@@ -125,6 +178,7 @@ export type SiteContent = {
   constructionArchive: ConstructionArchiveYear[];
   aboutFacts: AboutFact[];
   contact: ContactMetadata;
+  homeFinalCta: HomeFinalCta;
   footer: FooterData;
 };
 
@@ -168,9 +222,44 @@ const companyProfile = {
   ]
 };
 
+const homeHeroMedia: HomeHeroMedia = {
+  eyebrow: "JEYUL Integrated Construction Management",
+  title: "주거와 업무 공간의 완성도를\n관리의 밀도로 만듭니다.",
+  description:
+    "제율디앤씨는 고급 주거와 기업·오피스 프로젝트를 수행하며, 설계와 공정, 품질을 하나의 흐름으로 관리합니다.",
+  primaryCta: "프로젝트 상담하기",
+  secondaryCta: "대표 프로젝트 보기",
+  scrollCue: "SCROLL"
+};
+
+const featuredStories: FeaturedStoryItem[] = [
+  {
+    label: "Featured Project 01",
+    category: "Residential",
+    title: "오래 머물수록 디테일이 드러나는 집",
+    description:
+      "동선, 수납, 재료, 마감의 균형을 정리해 생활의 밀도가 자연스럽게 쌓이는 주거 공간을 만듭니다.",
+    meta: "Premium Residential Interior",
+    href: "/portfolio?type=residential",
+    variant: "residential",
+    align: "right"
+  },
+  {
+    label: "Featured Project 02",
+    category: "Commercial",
+    title: "운영까지 고려해야 완성되는 기업 공간",
+    description:
+      "기업·오피스 프로젝트의 목적에 맞춰 일정, 예산, 공정, 품질, 현장 커뮤니케이션을 구조적으로 관리합니다.",
+    meta: "Office / Corporate Project",
+    href: "/portfolio?type=commercial",
+    variant: "commercial",
+    align: "left"
+  }
+];
+
 const contact: ContactMetadata = {
   title: "프로젝트 상담",
-  description: "주거 인테리어부터 오피스, 기업 시설, 리모델링까지 상담하실 수 있습니다.",
+  description: "주거 인테리어부터 오피스, 기업 시설, 리모델링까지 프로젝트 성격에 맞춰 상담해 드립니다.",
   projectTypes: ["주거", "오피스", "생산/연구시설", "리테일", "기타"],
   address: brand.address,
   phone: brand.phone,
@@ -186,6 +275,33 @@ const aboutFacts: AboutFact[] = [
   { label: "면허", value: brand.license },
   { label: "사업자등록번호", value: companyProfile.registrationNumber }
 ];
+
+const trustPoints: HomeTrustPoint[] = [
+  {
+    title: "ICM 기반 통합 공사관리",
+    description: "기획부터 공정, 품질, 보고까지 하나의 체계로 연결해 관리합니다."
+  },
+  {
+    title: "주거와 기업 프로젝트 수행 범위",
+    description: "프리미엄 주거와 기업·오피스 현장을 모두 수행하는 균형 잡힌 포트폴리오를 보유합니다."
+  },
+  {
+    title: "실내건축공사업 면허 보유",
+    description: "정식 등록 기반으로 프로젝트의 신뢰와 책임 범위를 분명하게 갖춥니다."
+  },
+  {
+    title: "설계 이후까지 이어지는 운영 체계",
+    description: "시공 중 대응부터 마감 이후 관리까지 운영의 흐름을 안정적으로 이어갑니다."
+  }
+];
+
+const homeFinalCta: HomeFinalCta = {
+  title: "다음 프로젝트는\n잘 보이는 제안보다\n잘 관리되는 현장에서 시작되어야 합니다.",
+  description:
+    "주거 인테리어부터 오피스, 기업 시설, 리모델링까지 제율디앤씨가 실행 가능한 방향부터 제안합니다.",
+  primaryCta: "상담 문의 남기기",
+  secondaryCta: "회사소개 보기"
+};
 
 const organization = {
   ceoTitle: "대표이사 CEO",
@@ -469,247 +585,282 @@ const constructionArchive: ConstructionArchiveYear[] = [
   }
 ];
 
+const residentialPortfolio: ResidentialPortfolioItem[] = [
+  {
+    title: "강남구 압구정동 한양8차아파트",
+    location: "강남구 압구정동",
+    date: "2025.11",
+    area: "67평",
+    projectType: "아파트",
+    scope: "아파트 67평 인테리어공사"
+  },
+  {
+    title: "서초구 잠원동 래미안신반포팰리스",
+    location: "서초구 잠원동",
+    date: "2025.07",
+    area: "51평",
+    projectType: "아파트",
+    scope: "아파트 51평 인테리어공사"
+  },
+  {
+    title: "강남구 압구정동 현대6차아파트",
+    location: "강남구 압구정동",
+    date: "2025.03",
+    area: "51평",
+    projectType: "아파트",
+    scope: "아파트 51평 인테리어공사"
+  },
+  {
+    title: "용산구 한강로2가 용산푸르지오써밋아파트",
+    location: "용산구 한강로2가",
+    date: "2024.10",
+    area: "51평",
+    projectType: "아파트",
+    scope: "아파트 51평 인테리어공사"
+  },
+  {
+    title: "영등포구 여의도동 트럼프월드2차",
+    location: "영등포구 여의도동",
+    date: "2024.05",
+    area: "68평",
+    projectType: "아파트",
+    scope: "아파트 68평 인테리어공사"
+  },
+  {
+    title: "영등포구 여의도동 삼부아파트",
+    location: "영등포구 여의도동",
+    date: "2024.03",
+    area: "60평",
+    projectType: "아파트",
+    scope: "아파트 60평 인테리어공사"
+  }
+];
+
+const commercialProjectGroups: CommercialProjectGroup[] = [
+  {
+    title: "오피스",
+    projects: [
+      {
+        title: "LG화학 오산 리더쉽센터 리뉴얼공사",
+        client: "LG화학",
+        description: "리더쉽센터 리뉴얼"
+      },
+      {
+        title: "LG사이언스파크 LX하우시스동 카페테리아 조성공사",
+        client: "LG사이언스파크",
+        description: "카페테리아 조성"
+      },
+      {
+        title: "SK하이닉스 중앙식당 1층 입구 및 지하 환경개선공사",
+        client: "SK하이닉스",
+        description: "식당 입구 및 지하 환경개선"
+      },
+      {
+        title: "롯데백화점 에비뉴엘 17층 오피스 회의실 조성공사",
+        client: "롯데백화점",
+        description: "오피스 회의실 조성"
+      }
+    ]
+  },
+  {
+    title: "생산/연구시설",
+    projects: [
+      {
+        title: "TKG태광 김해공장 본관 신축공사",
+        client: "TKG태광",
+        location: "김해",
+        description: "본관 신축"
+      },
+      {
+        title: "LG화학 여수공장 Y2C 본관동 신축공사",
+        client: "LG화학",
+        location: "여수",
+        description: "본관동 신축"
+      },
+      {
+        title: "LG화학 대산공장 사택 웰빙센터 신축공사",
+        client: "LG화학",
+        location: "대산",
+        description: "사택 웰빙센터 신축"
+      },
+      {
+        title: "SK하이닉스 이천캠퍼스 협력2관 일환경건강센터 구축설계용역",
+        client: "SK하이닉스",
+        location: "이천",
+        description: "일환경건강센터 구축설계"
+      }
+    ]
+  },
+  {
+    title: "리테일/상업",
+    projects: [
+      {
+        title: "롯데마트 여수점 환경개선공사 설계용역",
+        client: "롯데마트",
+        location: "여수",
+        description: "환경개선공사 설계용역"
+      },
+      {
+        title: "롯데마트 파주점 환경개선공사 설계용역",
+        client: "롯데마트",
+        location: "파주",
+        description: "환경개선공사 설계용역"
+      },
+      {
+        title: "롯데마트 구리점 환경개선공사 설계용역",
+        client: "롯데마트",
+        location: "구리",
+        description: "환경개선공사 설계용역"
+      },
+      {
+        title: "롯데마트 광주수완점 환경개선공사 설계용역",
+        client: "롯데마트",
+        location: "광주수완",
+        description: "환경개선공사 설계용역"
+      }
+    ]
+  },
+  {
+    title: "기타 수행 실적",
+    projects: [
+      {
+        title: "LG생활건강 청주 T/P 프로젝트",
+        client: "LG생활건강",
+        location: "청주",
+        description: "T/P 프로젝트"
+      },
+      {
+        title: "부천중흥초등학교 도서관 인테리어공사",
+        client: "부천중흥초등학교",
+        location: "부천",
+        description: "도서관 인테리어공사"
+      },
+      {
+        title: "LG화학 청주공장 신설 교육장 조성 설계용역",
+        client: "LG화학",
+        location: "청주",
+        description: "신설 교육장 조성 설계용역"
+      },
+      {
+        title: "M&SOFT MAPPY&GINI 고객센터 방배점",
+        client: "M&SOFT",
+        location: "방배",
+        description: "고객센터 방배점"
+      }
+    ]
+  }
+];
+
+const portfolioItems: PortfolioItem[] = [
+  ...residentialPortfolio.map((project, index) => ({
+    slug: `residential-${index + 1}`,
+    title: project.title,
+    type: "residential" as const,
+    category: "주거",
+    location: project.location,
+    date: project.date,
+    summary: project.scope,
+    metaPrimary: project.area,
+    metaSecondary: project.projectType,
+    variant: "residential" as const
+  })),
+  ...commercialProjectGroups.flatMap((group, groupIndex) =>
+    group.projects.map((project, projectIndex) => ({
+      slug: `commercial-${groupIndex + 1}-${projectIndex + 1}`,
+      title: project.title,
+      type: "commercial" as const,
+      category: group.title,
+      location: project.location ?? "복수 현장",
+      summary: project.description,
+      metaPrimary: project.client ?? "Corporate",
+      metaSecondary: group.title,
+      variant: "commercial" as const
+    }))
+  )
+];
+
 export const siteContent: SiteContent = {
   brand,
   companyProfile,
   navigation: [
     { label: "홈", href: "/" },
     { label: "제율의 방식", href: "/process" },
-    { label: "주거 포트폴리오", href: "/residential" },
-    { label: "기업/오피스 실적", href: "/commercial" },
+    { label: "포트폴리오", href: "/portfolio" },
     { label: "회사소개", href: "/about" },
     { label: "문의", href: "/contact" }
   ],
   hero: {
     eyebrow: "JEYUL D&C",
-    title: "주거와 기업 공간, 제율은 시작부터 완성까지 함께합니다.",
+    title: "주거와 기업 공간,\n제율은 기획부터 완공까지 함께합니다.",
     description:
-      "설계와 시공, 공정과 품질을 함께 살피며 오래 만족할 공간을 만듭니다.",
-    primaryCta: "상담하기",
+      "설계와 시공, 공정과 품질을 함께 살피며 오래 신뢰할 수 있는 공간을 만듭니다.",
+    primaryCta: "프로젝트 상담하기",
     secondaryCta: "제율의 방식 보기"
   },
+  homeHeroMedia,
+  featuredStories,
   homeSections: [
     {
-      title: "대표 주거 포트폴리오",
-      description: "최근 주거 프로젝트를 중심으로 공간의 분위기와 완성도를 살펴보실 수 있습니다.",
-      href: "/residential"
+      title: "주거 포트폴리오",
+      description: "최근 주거 프로젝트를 중심으로 공간의 밀도와 디테일을 확인하실 수 있습니다.",
+      href: "/portfolio?type=residential"
     },
     {
       title: "제율의 공사관리 방식",
-      description: "기획, 공정, 원가, 품질을 어떻게 이어서 관리하는지 확인하실 수 있습니다.",
+      description: "기획, 공정, 원가, 품질을 어떤 체계로 연결하는지 확인하실 수 있습니다.",
       href: "/process"
     },
     {
       title: "기업 및 오피스 실적",
-      description: "기업과 오피스 프로젝트에서 쌓아온 주요 수행 이력을 확인하실 수 있습니다.",
-      href: "/commercial"
+      description: "기업과 오피스 프로젝트에서 쌓아온 주요 수행 경험을 확인하실 수 있습니다.",
+      href: "/portfolio?type=commercial"
     }
   ],
   processSteps: [
     {
       title: "기획 및 설계",
-      description: "고객 요구를 반영하고 설계-시공 간극을 줄입니다."
+      description: "요구사항을 구조화하고 설계와 시공 사이의 간극을 줄입니다."
     },
     {
       title: "자재/인력/장비 통합관리",
-      description: "발주, 납기, 재고, 배치를 함께 관리합니다."
+      description: "발주, 납기, 재고, 배치를 하나의 흐름으로 관리합니다."
     },
     {
       title: "공정 관리",
-      description: "일정 변동을 빠르게 추적하고 대응합니다."
+      description: "일정 변동을 빠르게 파악하고 대응합니다."
     },
     {
       title: "원가 및 예산 관리",
-      description: "예산 대비 집행과 단가 변동을 명확히 봅니다."
+      description: "예산 집행과 단가 변동을 명확하게 추적합니다."
     },
     {
       title: "품질 및 안전 관리",
-      description: "체크리스트와 교육 체계로 품질과 안전을 관리합니다."
+      description: "체크리스트와 교육 체계로 품질과 안전 기준을 유지합니다."
     },
     {
       title: "커뮤니케이션/보고 체계",
-      description: "협력사와 클라이언트 간 보고 흐름을 정리합니다."
+      description: "협력사와 클라이언트 간 보고 흐름을 명확하게 정리합니다."
     },
     {
       title: "디지털화",
-      description: "BIM, ERP, 클라우드 기반 협업을 지원합니다."
+      description: "BIM, ERP, 클라우드 기반으로 협업 효율을 높입니다."
     }
   ],
-  residentialPortfolio: [
-    {
-      title: "강남구 압구정동 한양8차아파트",
-      location: "강남구 압구정동",
-      date: "2025.11",
-      area: "67평",
-      projectType: "아파트",
-      scope: "아파트 67평 인테리어공사"
-    },
-    {
-      title: "서초구 잠원동 래미안신반포팰리스",
-      location: "서초구 잠원동",
-      date: "2025.07",
-      area: "51평",
-      projectType: "아파트",
-      scope: "아파트 51평 인테리어공사"
-    },
-    {
-      title: "강남구 압구정동 현대6차아파트",
-      location: "강남구 압구정동",
-      date: "2025.03",
-      area: "51평",
-      projectType: "아파트",
-      scope: "아파트 51평 인테리어공사"
-    },
-    {
-      title: "용산구 한강로2가 용산푸르지오써밋아파트",
-      location: "용산구 한강로2가",
-      date: "2024.10",
-      area: "51평",
-      projectType: "아파트",
-      scope: "아파트 51평 인테리어공사"
-    },
-    {
-      title: "영등포구 여의도동 트럼프월드2차",
-      location: "영등포구 여의도동",
-      date: "2024.05",
-      area: "68평",
-      projectType: "아파트",
-      scope: "아파트 68평 인테리어공사"
-    },
-    {
-      title: "영등포구 여의도동 삼부아파트",
-      location: "영등포구 여의도동",
-      date: "2024.03",
-      area: "60평",
-      projectType: "아파트",
-      scope: "아파트 60평 인테리어공사"
-    }
-  ],
-  commercialProjectGroups: [
-    {
-      title: "오피스",
-      projects: [
-        {
-          title: "LG화학 오산 리더쉽센터 리뉴얼공사",
-          client: "LG화학",
-          description: "리더쉽센터 리뉴얼"
-        },
-        {
-          title: "LG사이언스파크 LX하우시스동 카페테리아 조성공사",
-          client: "LG사이언스파크",
-          description: "카페테리아 조성"
-        },
-        {
-          title: "SK하이닉스 중앙식당 1층 입구 및 지하 환경개선공사",
-          client: "SK하이닉스",
-          description: "식당 입구 및 지하 환경개선"
-        },
-        {
-          title: "롯데백화점 에비뉴엘 17층 오피스 회의실 조성공사",
-          client: "롯데백화점",
-          description: "오피스 회의실 조성"
-        }
-      ]
-    },
-    {
-      title: "생산/연구시설",
-      projects: [
-        {
-          title: "TKG태광 김해공장 본관 신축공사",
-          client: "TKG태광",
-          location: "김해",
-          description: "본관 신축"
-        },
-        {
-          title: "LG화학 여수공장 Y2C 본관동 신축공사",
-          client: "LG화학",
-          location: "여수",
-          description: "본관동 신축"
-        },
-        {
-          title: "LG화학 대산공장 사택 웰빙센터 신축공사",
-          client: "LG화학",
-          location: "대산",
-          description: "사택 웰빙센터 신축"
-        },
-        {
-          title: "SK하이닉스 이천캠퍼스 협력2관 일환경건강센터 구축설계용역",
-          client: "SK하이닉스",
-          location: "이천",
-          description: "일환경건강센터 구축설계"
-        }
-      ]
-    },
-    {
-      title: "리테일/상업",
-      projects: [
-        {
-          title: "롯데마트 여수점 환경개선공사 설계용역",
-          client: "롯데마트",
-          location: "여수",
-          description: "환경개선공사 설계용역"
-        },
-        {
-          title: "롯데마트 파주점 환경개선공사 설계용역",
-          client: "롯데마트",
-          location: "파주",
-          description: "환경개선공사 설계용역"
-        },
-        {
-          title: "롯데마트 구리점 환경개선공사 설계용역",
-          client: "롯데마트",
-          location: "구리",
-          description: "환경개선공사 설계용역"
-        },
-        {
-          title: "롯데마트 광주수완점 환경개선공사 설계용역",
-          client: "롯데마트",
-          location: "광주수완",
-          description: "환경개선공사 설계용역"
-        }
-      ]
-    },
-    {
-      title: "기타 수행 실적",
-      projects: [
-        {
-          title: "LG생활건강 청주 T/P 프로젝트",
-          client: "LG생활건강",
-          location: "청주",
-          description: "T/P 프로젝트"
-        },
-        {
-          title: "부천중흥초등학교 도서관 인테리어공사",
-          client: "부천중흥초등학교",
-          location: "부천",
-          description: "도서관 인테리어공사"
-        },
-        {
-          title: "LG화학 청주공장 신설 교육장 조성 설계용역",
-          client: "LG화학",
-          location: "청주",
-          description: "신설 교육장 조성 설계용역"
-        },
-        {
-          title: "M&SOFT MAPPY&GINI 고객센터 방배점",
-          client: "M&SOFT",
-          location: "방배",
-          description: "고객센터 방배점"
-        }
-      ]
-    }
-  ],
+  residentialPortfolio,
+  commercialProjectGroups,
+  portfolioItems,
+  trustPoints,
   organization,
   constructionArchive,
   aboutFacts,
   contact,
+  homeFinalCta,
   footer: {
     brandLine: brand.koreanName,
     supportLine: brand.englishName,
     links: [
       { label: "제율의 방식", href: "/process" },
-      { label: "주거 포트폴리오", href: "/residential" },
-      { label: "기업/오피스 실적", href: "/commercial" },
+      { label: "포트폴리오", href: "/portfolio" },
       { label: "회사소개", href: "/about" },
       { label: "문의", href: "/contact" }
     ],

@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { siteContent } from "@/lib/site-content";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { 
-  ArrowRight01Icon,
+import {
   CallIcon,
   Mail01Icon,
   Location01Icon,
@@ -14,52 +13,77 @@ export function SiteFooter() {
   const { brand, footer } = siteContent;
 
   return (
-    <footer className="bg-[#1A1A1A] text-white border-t border-white/5">
-      <div className="mx-auto max-w-7xl px-4 pt-20 pb-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr_1fr] gap-16 pb-16">
-          {/* 브랜드 정체성 영역 */}
-          <div className="space-y-10">
-            <div className="space-y-4">
+    <footer className="border-t border-white/6 bg-[#121417] text-white">
+      <div className="mx-auto max-w-7xl px-4 pb-12 pt-20 sm:px-6 lg:px-8 lg:pb-14 lg:pt-24">
+        <div className="grid gap-16 border-b border-white/8 pb-16 lg:grid-cols-[1.2fr_0.8fr_0.9fr]">
+          <div className="space-y-8">
+            <div className="space-y-5">
               <div className="flex items-center gap-4">
-                 <div className="size-10 flex items-center justify-center border-2 border-primary bg-primary text-white text-lg font-bold">J</div>
-                 <span className="text-2xl font-bold tracking-[0.2em] uppercase">JEYUL D&C</span>
+                <div className="flex size-11 items-center justify-center border border-white/16 bg-white/6 text-lg font-bold tracking-[0.1em]">
+                  J
+                </div>
+                <div>
+                  <p className="text-2xl font-semibold tracking-[0.18em] uppercase text-white">JEYUL D&amp;C</p>
+                  <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-white/36">
+                    {brand.englishName}
+                  </p>
+                </div>
               </div>
-              <p className="max-w-md text-sm leading-relaxed text-white/40 font-medium">
-                {brand.coreKeyword} 기반으로 주거와 기업 공간의 새로운 가치를 창출합니다. <br />
-                정밀한 공정 관리와 타협하지 않는 품질로 공간의 미래를 짓습니다.
+              <p className="max-w-xl text-base leading-8 text-white/58">
+                {brand.coreKeyword} 기반으로 주거와 기업 공간의 가치를 정밀하게 설계하고,
+                공정과 품질을 안정적으로 관리하는 시공 파트너입니다.
               </p>
             </div>
-            
-            <div className="flex gap-4">
-              <a href="#" className="size-10 flex items-center justify-center border border-white/10 hover:border-primary transition-colors text-white/60 hover:text-primary">
-                <HugeiconsIcon icon={InstagramIcon} className="size-5" />
-              </a>
-              <a href={brand.officialHomepageUrl} target="_blank" rel="noreferrer" className="size-10 flex items-center justify-center border border-white/10 hover:border-primary transition-colors text-white/60 hover:text-primary">
+
+            <div className="flex gap-3">
+              <a
+                href={brand.officialHomepageUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="flex size-11 items-center justify-center border border-white/12 bg-white/4 text-white/70 transition-colors hover:border-primary/36 hover:text-white"
+              >
                 <HugeiconsIcon icon={GlobeIcon} className="size-5" />
               </a>
+              <a
+                href={`mailto:${brand.email}`}
+                className="flex size-11 items-center justify-center border border-white/12 bg-white/4 text-white/70 transition-colors hover:border-primary/36 hover:text-white"
+              >
+                <HugeiconsIcon icon={Mail01Icon} className="size-5" />
+              </a>
+              <a
+                href="#"
+                className="flex size-11 items-center justify-center border border-white/12 bg-white/4 text-white/70 transition-colors hover:border-primary/36 hover:text-white"
+              >
+                <HugeiconsIcon icon={InstagramIcon} className="size-5" />
+              </a>
             </div>
           </div>
 
-          {/* 주요 메뉴 링크 */}
-          <div className="grid grid-cols-2 gap-8">
-            <div className="space-y-8">
-              <p className="text-[10px] font-bold text-primary tracking-[0.3em] uppercase">Navigation</p>
-              <ul className="space-y-4">
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-1">
+            <div className="space-y-6">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">Navigation</p>
+              <ul className="space-y-3">
                 {footer.links.map((item) => (
                   <li key={item.href}>
-                    <Link className="text-sm font-bold text-white/60 hover:text-white transition-colors uppercase tracking-widest" href={item.href}>
+                    <Link
+                      className="text-sm font-medium leading-7 text-white/62 transition-colors hover:text-white"
+                      href={item.href}
+                    >
                       {item.label}
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="space-y-8">
-              <p className="text-[10px] font-bold text-primary tracking-[0.3em] uppercase">Contact Us</p>
-              <ul className="space-y-4">
+            <div className="space-y-6">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">Direct</p>
+              <ul className="space-y-3">
                 {footer.legalLinks.map((item) => (
                   <li key={item.href}>
-                    <Link className="text-sm font-bold text-white/60 hover:text-white transition-colors uppercase tracking-widest" href={item.href}>
+                    <Link
+                      className="text-sm font-medium leading-7 text-white/62 transition-colors hover:text-white"
+                      href={item.href}
+                    >
                       {item.label}
                     </Link>
                   </li>
@@ -68,52 +92,50 @@ export function SiteFooter() {
             </div>
           </div>
 
-          {/* 연락처 및 본사 정보 */}
-          <div className="space-y-8">
-            <p className="text-[10px] font-bold text-primary tracking-[0.3em] uppercase">Office Info</p>
-            <div className="space-y-6">
-              <div className="flex gap-4 items-start">
-                <HugeiconsIcon icon={Location01Icon} className="size-5 text-primary mt-1" />
-                <div className="space-y-1">
-                  <p className="text-xs font-bold text-white/40 uppercase tracking-widest">Headquarters</p>
-                  <p className="text-sm font-bold leading-relaxed">{brand.address}</p>
+          <div className="space-y-6">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">Office Info</p>
+            <div className="space-y-5">
+              <div className="flex gap-4">
+                <HugeiconsIcon icon={Location01Icon} className="mt-1 size-5 text-primary" />
+                <div>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/34">Headquarters</p>
+                  <p className="mt-2 text-sm leading-7 text-white/72">{brand.address}</p>
                 </div>
               </div>
-              <div className="flex gap-4 items-start">
-                <HugeiconsIcon icon={CallIcon} className="size-5 text-primary mt-1" />
-                <div className="space-y-1">
-                  <p className="text-xs font-bold text-white/40 uppercase tracking-widest">Inquiry</p>
-                  <p className="text-sm font-bold">{brand.phone}</p>
+              <div className="flex gap-4">
+                <HugeiconsIcon icon={CallIcon} className="mt-1 size-5 text-primary" />
+                <div>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/34">Inquiry</p>
+                  <p className="mt-2 text-sm leading-7 text-white/72">{brand.phone}</p>
                 </div>
               </div>
-              <div className="flex gap-4 items-start">
-                <HugeiconsIcon icon={Mail01Icon} className="size-5 text-primary mt-1" />
-                <div className="space-y-1">
-                  <p className="text-xs font-bold text-white/40 uppercase tracking-widest">Email Address</p>
-                  <p className="text-sm font-bold">{brand.email}</p>
+              <div className="flex gap-4">
+                <HugeiconsIcon icon={Mail01Icon} className="mt-1 size-5 text-primary" />
+                <div>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/34">Email</p>
+                  <p className="mt-2 text-sm leading-7 text-white/72">{brand.email}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* 푸터 하단: 사업자 정보 및 카피라이트 */}
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-2">
-            <div className="flex gap-2 text-[10px] font-bold text-white/30 uppercase tracking-[0.15em]">
-              <span>COMPANY</span>
-              <span className="text-white/50">{brand.koreanName}</span>
+        <div className="flex flex-col gap-6 pt-8 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-wrap gap-x-8 gap-y-2">
+            <div className="flex gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/32">
+              <span>Company</span>
+              <span className="text-white/56">{brand.koreanName}</span>
             </div>
-            <div className="flex gap-2 text-[10px] font-bold text-white/30 uppercase tracking-[0.15em]">
-               <span>REGISTRATION</span>
-               <span className="text-white/50">{brand.registrationNumber}</span>
+            <div className="flex gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/32">
+              <span>Registration</span>
+              <span className="text-white/56">{brand.registrationNumber}</span>
             </div>
-            <div className="flex gap-2 text-[10px] font-bold text-white/30 uppercase tracking-[0.15em]">
-               <span>CEO</span>
-               <span className="text-white/50">강제윤</span>
+            <div className="flex gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/32">
+              <span>CEO</span>
+              <span className="text-white/56">{brand.ceoNames.join(" · ")}</span>
             </div>
           </div>
-          <p className="text-[10px] font-bold text-white/20 uppercase tracking-[0.2em]">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/26">
             © 2026 JEYUL D&C. ALL RIGHTS RESERVED.
           </p>
         </div>
