@@ -224,12 +224,12 @@ const companyProfile = {
 
 const homeHeroMedia: HomeHeroMedia = {
   eyebrow: "JEYUL Integrated Construction Management",
-  title: "공간의 가치를 상승시키는 \n공간 디벨로퍼 제율디앤씨",
+  title: "공간의 가치를 상승시키는 공간 디벨로퍼 제율디앤씨",
   description:
     "제율디앤씨는 고급 주거와 기업·오피스 프로젝트를 수행하며, 설계와 공정, 품질을 하나의 흐름으로 관리합니다.",
   primaryCta: "프로젝트 상담하기",
   secondaryCta: "대표 프로젝트 보기",
-  scrollCue: "SCROLL"
+  scrollCue: "Explore"
 };
 
 const featuredStories: FeaturedStoryItem[] = [
