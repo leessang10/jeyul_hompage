@@ -83,7 +83,7 @@ export function SiteHeader() {
           : "border-b border-border/40 bg-white/78 shadow-[0_14px_40px_-28px_rgba(17,24,39,0.45)] backdrop-blur-xl"
       )}
     >
-      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between gap-8 px-4 sm:px-6 lg:px-8">
+      <div className="flex h-24 w-full items-center justify-between gap-8 px-4 sm:px-6 lg:px-8">
         {/* 로고 영역: 정교한 타이포그래피 */}
         <div className="flex items-center gap-6">
           <Link href="/" className="group flex items-center gap-4">
