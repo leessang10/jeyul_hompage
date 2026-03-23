@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { siteContent } from "@/lib/site-content";
 
@@ -67,31 +68,43 @@ export function SiteHeader() {
             </Link>
           </div>
 
-          <button
-            type="button"
-            aria-label={menuOpen ? "메뉴 닫기" : "메뉴 열기"}
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((open) => !open)}
-            className={cn(
-              "group flex size-12 items-center justify-center border transition-all duration-300",
-              transparent
-                ? "border-white/18 bg-black/14 text-white hover:bg-black/24"
-                : "border-border/60 bg-white/84 text-foreground hover:bg-secondary/50"
-            )}
-          >
-            <span className="grid grid-cols-3 gap-1.5">
-              {Array.from({ length: 9 }).map((_, index) => (
-                <span
-                  key={index}
-                  className={cn(
-                    "size-1.5 transition-transform duration-300",
-                    transparent ? "bg-white" : "bg-current",
-                    menuOpen && "scale-75"
-                  )}
-                />
-              ))}
-            </span>
-          </button>
+          <div className="flex items-center gap-3">
+            <Button
+              asChild
+              className={cn(
+                "h-12 px-4 text-sm font-semibold tracking-[-0.02em] shadow-none",
+                transparent && "bg-primary text-primary-foreground hover:bg-primary/90"
+              )}
+            >
+              <Link href="/contact">상담신청</Link>
+            </Button>
+
+            <button
+              type="button"
+              aria-label={menuOpen ? "메뉴 닫기" : "메뉴 열기"}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((open) => !open)}
+              className={cn(
+                "group flex size-12 items-center justify-center border transition-all duration-300",
+                transparent
+                  ? "border-white/18 bg-black/14 text-white hover:bg-black/24"
+                  : "border-border/60 bg-white/84 text-foreground hover:bg-secondary/50"
+              )}
+            >
+              <span className="grid grid-cols-3 gap-1.5">
+                {Array.from({ length: 9 }).map((_, index) => (
+                  <span
+                    key={index}
+                    className={cn(
+                      "size-1.5 transition-transform duration-300",
+                      transparent ? "bg-white" : "bg-current",
+                      menuOpen && "scale-75"
+                    )}
+                  />
+                ))}
+              </span>
+            </button>
+          </div>
         </div>
       </header>
 
