@@ -8,6 +8,10 @@ export type BrandInfo = {
   englishName: string;
   coreKeyword: string;
   officialHomepageUrl: string;
+    instagramUrl: string;
+    youtubeUrl: string;
+    blogUrl: string;
+    pinterestUrl: string;
   address: string;
   phone: string;
   email: string;
@@ -187,6 +191,10 @@ const brand: BrandInfo = {
   englishName: "JEYUL Integrated Construction Management",
   coreKeyword: "Integrated Construction Management",
   officialHomepageUrl: "http://jeyuldnc.com/",
+    instagramUrl: "https://www.instagram.com/",
+    youtubeUrl: "https://www.youtube.com/",
+    blogUrl: "https://blog.naver.com/",
+    pinterestUrl: "https://www.pinterest.com/",
   address: "서울시 노원구 동일로203가길 29, 1341호",
   phone: "02-977-0789",
   email: "3jeyul@gmail.com",
