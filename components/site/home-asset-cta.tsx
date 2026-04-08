@@ -12,7 +12,7 @@ export function HomeAssetCta() {
       />
       <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(18,26,36,0.16)_100%)]" />
       <div aria-hidden="true" className="absolute left-[8%] top-[22%] h-32 w-32 rounded-full bg-white/28 blur-3xl" />
-      <div aria-hidden="true" className="absolute right-[12%] bottom-[18%] h-48 w-48 rounded-full bg-[#4f77d8]/24 blur-3xl" />
+      <div aria-hidden="true" className="absolute right-[12%] bottom-[18%] h-48 w-48 rounded-full bg-primary/24 blur-3xl" />
 
       <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl items-center px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div className="max-w-3xl space-y-6">
@@ -26,7 +26,7 @@ export function HomeAssetCta() {
             제율디앤씨는 건축물을 단순히 디자인하고 짓는 것을 넘어, 부동산 자산으로서의 가치를 높이는 전략을 제시합니다.
           </p>
           <div className="pt-2">
-            <Button asChild size="lg" className="h-12 rounded-none bg-[#1738ad] px-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-white hover:bg-[#2147cb]">
+            <Button asChild size="lg" className="h-12 rounded-none bg-primary px-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary-foreground hover:bg-primary/90">
               <Link href="/contact">
                 프로젝트 문의하기
                 <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 size-4" />
