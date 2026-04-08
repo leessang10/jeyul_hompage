@@ -16,7 +16,7 @@ export function SiteFooter() {
   const pathname = usePathname();
   const { brand, footer } = siteContent;
 
-  if (pathname === "/contact") {
+  if (pathname === "/contact" || pathname === "/terms") {
     return null;
   }
 

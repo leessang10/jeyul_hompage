@@ -1,3 +1,5 @@
+"use client";
+
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { siteContent } from "@/lib/site-content";
@@ -13,7 +15,7 @@ const discoveryChannels = [
 
 function VisualPanel() {
   return (
-    <section className="relative min-h-[58vh] overflow-hidden bg-[#dfd6c9] lg:min-h-screen">
+    <section className="relative min-h-[58vh] overflow-hidden bg-[#dfd6c9] lg:h-dvh lg:min-h-0">
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(0,0,0,0.08))]" />
       <div className="absolute inset-x-0 top-0 h-[64%] bg-[linear-gradient(180deg,#f8f3ed_0%,#f0e7dd_30%,#e4ddd4_58%,#d8d0c4_100%)]" />
       <div className="absolute inset-x-0 bottom-0 h-[38%] bg-[linear-gradient(180deg,#c5b7a5_0%,#b9a893_100%)]" />
@@ -35,7 +37,7 @@ function VisualPanel() {
       <div className="absolute left-[15.5%] top-[48.6%] size-[11%] rounded-full border border-white/30 bg-[radial-gradient(circle,#f8f8f5_0%,#efede6_65%,rgba(239,237,230,0)_76%)] opacity-65" />
       <div className="absolute left-0 top-0 h-full w-full bg-[linear-gradient(180deg,rgba(22,16,8,0.12)_0%,rgba(22,16,8,0.02)_36%,rgba(22,16,8,0.16)_100%)]" />
 
-      <div className="relative z-10 flex h-full min-h-[58vh] flex-col justify-between p-4 text-white sm:p-6 lg:min-h-screen lg:p-8">
+      <div className="relative z-10 flex h-full min-h-[58vh] flex-col justify-between p-4 text-white sm:p-6 lg:min-h-0 lg:p-8">
         <div className="flex items-start justify-between">
           <div className="text-[18px] font-semibold tracking-[0.04em] text-white/88 sm:text-[20px]">
             JEYUL D&amp;C
@@ -146,49 +148,57 @@ function UploadBox() {
   );
 }
 
+function openTermsPopup() {
+  window.open(
+    "/terms",
+    "jeyul-terms",
+    "popup=yes,width=760,height=820,left=180,top=80,resizable=yes,scrollbars=yes"
+  );
+}
+
 export default function ContactPage() {
   const { brand } = siteContent;
 
   return (
     <div className="bg-white text-[#202020]">
-      <div className="lg:grid lg:min-h-screen lg:grid-cols-[minmax(0,1fr)_minmax(520px,48.6vw)]">
+      <div className="lg:grid lg:h-dvh lg:grid-cols-[minmax(0,1fr)_minmax(520px,48.6vw)] lg:overflow-hidden">
         <VisualPanel />
 
-        <section className="bg-white">
-          <div className="mx-auto flex w-full max-w-[720px] flex-col px-4 py-8 sm:px-6 sm:py-10 lg:min-h-screen lg:max-w-none lg:px-14 lg:py-14 xl:px-16">
-            <div className="mb-10 lg:mb-12">
+        <section className="bg-white lg:h-dvh lg:overflow-hidden">
+          <div className="mx-auto flex w-full max-w-[720px] flex-col px-4 py-8 sm:px-6 sm:py-10 lg:h-full lg:max-w-none lg:px-14 lg:py-8 xl:px-16">
+            <div className="mb-10 lg:mb-8">
               <h1 className="text-[2rem] leading-none font-semibold tracking-[-0.06em] text-[#171717] sm:text-[2.3rem]">
                 인테리어 상담신청서
               </h1>
             </div>
 
             <form className="flex flex-1 flex-col">
-              <div className="space-y-6 sm:space-y-7">
-                <div className="grid gap-6 sm:grid-cols-2 sm:gap-x-7">
+              <div className="space-y-6 sm:space-y-7 lg:space-y-5">
+                <div className="grid gap-6 sm:grid-cols-2 sm:gap-x-7 lg:gap-y-5">
                   <UnderlineField label="성함" required placeholder="성함을 입력해주세요" />
                   <UnderlineField label="연락처" required className="sm:pt-0">
                     <PhoneField />
                   </UnderlineField>
                 </div>
 
-                <div className="grid gap-6 sm:grid-cols-[minmax(0,1.06fr)_minmax(0,0.94fr)] sm:gap-x-7">
+                <div className="grid gap-6 sm:grid-cols-[minmax(0,1.06fr)_minmax(0,0.94fr)] sm:gap-x-7 lg:gap-y-5">
                   <UnderlineField label="주소" required placeholder="인테리어 예정지 주소를 검색해주세요" />
                   <UnderlineField label="" placeholder="상세 주소(선택)" className="sm:pt-[35px]" />
                 </div>
 
-                <div className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] sm:gap-x-7">
+                <div className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] sm:gap-x-7 lg:gap-y-5">
                   <UnderlineField label="평수" required>
-                    <div className="flex items-center gap-3 border-b border-[#4b4b4b] pb-2">
+                    <div className="flex h-10 items-center gap-3 border-b border-[#4b4b4b]">
                       <div className="flex rounded-[6px] border border-[#ebe4dc]">
                         <button
                           type="button"
-                          className="h-9 min-w-[56px] border-r border-[#ebe4dc] bg-[#fbfaf8] px-4 text-[13px] font-medium text-[#4b4b4b]"
+                          className="h-8 min-w-[52px] border-r border-[#ebe4dc] bg-[#fbfaf8] px-3 text-[13px] font-medium text-[#4b4b4b]"
                         >
                           공급
                         </button>
                         <button
                           type="button"
-                          className="h-9 min-w-[56px] bg-white px-4 text-[13px] font-medium text-[#4b4b4b]"
+                          className="h-8 min-w-[52px] bg-white px-3 text-[13px] font-medium text-[#4b4b4b]"
                         >
                           전용
                         </button>
@@ -202,7 +212,7 @@ export default function ContactPage() {
                   </UnderlineField>
 
                   <UnderlineField label="가용 예산" required>
-                    <div className="flex items-center gap-3 border-b border-[#4b4b4b] pb-2">
+                    <div className="flex h-10 items-center gap-3 border-b border-[#4b4b4b]">
                       <input
                         className="min-w-0 flex-1 border-0 bg-transparent px-0 text-[14px] text-[#202020] placeholder:text-[#c6c6c6] focus:outline-none"
                         placeholder="가용 인테리어 예산을 입력해주세요"
@@ -216,12 +226,12 @@ export default function ContactPage() {
                   <ChannelChips />
                 </UnderlineField>
 
-                <div className="grid gap-6 sm:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] sm:gap-x-7">
+                <div className="grid gap-6 sm:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] sm:gap-x-7 lg:gap-y-5">
                   <UnderlineField label="인테리어 예정일" required placeholder="인테리어 시작 예정일을 선택해주세요" />
                   <div className="sm:row-span-2">
                     <UnderlineField label="인테리어 플랜(선택)">
                       <textarea
-                        className="min-h-[148px] w-full resize-none border-x border-[#4b4b4b] border-t-0 border-b-0 px-3 py-2 text-[14px] leading-6 text-[#202020] placeholder:text-[#d0d0d0] focus:outline-none"
+                        className="min-h-[132px] w-full resize-none border-x border-[#4b4b4b] border-t-0 border-b-0 px-3 py-2 text-[14px] leading-6 text-[#202020] placeholder:text-[#d0d0d0] focus:outline-none lg:min-h-[126px]"
                         placeholder="원하시는 인테리어 내용을 작성해주세요"
                       />
                     </UnderlineField>
@@ -233,29 +243,35 @@ export default function ContactPage() {
                     <p className="max-w-[16rem] text-[12px] leading-5 text-[#b2b2b2]">
                       도면 혹은 현장 사진을 첨부해 주시면 더 원활한 상담이 가능합니다.(최대 5장)
                     </p>
-                    <div className="mt-4">
+                    <div className="mt-3">
                       <UploadBox />
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-10 space-y-8 lg:mt-auto lg:pt-10">
+              <div className="mt-8 space-y-6 lg:mt-auto lg:pt-6">
                 <label className="flex items-center gap-3 text-[14px] font-semibold tracking-[-0.03em] text-[#3a3a3a]">
                   <span className="flex size-6 items-center justify-center bg-[#ea5c2b] text-white">
                     <span className="block h-3.5 w-2.5 rotate-45 border-b-2 border-r-2 border-white" />
                   </span>
-                  <span>개인정보처리방침 동의</span>
+                  <button
+                    type="button"
+                    onClick={openTermsPopup}
+                    className="cursor-pointer underline underline-offset-2"
+                  >
+                    개인정보처리방침 동의
+                  </button>
                 </label>
 
                 <button
                   type="submit"
-                  className="flex h-[56px] w-full items-center justify-center rounded-full bg-[#e75a27] text-[21px] font-semibold tracking-[-0.04em] text-white transition-colors hover:bg-[#d65021]"
+                  className="flex h-[54px] w-full items-center justify-center rounded-full bg-[#e75a27] text-[21px] font-semibold tracking-[-0.04em] text-white transition-colors hover:bg-[#d65021]"
                 >
                   상담 신청하기
                 </button>
 
-                <div className="border-t border-[#f1ebe4] pt-5 text-[12px] leading-5 text-[#b0aaa2]">
+                <div className="border-t border-[#f1ebe4] pt-4 text-[12px] leading-5 text-[#b0aaa2]">
                   <p>{brand.koreanName}</p>
                   <p>{brand.address}</p>
                   <p>

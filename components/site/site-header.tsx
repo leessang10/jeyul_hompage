@@ -11,7 +11,7 @@ export function SiteHeader() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const isContactPage = pathname === "/contact";
+  const isContactPage = pathname === "/contact" || pathname === "/terms";
   const transparent = pathname === "/" && !scrolled;
 
   useEffect(() => {
