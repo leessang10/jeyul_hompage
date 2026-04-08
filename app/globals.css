@@ -239,6 +239,26 @@
     background-size: 100% 1px;
   }
 
+  .jeyul-home-scroll {
+    scroll-snap-type: none;
+  }
+
+  @media (min-width: 1024px) {
+    .jeyul-home-scroll {
+      scroll-snap-type: y mandatory;
+    }
+  }
+
+  .jeyul-home-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .jeyul-home-placeholder {
+    background-size: cover;
+    background-position: center;
+  }
+
   .jeyul-card-lift {
     @apply transition-transform duration-200 ease-out;
   }
