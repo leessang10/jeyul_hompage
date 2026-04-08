@@ -1,7 +1,14 @@
 "use client";
 
-import type { ReactNode } from "react";
+import type { ChangeEvent, ReactNode } from "react";
+import { useRef, useState } from "react";
+import { format } from "date-fns";
+import { ko } from "date-fns/locale";
+import { Calendar01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { siteContent } from "@/lib/site-content";
 
 const discoveryChannels = [
@@ -53,9 +60,9 @@ function VisualPanel() {
         </div>
 
         <div className="space-y-5 pb-5 sm:pb-6 lg:pb-9">
-          <div className="max-w-[17rem] text-[clamp(2rem,6vw,3.6rem)] leading-[1.08] font-semibold tracking-[-0.06em] text-white">
-            <p>우리집 이름 짓기,</p>
-            <p>집이 삶을 닮는 첫걸음입니다.</p>
+          <div className="max-w-[22rem] text-[clamp(2rem,6vw,3.6rem)] leading-[1.06] font-semibold tracking-[-0.06em] text-white">
+            <p className="whitespace-nowrap">우리집 이름 짓기,</p>
+            <p className="whitespace-nowrap">집이 삶을 닮는 첫걸음입니다.</p>
           </div>
           <p className="text-right text-[1.05rem] font-semibold tracking-[-0.04em] text-white/92 sm:text-[1.2rem]">
             Casa de Jeyul
@@ -81,10 +88,16 @@ function UnderlineField({
 }) {
   return (
     <div className={className}>
-      <label className="mb-2.5 flex items-center gap-1 text-[14px] font-semibold tracking-[-0.03em] text-[#262626]">
-        <span>{label}</span>
-        {required ? <span className="text-[#ea5c2b]">*</span> : null}
-      </label>
+      <div className="mb-2.5 flex min-h-[21px] items-center gap-1 text-[14px] font-semibold tracking-[-0.03em] text-[#262626]">
+        {label ? (
+          <>
+            <span>{label}</span>
+            {required ? <span className="text-[#ea5c2b]">*</span> : null}
+          </>
+        ) : (
+          <span className="invisible">placeholder</span>
+        )}
+      </div>
       {children ?? (
         <input
           className="h-10 w-full border-0 border-b border-[#4b4b4b] bg-transparent px-0 text-[14px] text-[#202020] placeholder:text-[#c6c6c6] focus:outline-none"
@@ -97,7 +110,7 @@ function UnderlineField({
 
 function PhoneField() {
   return (
-    <div className="flex items-center gap-3 border-b border-[#4b4b4b] pb-2">
+    <div className="flex h-10 items-center gap-3 border-b border-[#4b4b4b]">
       <input
         defaultValue="010"
         className="w-10 border-0 bg-transparent px-0 text-[14px] text-[#202020] focus:outline-none"
@@ -116,14 +129,26 @@ function PhoneField() {
   );
 }
 
-function ChannelChips() {
+function ChannelChips({
+  selectedChannels,
+  onToggle,
+}: {
+  selectedChannels: string[];
+  onToggle: (channel: string) => void;
+}) {
   return (
     <div className="grid grid-cols-3 gap-2 sm:grid-cols-3">
       {discoveryChannels.map((channel) => (
         <button
           key={channel}
           type="button"
-          className="h-10 rounded-[6px] border border-[#e6e1db] bg-white text-[13px] font-medium tracking-[-0.03em] text-[#595959] transition-colors hover:border-[#d8cfc5] hover:text-[#202020]"
+          aria-pressed={selectedChannels.includes(channel)}
+          onClick={() => onToggle(channel)}
+          className={`h-10 rounded-[6px] border text-[13px] font-medium tracking-[-0.03em] transition-colors ${
+            selectedChannels.includes(channel)
+              ? "border-[#e75a27] bg-[#fff3ed] text-[#cb4d1f]"
+              : "border-[#e6e1db] bg-white text-[#595959] hover:border-[#d8cfc5] hover:text-[#202020]"
+          }`}
         >
           {channel}
         </button>
@@ -133,18 +158,50 @@ function ChannelChips() {
 }
 
 function UploadBox() {
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [selectedFiles, setSelectedFiles] = useState<string[]>([]);
+
+  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const nextFiles = Array.from(event.target.files ?? [])
+      .slice(0, 5)
+      .map((file) => file.name);
+
+    setSelectedFiles(nextFiles);
+  };
+
   return (
-    <button
-      type="button"
-      className="flex h-[66px] w-[98px] flex-col items-center justify-center gap-1.5 rounded-[6px] border border-[#e8e1d8] bg-white text-[#2c2c2c]"
-    >
-      <span className="relative block size-6">
-        <span className="absolute inset-x-[2px] bottom-[3px] top-[7px] rounded-[3px] border-[2px] border-current" />
-        <span className="absolute left-1/2 top-[2px] h-[7px] w-[12px] -translate-x-1/2 rounded-t-[4px] border-[2px] border-b-0 border-current" />
-        <span className="absolute left-1/2 top-1/2 size-[5px] -translate-x-1/2 -translate-y-[12%] rounded-full bg-current" />
-      </span>
-      <span className="text-[13px] font-medium tracking-[-0.03em]">사진 올리기</span>
-    </button>
+    <div className="space-y-3">
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept="image/*"
+        multiple
+        className="hidden"
+        onChange={handleFileChange}
+      />
+      <button
+        type="button"
+        onClick={() => fileInputRef.current?.click()}
+        className="flex h-[66px] w-[98px] flex-col items-center justify-center gap-1.5 rounded-[6px] border border-[#e8e1d8] bg-white text-[#2c2c2c] transition-colors hover:border-[#d8cfc5]"
+      >
+        <span className="relative block size-6">
+          <span className="absolute inset-x-[2px] bottom-[3px] top-[7px] rounded-[3px] border-[2px] border-current" />
+          <span className="absolute left-1/2 top-[2px] h-[7px] w-[12px] -translate-x-1/2 rounded-t-[4px] border-[2px] border-b-0 border-current" />
+          <span className="absolute left-1/2 top-1/2 size-[5px] -translate-x-1/2 -translate-y-[12%] rounded-full bg-current" />
+        </span>
+        <span className="text-[13px] font-medium tracking-[-0.03em]">사진 올리기</span>
+      </button>
+      {selectedFiles.length > 0 ? (
+        <div className="space-y-1 text-[12px] leading-5 text-[#8b847c]">
+          <p>{selectedFiles.length}개 파일 선택됨</p>
+          {selectedFiles.slice(0, 3).map((fileName) => (
+            <p key={fileName} className="truncate">
+              {fileName}
+            </p>
+          ))}
+        </div>
+      ) : null}
+    </div>
   );
 }
 
@@ -158,6 +215,18 @@ function openTermsPopup() {
 
 export default function ContactPage() {
   const { brand } = siteContent;
+  const [selectedAreaType, setSelectedAreaType] = useState<"공급" | "전용">("공급");
+  const [selectedChannels, setSelectedChannels] = useState<string[]>([]);
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [plannedDate, setPlannedDate] = useState<Date | undefined>();
+
+  const toggleChannel = (channel: string) => {
+    setSelectedChannels((current) =>
+      current.includes(channel)
+        ? current.filter((item) => item !== channel)
+        : [...current, channel]
+    );
+  };
 
   return (
     <div className="bg-white text-[#202020]">
@@ -173,32 +242,44 @@ export default function ContactPage() {
             </div>
 
             <form className="flex flex-1 flex-col">
-              <div className="space-y-6 sm:space-y-7 lg:space-y-5">
-                <div className="grid gap-6 sm:grid-cols-2 sm:gap-x-7 lg:gap-y-5">
+              <div className="space-y-6 sm:space-y-7 lg:grid lg:grid-cols-2 lg:gap-x-7 lg:gap-y-5 lg:space-y-0">
+                <div className="grid gap-6 sm:grid-cols-2 sm:gap-x-7 lg:col-span-2 lg:grid-cols-2 lg:gap-y-5">
                   <UnderlineField label="성함" required placeholder="성함을 입력해주세요" />
                   <UnderlineField label="연락처" required className="sm:pt-0">
                     <PhoneField />
                   </UnderlineField>
                 </div>
 
-                <div className="grid gap-6 sm:grid-cols-[minmax(0,1.06fr)_minmax(0,0.94fr)] sm:gap-x-7 lg:gap-y-5">
+                <div className="grid gap-6 sm:grid-cols-2 sm:gap-x-7 lg:col-span-2 lg:grid-cols-2 lg:gap-y-5">
                   <UnderlineField label="주소" required placeholder="인테리어 예정지 주소를 검색해주세요" />
-                  <UnderlineField label="" placeholder="상세 주소(선택)" className="sm:pt-[35px]" />
+                  <UnderlineField label="" placeholder="상세 주소(선택)" />
                 </div>
 
-                <div className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] sm:gap-x-7 lg:gap-y-5">
+                <div className="grid gap-6 sm:grid-cols-2 sm:gap-x-7 lg:col-span-2 lg:grid-cols-2 lg:gap-y-5">
                   <UnderlineField label="평수" required>
                     <div className="flex h-10 items-center gap-3 border-b border-[#4b4b4b]">
                       <div className="flex rounded-[6px] border border-[#ebe4dc]">
                         <button
                           type="button"
-                          className="h-8 min-w-[52px] border-r border-[#ebe4dc] bg-[#fbfaf8] px-3 text-[13px] font-medium text-[#4b4b4b]"
+                          aria-pressed={selectedAreaType === "공급"}
+                          onClick={() => setSelectedAreaType("공급")}
+                          className={`h-8 min-w-[52px] border-r border-[#ebe4dc] px-3 text-[13px] font-medium transition-colors ${
+                            selectedAreaType === "공급"
+                              ? "bg-[#fbefe9] text-[#cb4d1f]"
+                              : "bg-white text-[#4b4b4b]"
+                          }`}
                         >
                           공급
                         </button>
                         <button
                           type="button"
-                          className="h-8 min-w-[52px] bg-white px-3 text-[13px] font-medium text-[#4b4b4b]"
+                          aria-pressed={selectedAreaType === "전용"}
+                          onClick={() => setSelectedAreaType("전용")}
+                          className={`h-8 min-w-[52px] px-3 text-[13px] font-medium transition-colors ${
+                            selectedAreaType === "전용"
+                              ? "bg-[#fbefe9] text-[#cb4d1f]"
+                              : "bg-white text-[#4b4b4b]"
+                          }`}
                         >
                           전용
                         </button>
@@ -222,54 +303,90 @@ export default function ContactPage() {
                   </UnderlineField>
                 </div>
 
-                <UnderlineField label="제율디앤씨를 알게 된 경로" required>
-                  <ChannelChips />
+                <UnderlineField label="제율디앤씨를 알게 된 경로" required className="lg:col-span-2">
+                  <ChannelChips
+                    selectedChannels={selectedChannels}
+                    onToggle={toggleChannel}
+                  />
                 </UnderlineField>
 
-                <div className="grid gap-6 sm:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] sm:gap-x-7 lg:gap-y-5">
-                  <UnderlineField label="인테리어 예정일" required placeholder="인테리어 시작 예정일을 선택해주세요" />
-                  <div className="sm:row-span-2">
-                    <UnderlineField label="인테리어 플랜(선택)">
-                      <textarea
-                        className="min-h-[132px] w-full resize-none border-x border-[#4b4b4b] border-t-0 border-b-0 px-3 py-2 text-[14px] leading-6 text-[#202020] placeholder:text-[#d0d0d0] focus:outline-none lg:min-h-[126px]"
-                        placeholder="원하시는 인테리어 내용을 작성해주세요"
+                <UnderlineField label="인테리어 예정일" required>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <button
+                        type="button"
+                        className="flex h-10 w-full items-center justify-between gap-3 border-0 border-b border-[#4b4b4b] bg-transparent px-0 text-left text-[14px] text-[#202020] outline-none"
+                      >
+                        <span className={plannedDate ? "text-[#202020]" : "text-[#c6c6c6]"}>
+                          {plannedDate
+                            ? format(plannedDate, "yyyy.MM.dd (eee)", { locale: ko })
+                            : "인테리어 시작 예정일을 선택해주세요"}
+                        </span>
+                        <HugeiconsIcon icon={Calendar01Icon} className="size-4 text-[#8f8f8f]" />
+                      </button>
+                    </PopoverTrigger>
+                    <PopoverContent align="start" className="w-auto rounded-none p-0">
+                      <Calendar
+                        mode="single"
+                        selected={plannedDate}
+                        onSelect={setPlannedDate}
+                        locale={ko}
                       />
-                    </UnderlineField>
-                  </div>
-                  <div className="sm:pr-4">
-                    <p className="mb-2.5 text-[14px] font-semibold tracking-[-0.03em] text-[#262626]">
-                      참고 사진(선택)
-                    </p>
-                    <p className="max-w-[16rem] text-[12px] leading-5 text-[#b2b2b2]">
-                      도면 혹은 현장 사진을 첨부해 주시면 더 원활한 상담이 가능합니다.(최대 5장)
-                    </p>
-                    <div className="mt-3">
-                      <UploadBox />
-                    </div>
+                    </PopoverContent>
+                  </Popover>
+                </UnderlineField>
+
+                <UnderlineField label="인테리어 플랜(선택)" className="lg:row-span-2">
+                  <textarea
+                    className="min-h-[132px] w-full resize-none border-0 border-b border-[#4b4b4b] px-0 py-2 text-[14px] leading-6 text-[#202020] placeholder:text-[#d0d0d0] focus:outline-none lg:min-h-[210px]"
+                    placeholder="원하시는 인테리어 내용을 작성해주세요"
+                  />
+                </UnderlineField>
+
+                <div>
+                  <p className="mb-2.5 text-[14px] font-semibold tracking-[-0.03em] text-[#262626]">
+                    참고 사진(선택)
+                  </p>
+                  <p className="text-[12px] leading-5 text-[#b2b2b2]">
+                    도면 혹은 현장 사진을 첨부해 주시면 더 원활한 상담이 가능합니다.(최대 5장)
+                  </p>
+                  <div className="mt-3">
+                    <UploadBox />
                   </div>
                 </div>
               </div>
 
-              <div className="mt-8 space-y-6 lg:mt-auto lg:pt-6">
-                <label className="flex items-center gap-3 text-[14px] font-semibold tracking-[-0.03em] text-[#3a3a3a]">
-                  <span className="flex size-6 items-center justify-center bg-[#ea5c2b] text-white">
-                    <span className="block h-3.5 w-2.5 rotate-45 border-b-2 border-r-2 border-white" />
-                  </span>
-                  <button
-                    type="button"
-                    onClick={openTermsPopup}
-                    className="cursor-pointer underline underline-offset-2"
-                  >
-                    개인정보처리방침 동의
-                  </button>
-                </label>
+              <div className="mt-8 space-y-5 lg:mt-auto lg:pt-6">
+                <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+                  <label className="flex cursor-pointer items-center gap-3 text-[14px] font-semibold tracking-[-0.03em] text-[#3a3a3a]">
+                    <button
+                      type="button"
+                      aria-pressed={privacyAccepted}
+                      onClick={() => setPrivacyAccepted((current) => !current)}
+                      className={`flex size-6 items-center justify-center transition-colors ${
+                        privacyAccepted
+                          ? "bg-[#ea5c2b] text-white"
+                          : "border border-[#d8cfc5] bg-white text-transparent"
+                      }`}
+                    >
+                      <span className="block h-3.5 w-2.5 rotate-45 border-b-2 border-r-2 border-current" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={openTermsPopup}
+                      className="cursor-pointer underline underline-offset-2"
+                    >
+                      개인정보처리방침 동의
+                    </button>
+                  </label>
 
-                <button
-                  type="submit"
-                  className="flex h-[54px] w-full items-center justify-center rounded-full bg-[#e75a27] text-[21px] font-semibold tracking-[-0.04em] text-white transition-colors hover:bg-[#d65021]"
-                >
-                  상담 신청하기
-                </button>
+                  <button
+                    type="submit"
+                    className="flex h-[54px] w-full items-center justify-center rounded-full bg-[#e75a27] px-10 text-[21px] font-semibold tracking-[-0.04em] text-white transition-colors hover:bg-[#d65021] sm:w-auto sm:min-w-[238px]"
+                  >
+                    상담 신청하기
+                  </button>
+                </div>
 
                 <div className="border-t border-[#f1ebe4] pt-4 text-[12px] leading-5 text-[#b0aaa2]">
                   <p>{brand.koreanName}</p>
