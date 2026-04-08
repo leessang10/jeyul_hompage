@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { siteContent } from "@/lib/site-content";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
@@ -10,7 +13,12 @@ import {
 } from "@hugeicons/core-free-icons";
 
 export function SiteFooter() {
+  const pathname = usePathname();
   const { brand, footer } = siteContent;
+
+  if (pathname === "/contact") {
+    return null;
+  }
 
   return (
     <footer className="border-t border-white/6 bg-[#121417] text-white">

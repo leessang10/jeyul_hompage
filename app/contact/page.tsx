@@ -1,179 +1,272 @@
-import { HugeiconsIcon } from "@hugeicons/react";
-import {
-  ArrowRight01Icon,
-  Building01Icon,
-  CallIcon,
-  CheckmarkBadge01Icon,
-  GlobeIcon,
-  Location01Icon,
-  Mail01Icon,
-} from "@hugeicons/core-free-icons";
-import { PageHero } from "@/components/site/page-hero";
-import { SectionShell } from "@/components/site/section-shell";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import type { ReactNode } from "react";
+import Link from "next/link";
 import { siteContent } from "@/lib/site-content";
 
-function ContactInfoCard({
-  icon,
+const discoveryChannels = [
+  "인스타랩",
+  "블로그",
+  "유튜브",
+  "핀터레스트",
+  "지인추천",
+  "검색",
+];
+
+function VisualPanel() {
+  return (
+    <section className="relative min-h-[58vh] overflow-hidden bg-[#dfd6c9] lg:min-h-screen">
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(0,0,0,0.08))]" />
+      <div className="absolute inset-x-0 top-0 h-[64%] bg-[linear-gradient(180deg,#f8f3ed_0%,#f0e7dd_30%,#e4ddd4_58%,#d8d0c4_100%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-[38%] bg-[linear-gradient(180deg,#c5b7a5_0%,#b9a893_100%)]" />
+      <div className="absolute left-[18%] top-[13%] h-[56%] w-[53%] bg-[linear-gradient(180deg,rgba(250,250,249,0.9),rgba(230,229,226,0.72))] shadow-[0_0_0_2px_rgba(255,255,255,0.7)]">
+        <div className="absolute inset-x-[5%] bottom-[8%] top-[14%] bg-[linear-gradient(180deg,#fefefe_0%,#f9f8f6_30%,#dfe2e4_68%,#cdd5db_100%)]" />
+        <div className="absolute inset-x-[8%] bottom-[13%] h-[20%] bg-[linear-gradient(180deg,rgba(216,221,227,0.15),rgba(171,183,196,0.5))]" />
+        <div className="absolute bottom-[13%] left-[11%] h-[22%] w-[29%] bg-[radial-gradient(circle_at_50%_110%,rgba(152,167,180,0.38),rgba(255,255,255,0)_58%)]" />
+        <div className="absolute bottom-[13%] left-[39%] h-[21%] w-[26%] bg-[radial-gradient(circle_at_50%_110%,rgba(152,167,180,0.3),rgba(255,255,255,0)_58%)]" />
+      </div>
+      <div className="absolute bottom-0 left-[75%] top-0 w-[9.5%] bg-[linear-gradient(180deg,#d1c5b7_0%,#b8a794_100%)] shadow-[-22px_0_42px_rgba(104,83,58,0.08)]" />
+      <div className="absolute left-[10%] top-[54%] h-[15%] w-[19%] rounded-[46%_46%_40%_40%] bg-[#f4f0ea] shadow-[0_16px_34px_rgba(118,98,72,0.12)]" />
+      <div className="absolute left-[15.5%] top-[67%] h-[5%] w-[8.5%] rounded-full bg-[#fbfbfa] shadow-[0_6px_20px_rgba(118,98,72,0.08)]" />
+      <div className="absolute left-[31%] top-[66.5%] h-[10%] w-[8%] rounded-[2rem] bg-[#f7f6f2] shadow-[0_12px_22px_rgba(118,98,72,0.12)]" />
+      <div className="absolute left-[30.8%] top-[61.5%] h-[10.5%] w-[8.6%] rounded-t-[3rem] rounded-b-[1.2rem] bg-[#f9f7f3]" />
+      <div className="absolute left-[33.7%] top-[63%] h-[18%] w-[1.6%] bg-[#f5f5f3]" />
+      <div className="absolute left-[11.8%] top-[53%] h-[16%] w-[6%] rounded-[50%_50%_40%_40%] bg-[radial-gradient(circle_at_50%_58%,#5f8a49_0%,#4f7640_48%,rgba(72,102,57,0)_78%)] opacity-90" />
+      <div className="absolute left-[13.1%] top-[47%] h-[22%] w-[11%] bg-[radial-gradient(circle_at_20%_65%,#75985d_0%,#65894f_27%,rgba(101,137,79,0)_58%),radial-gradient(circle_at_70%_34%,#6f9557_0%,#587947_26%,rgba(88,121,71,0)_56%),radial-gradient(circle_at_52%_80%,#88a86f_0%,#65894f_32%,rgba(101,137,79,0)_62%)]" />
+      <div className="absolute left-[17%] top-[52%] h-[1px] w-[18%] bg-white/75" />
+      <div className="absolute left-[15.5%] top-[48.6%] size-[11%] rounded-full border border-white/30 bg-[radial-gradient(circle,#f8f8f5_0%,#efede6_65%,rgba(239,237,230,0)_76%)] opacity-65" />
+      <div className="absolute left-0 top-0 h-full w-full bg-[linear-gradient(180deg,rgba(22,16,8,0.12)_0%,rgba(22,16,8,0.02)_36%,rgba(22,16,8,0.16)_100%)]" />
+
+      <div className="relative z-10 flex h-full min-h-[58vh] flex-col justify-between p-4 text-white sm:p-6 lg:min-h-screen lg:p-8">
+        <div className="flex items-start justify-between">
+          <div className="text-[18px] font-semibold tracking-[0.04em] text-white/88 sm:text-[20px]">
+            JEYUL D&amp;C
+          </div>
+          <Link
+            href="/"
+            aria-label="홈으로 이동"
+            className="relative block size-8 text-white/92 sm:size-10"
+          >
+            <span className="absolute left-1/2 top-1/2 h-px w-7 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-current sm:w-8" />
+            <span className="absolute left-1/2 top-1/2 h-px w-7 -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-current sm:w-8" />
+          </Link>
+        </div>
+
+        <div className="space-y-5 pb-5 sm:pb-6 lg:pb-9">
+          <div className="max-w-[17rem] text-[clamp(2rem,6vw,3.6rem)] leading-[1.08] font-semibold tracking-[-0.06em] text-white">
+            <p>우리집 이름 짓기,</p>
+            <p>집이 삶을 닮는 첫걸음입니다.</p>
+          </div>
+          <p className="text-right text-[1.05rem] font-semibold tracking-[-0.04em] text-white/92 sm:text-[1.2rem]">
+            Casa de Jeyul
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function UnderlineField({
   label,
-  value,
+  required,
+  placeholder,
+  children,
+  className = "",
 }: {
-  icon: typeof CallIcon;
   label: string;
-  value: string;
+  required?: boolean;
+  placeholder?: string;
+  children?: ReactNode;
+  className?: string;
 }) {
   return (
-    <div className="flex gap-5 border border-border/60 bg-white/92 p-6 transition-colors hover:border-primary/30">
-      <div className="flex size-12 items-center justify-center border border-border/60 bg-secondary/30 text-primary">
-        <HugeiconsIcon icon={icon} className="size-6" />
-      </div>
-      <div>
-        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">{label}</p>
-        <p className="mt-2 text-lg font-semibold tracking-[-0.03em]">{value}</p>
-      </div>
+    <div className={className}>
+      <label className="mb-2.5 flex items-center gap-1 text-[14px] font-semibold tracking-[-0.03em] text-[#262626]">
+        <span>{label}</span>
+        {required ? <span className="text-[#ea5c2b]">*</span> : null}
+      </label>
+      {children ?? (
+        <input
+          className="h-10 w-full border-0 border-b border-[#4b4b4b] bg-transparent px-0 text-[14px] text-[#202020] placeholder:text-[#c6c6c6] focus:outline-none"
+          placeholder={placeholder}
+        />
+      )}
     </div>
   );
 }
 
-export default function Page() {
-  const { brand, contact } = siteContent;
+function PhoneField() {
+  return (
+    <div className="flex items-center gap-3 border-b border-[#4b4b4b] pb-2">
+      <input
+        defaultValue="010"
+        className="w-10 border-0 bg-transparent px-0 text-[14px] text-[#202020] focus:outline-none"
+      />
+      <span className="text-[#9c9c9c]">-</span>
+      <input
+        className="min-w-0 flex-1 border-0 bg-transparent px-0 text-[14px] text-[#202020] placeholder:text-[#c6c6c6] focus:outline-none"
+        placeholder="0000"
+      />
+      <span className="text-[#9c9c9c]">-</span>
+      <input
+        className="min-w-0 flex-1 border-0 bg-transparent px-0 text-[14px] text-[#202020] placeholder:text-[#c6c6c6] focus:outline-none"
+        placeholder="0000"
+      />
+    </div>
+  );
+}
+
+function ChannelChips() {
+  return (
+    <div className="grid grid-cols-3 gap-2 sm:grid-cols-3">
+      {discoveryChannels.map((channel) => (
+        <button
+          key={channel}
+          type="button"
+          className="h-10 rounded-[6px] border border-[#e6e1db] bg-white text-[13px] font-medium tracking-[-0.03em] text-[#595959] transition-colors hover:border-[#d8cfc5] hover:text-[#202020]"
+        >
+          {channel}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function UploadBox() {
+  return (
+    <button
+      type="button"
+      className="flex h-[66px] w-[98px] flex-col items-center justify-center gap-1.5 rounded-[6px] border border-[#e8e1d8] bg-white text-[#2c2c2c]"
+    >
+      <span className="relative block size-6">
+        <span className="absolute inset-x-[2px] bottom-[3px] top-[7px] rounded-[3px] border-[2px] border-current" />
+        <span className="absolute left-1/2 top-[2px] h-[7px] w-[12px] -translate-x-1/2 rounded-t-[4px] border-[2px] border-b-0 border-current" />
+        <span className="absolute left-1/2 top-1/2 size-[5px] -translate-x-1/2 -translate-y-[12%] rounded-full bg-current" />
+      </span>
+      <span className="text-[13px] font-medium tracking-[-0.03em]">사진 올리기</span>
+    </button>
+  );
+}
+
+export default function ContactPage() {
+  const { brand } = siteContent;
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#f6f2eb]">
-      <PageHero
-        eyebrow="Contact Us"
-        title={
-          <>
-            프로젝트의 조건을 알려주시면,
-            <br />
-            실행 가능한 방향부터 제안합니다.
-          </>
-        }
-        description={
-          <>
-            프로젝트의 규모와 성격에 맞춰 제율의 전문가 그룹이 요구사항을 검토하고, 현실적인 공정과
-            범위를 제안합니다.
-          </>
-        }
-        aside={
-          <div className="flex h-full flex-col justify-between bg-[linear-gradient(180deg,rgba(17,24,39,0.88),rgba(17,24,39,0.68))] p-8 text-white">
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">Contact Details</p>
-              <h3 className="mt-4 text-3xl font-semibold tracking-[-0.04em]">빠른 상담 안내</h3>
-            </div>
-            <div className="space-y-5 text-sm leading-7 text-white/72">
-              <p>주거 인테리어부터 오피스, 기업 시설, 리모델링까지 프로젝트 성격에 맞춰 상담해 드립니다.</p>
-              <p>{contact.phone}</p>
-              <p>{contact.email}</p>
-              <p>{brand.address}</p>
-            </div>
-          </div>
-        }
-      />
+    <div className="bg-white text-[#202020]">
+      <div className="lg:grid lg:min-h-screen lg:grid-cols-[minmax(0,1fr)_minmax(520px,48.6vw)]">
+        <VisualPanel />
 
-      <SectionShell className="py-24 sm:py-28 lg:py-32">
-        <div className="grid items-start gap-16 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">Project Brief</p>
-              <h2 className="text-4xl font-semibold tracking-[-0.05em] sm:text-5xl">상담 문의 신청</h2>
+        <section className="bg-white">
+          <div className="mx-auto flex w-full max-w-[720px] flex-col px-4 py-8 sm:px-6 sm:py-10 lg:min-h-screen lg:max-w-none lg:px-14 lg:py-14 xl:px-16">
+            <div className="mb-10 lg:mb-12">
+              <h1 className="text-[2rem] leading-none font-semibold tracking-[-0.06em] text-[#171717] sm:text-[2.3rem]">
+                인테리어 상담신청서
+              </h1>
             </div>
 
-            <form className="space-y-8 border border-border/60 bg-white/92 p-8 shadow-sm sm:p-10">
-              <div className="grid gap-8 sm:grid-cols-2">
-                <div className="space-y-3">
-                  <label className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">이름 / 업체명</label>
-                  <Input className="rounded-none border-0 border-b border-border/60 px-0 text-base font-medium focus-visible:ring-0" placeholder="성함 혹은 법인명" />
+            <form className="flex flex-1 flex-col">
+              <div className="space-y-6 sm:space-y-7">
+                <div className="grid gap-6 sm:grid-cols-2 sm:gap-x-7">
+                  <UnderlineField label="성함" required placeholder="성함을 입력해주세요" />
+                  <UnderlineField label="연락처" required className="sm:pt-0">
+                    <PhoneField />
+                  </UnderlineField>
                 </div>
-                <div className="space-y-3">
-                  <label className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">연락처</label>
-                  <Input className="rounded-none border-0 border-b border-border/60 px-0 text-base font-medium focus-visible:ring-0" placeholder="연락 가능한 번호를 입력해 주세요" />
+
+                <div className="grid gap-6 sm:grid-cols-[minmax(0,1.06fr)_minmax(0,0.94fr)] sm:gap-x-7">
+                  <UnderlineField label="주소" required placeholder="인테리어 예정지 주소를 검색해주세요" />
+                  <UnderlineField label="" placeholder="상세 주소(선택)" className="sm:pt-[35px]" />
+                </div>
+
+                <div className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] sm:gap-x-7">
+                  <UnderlineField label="평수" required>
+                    <div className="flex items-center gap-3 border-b border-[#4b4b4b] pb-2">
+                      <div className="flex rounded-[6px] border border-[#ebe4dc]">
+                        <button
+                          type="button"
+                          className="h-9 min-w-[56px] border-r border-[#ebe4dc] bg-[#fbfaf8] px-4 text-[13px] font-medium text-[#4b4b4b]"
+                        >
+                          공급
+                        </button>
+                        <button
+                          type="button"
+                          className="h-9 min-w-[56px] bg-white px-4 text-[13px] font-medium text-[#4b4b4b]"
+                        >
+                          전용
+                        </button>
+                      </div>
+                      <input
+                        className="min-w-0 flex-1 border-0 bg-transparent px-0 text-[14px] text-[#202020] placeholder:text-[#c6c6c6] focus:outline-none"
+                        placeholder="평수를 입력해 주세요"
+                      />
+                      <span className="text-[14px] text-[#5b5b5b]">평</span>
+                    </div>
+                  </UnderlineField>
+
+                  <UnderlineField label="가용 예산" required>
+                    <div className="flex items-center gap-3 border-b border-[#4b4b4b] pb-2">
+                      <input
+                        className="min-w-0 flex-1 border-0 bg-transparent px-0 text-[14px] text-[#202020] placeholder:text-[#c6c6c6] focus:outline-none"
+                        placeholder="가용 인테리어 예산을 입력해주세요"
+                      />
+                      <span className="text-[14px] text-[#5b5b5b]">만원</span>
+                    </div>
+                  </UnderlineField>
+                </div>
+
+                <UnderlineField label="제율디앤씨를 알게 된 경로" required>
+                  <ChannelChips />
+                </UnderlineField>
+
+                <div className="grid gap-6 sm:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] sm:gap-x-7">
+                  <UnderlineField label="인테리어 예정일" required placeholder="인테리어 시작 예정일을 선택해주세요" />
+                  <div className="sm:row-span-2">
+                    <UnderlineField label="인테리어 플랜(선택)">
+                      <textarea
+                        className="min-h-[148px] w-full resize-none border-x border-[#4b4b4b] border-t-0 border-b-0 px-3 py-2 text-[14px] leading-6 text-[#202020] placeholder:text-[#d0d0d0] focus:outline-none"
+                        placeholder="원하시는 인테리어 내용을 작성해주세요"
+                      />
+                    </UnderlineField>
+                  </div>
+                  <div className="sm:pr-4">
+                    <p className="mb-2.5 text-[14px] font-semibold tracking-[-0.03em] text-[#262626]">
+                      참고 사진(선택)
+                    </p>
+                    <p className="max-w-[16rem] text-[12px] leading-5 text-[#b2b2b2]">
+                      도면 혹은 현장 사진을 첨부해 주시면 더 원활한 상담이 가능합니다.(최대 5장)
+                    </p>
+                    <div className="mt-4">
+                      <UploadBox />
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="space-y-3">
-                <label className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">프로젝트 유형</label>
-                <Select>
-                  <SelectTrigger className="rounded-none border-0 border-b border-border/60 px-0 text-base font-medium focus:ring-0">
-                    <SelectValue placeholder="프로젝트 유형을 선택해 주세요" />
-                  </SelectTrigger>
-                  <SelectContent className="rounded-none border-border/60">
-                    {contact.projectTypes.map((type) => (
-                      <SelectItem key={type} value={type}>
-                        {type}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
+              <div className="mt-10 space-y-8 lg:mt-auto lg:pt-10">
+                <label className="flex items-center gap-3 text-[14px] font-semibold tracking-[-0.03em] text-[#3a3a3a]">
+                  <span className="flex size-6 items-center justify-center bg-[#ea5c2b] text-white">
+                    <span className="block h-3.5 w-2.5 rotate-45 border-b-2 border-r-2 border-white" />
+                  </span>
+                  <span>개인정보처리방침 동의</span>
+                </label>
 
-              <div className="space-y-3">
-                <label className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">상세 문의 내용</label>
-                <Textarea
-                  className="min-h-[220px] rounded-none border-border/60 p-4 text-base leading-7 focus-visible:ring-0"
-                  placeholder="공간의 용도, 면적, 예상 일정, 예산 범위, 요청 사항을 남겨주세요."
-                />
-              </div>
+                <button
+                  type="submit"
+                  className="flex h-[56px] w-full items-center justify-center rounded-full bg-[#e75a27] text-[21px] font-semibold tracking-[-0.04em] text-white transition-colors hover:bg-[#d65021]"
+                >
+                  상담 신청하기
+                </button>
 
-              <Button className="h-14 w-full rounded-none text-sm font-semibold uppercase tracking-[0.16em]">
-                문의 남기기
-                <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 size-4" />
-              </Button>
+                <div className="border-t border-[#f1ebe4] pt-5 text-[12px] leading-5 text-[#b0aaa2]">
+                  <p>{brand.koreanName}</p>
+                  <p>{brand.address}</p>
+                  <p>
+                    {brand.phone} · {brand.email}
+                  </p>
+                </div>
+              </div>
             </form>
           </div>
-
-          <div className="space-y-8 lg:sticky lg:top-32">
-            <div className="space-y-4">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">Contact Details</p>
-              <h2 className="text-4xl font-semibold tracking-[-0.05em] sm:text-5xl">빠른 상담 안내</h2>
-            </div>
-
-            <div className="space-y-4">
-              <ContactInfoCard icon={CallIcon} label="Office Phone" value={contact.phone} />
-              <ContactInfoCard icon={Mail01Icon} label="Email Address" value={contact.email} />
-              <ContactInfoCard icon={Location01Icon} label="Headquarters" value={brand.address} />
-            </div>
-
-            <div className="bg-foreground p-8 text-white">
-              <h3 className="text-2xl font-semibold tracking-[-0.04em]">Check Points</h3>
-              <div className="mt-6 space-y-4">
-                {[
-                  "원하시는 착수 시점과 완료 희망일을 알려주세요.",
-                  "예산 범위를 알려주시면 마감과 공정 방향을 더 정확히 제안할 수 있습니다.",
-                  "현장 주소와 공간 면적을 함께 주시면 검토가 더 빨라집니다.",
-                ].map((item) => (
-                  <div key={item} className="flex items-start gap-3">
-                    <HugeiconsIcon icon={CheckmarkBadge01Icon} className="mt-1 size-4 text-primary" />
-                    <p className="text-sm leading-7 text-white/76">{item}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </SectionShell>
-
-      <section className="border-t border-border/40 py-12 text-center">
-        <div className="flex flex-wrap justify-center gap-6 px-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-          <span className="inline-flex items-center gap-2">
-            <HugeiconsIcon icon={GlobeIcon} className="size-3 text-primary" />
-            {brand.officialHomepageUrl}
-          </span>
-          <span className="inline-flex items-center gap-2">
-            <HugeiconsIcon icon={Building01Icon} className="size-3 text-primary" />
-            {brand.registrationNumber}
-          </span>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 }
