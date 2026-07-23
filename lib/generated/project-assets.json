@@ -1,0 +1,1864 @@
+{
+  "projectAssetMap": {
+    "lg-cns-ceo-zone": {
+      "thumbnail": {
+        "src": "/images/projects/lg-cns-ceo-zone/thumbnail.webp",
+        "width": 960,
+        "height": 645,
+        "alt": "lg-cns-ceo-zone project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/lg-cns-ceo-zone/detail-01.webp",
+          "width": 1529,
+          "height": 1028,
+          "alt": "lg-cns-ceo-zone project image 1"
+        },
+        {
+          "src": "/images/projects/lg-cns-ceo-zone/detail-02.webp",
+          "width": 1494,
+          "height": 1053,
+          "alt": "lg-cns-ceo-zone project image 2"
+        },
+        {
+          "src": "/images/projects/lg-cns-ceo-zone/detail-03.webp",
+          "width": 1538,
+          "height": 1023,
+          "alt": "lg-cns-ceo-zone project image 3"
+        },
+        {
+          "src": "/images/projects/lg-cns-ceo-zone/detail-04.webp",
+          "width": 1031,
+          "height": 1526,
+          "alt": "lg-cns-ceo-zone project image 4"
+        },
+        {
+          "src": "/images/projects/lg-cns-ceo-zone/detail-05.webp",
+          "width": 973,
+          "height": 1616,
+          "alt": "lg-cns-ceo-zone project image 5"
+        }
+      ]
+    },
+    "lg-uplus-asan": {
+      "thumbnail": {
+        "src": "/images/projects/lg-uplus-asan/thumbnail.webp",
+        "width": 960,
+        "height": 676,
+        "alt": "lg-uplus-asan project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/lg-uplus-asan/detail-01.webp",
+          "width": 1495,
+          "height": 1052,
+          "alt": "lg-uplus-asan project image 1"
+        },
+        {
+          "src": "/images/projects/lg-uplus-asan/detail-02.webp",
+          "width": 1517,
+          "height": 1037,
+          "alt": "lg-uplus-asan project image 2"
+        },
+        {
+          "src": "/images/projects/lg-uplus-asan/detail-03.webp",
+          "width": 1501,
+          "height": 1048,
+          "alt": "lg-uplus-asan project image 3"
+        },
+        {
+          "src": "/images/projects/lg-uplus-asan/detail-04.webp",
+          "width": 1496,
+          "height": 1051,
+          "alt": "lg-uplus-asan project image 4"
+        }
+      ]
+    },
+    "cubi-maison-de-terrace-changwon": {
+      "thumbnail": {
+        "src": "/images/projects/cubi-maison-de-terrace-changwon/thumbnail.webp",
+        "width": 960,
+        "height": 628,
+        "alt": "cubi-maison-de-terrace-changwon project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/cubi-maison-de-terrace-changwon/detail-01.webp",
+          "width": 1550,
+          "height": 1014,
+          "alt": "cubi-maison-de-terrace-changwon project image 1"
+        },
+        {
+          "src": "/images/projects/cubi-maison-de-terrace-changwon/detail-02.webp",
+          "width": 1537,
+          "height": 1023,
+          "alt": "cubi-maison-de-terrace-changwon project image 2"
+        },
+        {
+          "src": "/images/projects/cubi-maison-de-terrace-changwon/detail-03.webp",
+          "width": 1493,
+          "height": 1054,
+          "alt": "cubi-maison-de-terrace-changwon project image 3"
+        },
+        {
+          "src": "/images/projects/cubi-maison-de-terrace-changwon/detail-04.webp",
+          "width": 1477,
+          "height": 1065,
+          "alt": "cubi-maison-de-terrace-changwon project image 4"
+        },
+        {
+          "src": "/images/projects/cubi-maison-de-terrace-changwon/detail-05.webp",
+          "width": 1537,
+          "height": 1023,
+          "alt": "cubi-maison-de-terrace-changwon project image 5"
+        },
+        {
+          "src": "/images/projects/cubi-maison-de-terrace-changwon/detail-06.webp",
+          "width": 1541,
+          "height": 1021,
+          "alt": "cubi-maison-de-terrace-changwon project image 6"
+        },
+        {
+          "src": "/images/projects/cubi-maison-de-terrace-changwon/detail-07.webp",
+          "width": 1026,
+          "height": 1532,
+          "alt": "cubi-maison-de-terrace-changwon project image 7"
+        },
+        {
+          "src": "/images/projects/cubi-maison-de-terrace-changwon/detail-08.webp",
+          "width": 1537,
+          "height": 1023,
+          "alt": "cubi-maison-de-terrace-changwon project image 8"
+        },
+        {
+          "src": "/images/projects/cubi-maison-de-terrace-changwon/detail-09.webp",
+          "width": 1024,
+          "height": 1536,
+          "alt": "cubi-maison-de-terrace-changwon project image 9"
+        },
+        {
+          "src": "/images/projects/cubi-maison-de-terrace-changwon/detail-10.webp",
+          "width": 1537,
+          "height": 1023,
+          "alt": "cubi-maison-de-terrace-changwon project image 10"
+        }
+      ]
+    },
+    "lg-chem-cheongju-welfare": {
+      "thumbnail": {
+        "src": "/images/projects/lg-chem-cheongju-welfare/thumbnail.webp",
+        "width": 960,
+        "height": 663,
+        "alt": "lg-chem-cheongju-welfare project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/lg-chem-cheongju-welfare/detail-01.webp",
+          "width": 1509,
+          "height": 1042,
+          "alt": "lg-chem-cheongju-welfare project image 1"
+        },
+        {
+          "src": "/images/projects/lg-chem-cheongju-welfare/detail-02.webp",
+          "width": 1509,
+          "height": 1042,
+          "alt": "lg-chem-cheongju-welfare project image 2"
+        },
+        {
+          "src": "/images/projects/lg-chem-cheongju-welfare/detail-03.webp",
+          "width": 1475,
+          "height": 1067,
+          "alt": "lg-chem-cheongju-welfare project image 3"
+        },
+        {
+          "src": "/images/projects/lg-chem-cheongju-welfare/detail-04.webp",
+          "width": 1472,
+          "height": 1069,
+          "alt": "lg-chem-cheongju-welfare project image 4"
+        },
+        {
+          "src": "/images/projects/lg-chem-cheongju-welfare/detail-05.webp",
+          "width": 1490,
+          "height": 1056,
+          "alt": "lg-chem-cheongju-welfare project image 5"
+        }
+      ]
+    },
+    "sk-hynix-office": {
+      "thumbnail": {
+        "src": "/images/projects/sk-hynix-office/thumbnail.webp",
+        "width": 960,
+        "height": 540,
+        "alt": "sk-hynix-office project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/sk-hynix-office/detail-01.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "sk-hynix-office project image 1"
+        },
+        {
+          "src": "/images/projects/sk-hynix-office/detail-02.webp",
+          "width": 1372,
+          "height": 1147,
+          "alt": "sk-hynix-office project image 2"
+        },
+        {
+          "src": "/images/projects/sk-hynix-office/detail-03.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "sk-hynix-office project image 3"
+        },
+        {
+          "src": "/images/projects/sk-hynix-office/detail-04.webp",
+          "width": 1399,
+          "height": 1124,
+          "alt": "sk-hynix-office project image 4"
+        },
+        {
+          "src": "/images/projects/sk-hynix-office/detail-05.webp",
+          "width": 1560,
+          "height": 1008,
+          "alt": "sk-hynix-office project image 5"
+        }
+      ]
+    },
+    "g-prime-tower-ulsan": {
+      "thumbnail": {
+        "src": "/images/projects/g-prime-tower-ulsan/thumbnail.webp",
+        "width": 960,
+        "height": 720,
+        "alt": "g-prime-tower-ulsan project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/g-prime-tower-ulsan/detail-01.webp",
+          "width": 1449,
+          "height": 1086,
+          "alt": "g-prime-tower-ulsan project image 1"
+        },
+        {
+          "src": "/images/projects/g-prime-tower-ulsan/detail-02.webp",
+          "width": 1446,
+          "height": 1088,
+          "alt": "g-prime-tower-ulsan project image 2"
+        },
+        {
+          "src": "/images/projects/g-prime-tower-ulsan/detail-03.webp",
+          "width": 1448,
+          "height": 1086,
+          "alt": "g-prime-tower-ulsan project image 3"
+        },
+        {
+          "src": "/images/projects/g-prime-tower-ulsan/detail-04.webp",
+          "width": 1427,
+          "height": 1102,
+          "alt": "g-prime-tower-ulsan project image 4"
+        },
+        {
+          "src": "/images/projects/g-prime-tower-ulsan/detail-05.webp",
+          "width": 1522,
+          "height": 1033,
+          "alt": "g-prime-tower-ulsan project image 5"
+        }
+      ]
+    },
+    "lge-incheon-daycare": {
+      "thumbnail": {
+        "src": "/images/projects/lge-incheon-daycare/thumbnail.webp",
+        "width": 960,
+        "height": 686,
+        "alt": "lge-incheon-daycare project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/lge-incheon-daycare/detail-01.webp",
+          "width": 1484,
+          "height": 1060,
+          "alt": "lge-incheon-daycare project image 1"
+        },
+        {
+          "src": "/images/projects/lge-incheon-daycare/detail-02.webp",
+          "width": 1449,
+          "height": 1085,
+          "alt": "lge-incheon-daycare project image 2"
+        },
+        {
+          "src": "/images/projects/lge-incheon-daycare/detail-03.webp",
+          "width": 1428,
+          "height": 1101,
+          "alt": "lge-incheon-daycare project image 3"
+        },
+        {
+          "src": "/images/projects/lge-incheon-daycare/detail-04.webp",
+          "width": 1451,
+          "height": 1084,
+          "alt": "lge-incheon-daycare project image 4"
+        },
+        {
+          "src": "/images/projects/lge-incheon-daycare/detail-05.webp",
+          "width": 1234,
+          "height": 1275,
+          "alt": "lge-incheon-daycare project image 5"
+        }
+      ]
+    },
+    "ramada-encore-magok": {
+      "thumbnail": {
+        "src": "/images/projects/ramada-encore-magok/thumbnail.webp",
+        "width": 960,
+        "height": 645,
+        "alt": "ramada-encore-magok project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/ramada-encore-magok/detail-01.webp",
+          "width": 1529,
+          "height": 1028,
+          "alt": "ramada-encore-magok project image 1"
+        },
+        {
+          "src": "/images/projects/ramada-encore-magok/detail-02.webp",
+          "width": 1411,
+          "height": 1114,
+          "alt": "ramada-encore-magok project image 2"
+        },
+        {
+          "src": "/images/projects/ramada-encore-magok/detail-03.webp",
+          "width": 1426,
+          "height": 1103,
+          "alt": "ramada-encore-magok project image 3"
+        },
+        {
+          "src": "/images/projects/ramada-encore-magok/detail-04.webp",
+          "width": 1529,
+          "height": 1028,
+          "alt": "ramada-encore-magok project image 4"
+        },
+        {
+          "src": "/images/projects/ramada-encore-magok/detail-05.webp",
+          "width": 1382,
+          "height": 1138,
+          "alt": "ramada-encore-magok project image 5"
+        }
+      ]
+    },
+    "hillstate-eco-magoknaru": {
+      "thumbnail": {
+        "src": "/images/projects/hillstate-eco-magoknaru/thumbnail.webp",
+        "width": 960,
+        "height": 696,
+        "alt": "hillstate-eco-magoknaru project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/hillstate-eco-magoknaru/detail-01.webp",
+          "width": 1473,
+          "height": 1068,
+          "alt": "hillstate-eco-magoknaru project image 1"
+        },
+        {
+          "src": "/images/projects/hillstate-eco-magoknaru/detail-02.webp",
+          "width": 1532,
+          "height": 1027,
+          "alt": "hillstate-eco-magoknaru project image 2"
+        },
+        {
+          "src": "/images/projects/hillstate-eco-magoknaru/detail-03.webp",
+          "width": 1087,
+          "height": 1447,
+          "alt": "hillstate-eco-magoknaru project image 3"
+        },
+        {
+          "src": "/images/projects/hillstate-eco-magoknaru/detail-04.webp",
+          "width": 1465,
+          "height": 1073,
+          "alt": "hillstate-eco-magoknaru project image 4"
+        },
+        {
+          "src": "/images/projects/hillstate-eco-magoknaru/detail-05.webp",
+          "width": 1447,
+          "height": 1087,
+          "alt": "hillstate-eco-magoknaru project image 5"
+        }
+      ]
+    },
+    "hillstate-ilsan-kintex": {
+      "thumbnail": {
+        "src": "/images/projects/hillstate-ilsan-kintex/thumbnail.webp",
+        "width": 960,
+        "height": 725,
+        "alt": "hillstate-ilsan-kintex project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/hillstate-ilsan-kintex/detail-01.webp",
+          "width": 1443,
+          "height": 1090,
+          "alt": "hillstate-ilsan-kintex project image 1"
+        },
+        {
+          "src": "/images/projects/hillstate-ilsan-kintex/detail-02.webp",
+          "width": 1524,
+          "height": 1032,
+          "alt": "hillstate-ilsan-kintex project image 2"
+        },
+        {
+          "src": "/images/projects/hillstate-ilsan-kintex/detail-03.webp",
+          "width": 1525,
+          "height": 1031,
+          "alt": "hillstate-ilsan-kintex project image 3"
+        },
+        {
+          "src": "/images/projects/hillstate-ilsan-kintex/detail-04.webp",
+          "width": 1433,
+          "height": 1098,
+          "alt": "hillstate-ilsan-kintex project image 4"
+        },
+        {
+          "src": "/images/projects/hillstate-ilsan-kintex/detail-05.webp",
+          "width": 1441,
+          "height": 1091,
+          "alt": "hillstate-ilsan-kintex project image 5"
+        }
+      ]
+    },
+    "taekwang-office": {
+      "thumbnail": {
+        "src": "/images/projects/taekwang-office/thumbnail.webp",
+        "width": 960,
+        "height": 723,
+        "alt": "taekwang-office project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/taekwang-office/detail-01.webp",
+          "width": 1445,
+          "height": 1088,
+          "alt": "taekwang-office project image 1"
+        },
+        {
+          "src": "/images/projects/taekwang-office/detail-02.webp",
+          "width": 1566,
+          "height": 1005,
+          "alt": "taekwang-office project image 2"
+        },
+        {
+          "src": "/images/projects/taekwang-office/detail-03.webp",
+          "width": 1515,
+          "height": 1038,
+          "alt": "taekwang-office project image 3"
+        },
+        {
+          "src": "/images/projects/taekwang-office/detail-04.webp",
+          "width": 1453,
+          "height": 1082,
+          "alt": "taekwang-office project image 4"
+        },
+        {
+          "src": "/images/projects/taekwang-office/detail-05.webp",
+          "width": 1514,
+          "height": 1039,
+          "alt": "taekwang-office project image 5"
+        }
+      ]
+    },
+    "la-terrasse-cheongdam": {
+      "thumbnail": {
+        "src": "/images/projects/la-terrasse-cheongdam/thumbnail.webp",
+        "width": 960,
+        "height": 1200,
+        "alt": "la-terrasse-cheongdam project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/la-terrasse-cheongdam/detail-01.webp",
+          "width": 1122,
+          "height": 1402,
+          "alt": "la-terrasse-cheongdam project image 1"
+        },
+        {
+          "src": "/images/projects/la-terrasse-cheongdam/detail-02.webp",
+          "width": 1577,
+          "height": 997,
+          "alt": "la-terrasse-cheongdam project image 2"
+        },
+        {
+          "src": "/images/projects/la-terrasse-cheongdam/detail-03.webp",
+          "width": 1639,
+          "height": 959,
+          "alt": "la-terrasse-cheongdam project image 3"
+        },
+        {
+          "src": "/images/projects/la-terrasse-cheongdam/detail-04.webp",
+          "width": 1537,
+          "height": 1023,
+          "alt": "la-terrasse-cheongdam project image 4"
+        },
+        {
+          "src": "/images/projects/la-terrasse-cheongdam/detail-05.webp",
+          "width": 1054,
+          "height": 1493,
+          "alt": "la-terrasse-cheongdam project image 5"
+        }
+      ]
+    },
+    "the-first-wellga-jinju": {
+      "thumbnail": {
+        "src": "/images/projects/the-first-wellga-jinju/thumbnail.webp",
+        "width": 960,
+        "height": 585,
+        "alt": "the-first-wellga-jinju project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/the-first-wellga-jinju/detail-01.webp",
+          "width": 1607,
+          "height": 979,
+          "alt": "the-first-wellga-jinju project image 1"
+        },
+        {
+          "src": "/images/projects/the-first-wellga-jinju/detail-02.webp",
+          "width": 1419,
+          "height": 1109,
+          "alt": "the-first-wellga-jinju project image 2"
+        },
+        {
+          "src": "/images/projects/the-first-wellga-jinju/detail-03.webp",
+          "width": 1425,
+          "height": 1104,
+          "alt": "the-first-wellga-jinju project image 3"
+        },
+        {
+          "src": "/images/projects/the-first-wellga-jinju/detail-04.webp",
+          "width": 1588,
+          "height": 990,
+          "alt": "the-first-wellga-jinju project image 4"
+        },
+        {
+          "src": "/images/projects/the-first-wellga-jinju/detail-05.webp",
+          "width": 1674,
+          "height": 940,
+          "alt": "the-first-wellga-jinju project image 5"
+        }
+      ]
+    },
+    "hillstate-songjeong": {
+      "thumbnail": {
+        "src": "/images/projects/hillstate-songjeong/thumbnail.webp",
+        "width": 960,
+        "height": 740,
+        "alt": "hillstate-songjeong project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/hillstate-songjeong/detail-01.webp",
+          "width": 1428,
+          "height": 1101,
+          "alt": "hillstate-songjeong project image 1"
+        },
+        {
+          "src": "/images/projects/hillstate-songjeong/detail-02.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "hillstate-songjeong project image 2"
+        },
+        {
+          "src": "/images/projects/hillstate-songjeong/detail-03.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "hillstate-songjeong project image 3"
+        },
+        {
+          "src": "/images/projects/hillstate-songjeong/detail-04.webp",
+          "width": 1517,
+          "height": 1037,
+          "alt": "hillstate-songjeong project image 4"
+        },
+        {
+          "src": "/images/projects/hillstate-songjeong/detail-05.webp",
+          "width": 1432,
+          "height": 1098,
+          "alt": "hillstate-songjeong project image 5"
+        }
+      ]
+    },
+    "lg-hausys-design-center": {
+      "thumbnail": {
+        "src": "/images/projects/lg-hausys-design-center/thumbnail.webp",
+        "width": 960,
+        "height": 618,
+        "alt": "lg-hausys-design-center project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/lg-hausys-design-center/detail-01.webp",
+          "width": 1563,
+          "height": 1006,
+          "alt": "lg-hausys-design-center project image 1"
+        },
+        {
+          "src": "/images/projects/lg-hausys-design-center/detail-02.webp",
+          "width": 1547,
+          "height": 1016,
+          "alt": "lg-hausys-design-center project image 2"
+        },
+        {
+          "src": "/images/projects/lg-hausys-design-center/detail-03.webp",
+          "width": 1565,
+          "height": 1005,
+          "alt": "lg-hausys-design-center project image 3"
+        }
+      ]
+    },
+    "lg-science-park-dp3": {
+      "thumbnail": {
+        "src": "/images/projects/lg-science-park-dp3/thumbnail.webp",
+        "width": 960,
+        "height": 682,
+        "alt": "lg-science-park-dp3 project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/lg-science-park-dp3/detail-01.webp",
+          "width": 1488,
+          "height": 1057,
+          "alt": "lg-science-park-dp3 project image 1"
+        },
+        {
+          "src": "/images/projects/lg-science-park-dp3/detail-02.webp",
+          "width": 1554,
+          "height": 1012,
+          "alt": "lg-science-park-dp3 project image 2"
+        },
+        {
+          "src": "/images/projects/lg-science-park-dp3/detail-03.webp",
+          "width": 1515,
+          "height": 1038,
+          "alt": "lg-science-park-dp3 project image 3"
+        },
+        {
+          "src": "/images/projects/lg-science-park-dp3/detail-04.webp",
+          "width": 1478,
+          "height": 1064,
+          "alt": "lg-science-park-dp3 project image 4"
+        },
+        {
+          "src": "/images/projects/lg-science-park-dp3/detail-05.webp",
+          "width": 1457,
+          "height": 1080,
+          "alt": "lg-science-park-dp3 project image 5"
+        },
+        {
+          "src": "/images/projects/lg-science-park-dp3/detail-06.webp",
+          "width": 1469,
+          "height": 1071,
+          "alt": "lg-science-park-dp3 project image 6"
+        },
+        {
+          "src": "/images/projects/lg-science-park-dp3/detail-07.webp",
+          "width": 1537,
+          "height": 1023,
+          "alt": "lg-science-park-dp3 project image 7"
+        },
+        {
+          "src": "/images/projects/lg-science-park-dp3/detail-08.webp",
+          "width": 1445,
+          "height": 1088,
+          "alt": "lg-science-park-dp3 project image 8"
+        },
+        {
+          "src": "/images/projects/lg-science-park-dp3/detail-09.webp",
+          "width": 1553,
+          "height": 1013,
+          "alt": "lg-science-park-dp3 project image 9"
+        },
+        {
+          "src": "/images/projects/lg-science-park-dp3/detail-10.webp",
+          "width": 1516,
+          "height": 1037,
+          "alt": "lg-science-park-dp3 project image 10"
+        }
+      ]
+    },
+    "prugio-city-sinjungdong": {
+      "thumbnail": {
+        "src": "/images/projects/prugio-city-sinjungdong/thumbnail.webp",
+        "width": 960,
+        "height": 730,
+        "alt": "prugio-city-sinjungdong project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/prugio-city-sinjungdong/detail-01.webp",
+          "width": 1438,
+          "height": 1094,
+          "alt": "prugio-city-sinjungdong project image 1"
+        },
+        {
+          "src": "/images/projects/prugio-city-sinjungdong/detail-02.webp",
+          "width": 1523,
+          "height": 1032,
+          "alt": "prugio-city-sinjungdong project image 2"
+        },
+        {
+          "src": "/images/projects/prugio-city-sinjungdong/detail-03.webp",
+          "width": 1448,
+          "height": 1086,
+          "alt": "prugio-city-sinjungdong project image 3"
+        },
+        {
+          "src": "/images/projects/prugio-city-sinjungdong/detail-04.webp",
+          "width": 1512,
+          "height": 1040,
+          "alt": "prugio-city-sinjungdong project image 4"
+        },
+        {
+          "src": "/images/projects/prugio-city-sinjungdong/detail-05.webp",
+          "width": 1498,
+          "height": 1050,
+          "alt": "prugio-city-sinjungdong project image 5"
+        }
+      ]
+    },
+    "lg-science-park-isc": {
+      "thumbnail": {
+        "src": "/images/projects/lg-science-park-isc/thumbnail.webp",
+        "width": 960,
+        "height": 641,
+        "alt": "lg-science-park-isc project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/lg-science-park-isc/detail-01.webp",
+          "width": 1534,
+          "height": 1025,
+          "alt": "lg-science-park-isc project image 1"
+        },
+        {
+          "src": "/images/projects/lg-science-park-isc/detail-02.webp",
+          "width": 1754,
+          "height": 896,
+          "alt": "lg-science-park-isc project image 2"
+        },
+        {
+          "src": "/images/projects/lg-science-park-isc/detail-03.webp",
+          "width": 1454,
+          "height": 1082,
+          "alt": "lg-science-park-isc project image 3"
+        },
+        {
+          "src": "/images/projects/lg-science-park-isc/detail-04.webp",
+          "width": 1448,
+          "height": 1086,
+          "alt": "lg-science-park-isc project image 4"
+        }
+      ]
+    },
+    "jungheung-school-library": {
+      "thumbnail": {
+        "src": "/images/projects/jungheung-school-library/thumbnail.webp",
+        "width": 960,
+        "height": 686,
+        "alt": "jungheung-school-library project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/jungheung-school-library/detail-01.webp",
+          "width": 1484,
+          "height": 1060,
+          "alt": "jungheung-school-library project image 1"
+        },
+        {
+          "src": "/images/projects/jungheung-school-library/detail-02.webp",
+          "width": 1446,
+          "height": 1088,
+          "alt": "jungheung-school-library project image 2"
+        },
+        {
+          "src": "/images/projects/jungheung-school-library/detail-03.webp",
+          "width": 1630,
+          "height": 965,
+          "alt": "jungheung-school-library project image 3"
+        },
+        {
+          "src": "/images/projects/jungheung-school-library/detail-04.webp",
+          "width": 1525,
+          "height": 1031,
+          "alt": "jungheung-school-library project image 4"
+        }
+      ]
+    },
+    "lg-hh-cheongju": {
+      "thumbnail": {
+        "src": "/images/projects/lg-hh-cheongju/thumbnail.webp",
+        "width": 960,
+        "height": 633,
+        "alt": "lg-hh-cheongju project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/lg-hh-cheongju/detail-01.webp",
+          "width": 1545,
+          "height": 1018,
+          "alt": "lg-hh-cheongju project image 1"
+        },
+        {
+          "src": "/images/projects/lg-hh-cheongju/detail-02.webp",
+          "width": 1414,
+          "height": 1113,
+          "alt": "lg-hh-cheongju project image 2"
+        },
+        {
+          "src": "/images/projects/lg-hh-cheongju/detail-03.webp",
+          "width": 1411,
+          "height": 1114,
+          "alt": "lg-hh-cheongju project image 3"
+        },
+        {
+          "src": "/images/projects/lg-hh-cheongju/detail-04.webp",
+          "width": 1412,
+          "height": 1114,
+          "alt": "lg-hh-cheongju project image 4"
+        }
+      ]
+    },
+    "gwell-estate-jangwi": {
+      "thumbnail": {
+        "src": "/images/projects/gwell-estate-jangwi/thumbnail.webp",
+        "width": 960,
+        "height": 721,
+        "alt": "gwell-estate-jangwi project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/gwell-estate-jangwi/detail-01.webp",
+          "width": 1447,
+          "height": 1087,
+          "alt": "gwell-estate-jangwi project image 1"
+        },
+        {
+          "src": "/images/projects/gwell-estate-jangwi/detail-02.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "gwell-estate-jangwi project image 2"
+        },
+        {
+          "src": "/images/projects/gwell-estate-jangwi/detail-03.webp",
+          "width": 1448,
+          "height": 1086,
+          "alt": "gwell-estate-jangwi project image 3"
+        },
+        {
+          "src": "/images/projects/gwell-estate-jangwi/detail-04.webp",
+          "width": 1448,
+          "height": 1086,
+          "alt": "gwell-estate-jangwi project image 4"
+        },
+        {
+          "src": "/images/projects/gwell-estate-jangwi/detail-05.webp",
+          "width": 1023,
+          "height": 1537,
+          "alt": "gwell-estate-jangwi project image 5"
+        }
+      ]
+    },
+    "lg-chem-yeosu-y2c": {
+      "thumbnail": {
+        "src": "/images/projects/lg-chem-yeosu-y2c/thumbnail.webp",
+        "width": 960,
+        "height": 540,
+        "alt": "lg-chem-yeosu-y2c project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/lg-chem-yeosu-y2c/detail-01.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "lg-chem-yeosu-y2c project image 1"
+        },
+        {
+          "src": "/images/projects/lg-chem-yeosu-y2c/detail-02.webp",
+          "width": 1448,
+          "height": 1086,
+          "alt": "lg-chem-yeosu-y2c project image 2"
+        },
+        {
+          "src": "/images/projects/lg-chem-yeosu-y2c/detail-03.webp",
+          "width": 1446,
+          "height": 1087,
+          "alt": "lg-chem-yeosu-y2c project image 3"
+        },
+        {
+          "src": "/images/projects/lg-chem-yeosu-y2c/detail-04.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "lg-chem-yeosu-y2c project image 4"
+        }
+      ]
+    },
+    "richeville-s-geomdan": {
+      "thumbnail": {
+        "src": "/images/projects/richeville-s-geomdan/thumbnail.webp",
+        "width": 960,
+        "height": 691,
+        "alt": "richeville-s-geomdan project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/richeville-s-geomdan/detail-01.webp",
+          "width": 1478,
+          "height": 1064,
+          "alt": "richeville-s-geomdan project image 1"
+        },
+        {
+          "src": "/images/projects/richeville-s-geomdan/detail-02.webp",
+          "width": 1448,
+          "height": 1086,
+          "alt": "richeville-s-geomdan project image 2"
+        },
+        {
+          "src": "/images/projects/richeville-s-geomdan/detail-03.webp",
+          "width": 1618,
+          "height": 972,
+          "alt": "richeville-s-geomdan project image 3"
+        },
+        {
+          "src": "/images/projects/richeville-s-geomdan/detail-04.webp",
+          "width": 1024,
+          "height": 1536,
+          "alt": "richeville-s-geomdan project image 4"
+        },
+        {
+          "src": "/images/projects/richeville-s-geomdan/detail-05.webp",
+          "width": 1334,
+          "height": 1179,
+          "alt": "richeville-s-geomdan project image 5"
+        }
+      ]
+    },
+    "the-first-ocean-view-busan": {
+      "thumbnail": {
+        "src": "/images/projects/the-first-ocean-view-busan/thumbnail.webp",
+        "width": 960,
+        "height": 720,
+        "alt": "the-first-ocean-view-busan project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/the-first-ocean-view-busan/detail-01.webp",
+          "width": 1448,
+          "height": 1086,
+          "alt": "the-first-ocean-view-busan project image 1"
+        },
+        {
+          "src": "/images/projects/the-first-ocean-view-busan/detail-02.webp",
+          "width": 1446,
+          "height": 1088,
+          "alt": "the-first-ocean-view-busan project image 2"
+        },
+        {
+          "src": "/images/projects/the-first-ocean-view-busan/detail-03.webp",
+          "width": 1449,
+          "height": 1086,
+          "alt": "the-first-ocean-view-busan project image 3"
+        },
+        {
+          "src": "/images/projects/the-first-ocean-view-busan/detail-04.webp",
+          "width": 1447,
+          "height": 1087,
+          "alt": "the-first-ocean-view-busan project image 4"
+        },
+        {
+          "src": "/images/projects/the-first-ocean-view-busan/detail-05.webp",
+          "width": 1448,
+          "height": 1086,
+          "alt": "the-first-ocean-view-busan project image 5"
+        }
+      ]
+    },
+    "urbanus-office": {
+      "thumbnail": {
+        "src": "/images/projects/urbanus-office/thumbnail.webp",
+        "width": 960,
+        "height": 700,
+        "alt": "urbanus-office project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/urbanus-office/detail-01.webp",
+          "width": 1469,
+          "height": 1071,
+          "alt": "urbanus-office project image 1"
+        },
+        {
+          "src": "/images/projects/urbanus-office/detail-02.webp",
+          "width": 941,
+          "height": 1670,
+          "alt": "urbanus-office project image 2"
+        },
+        {
+          "src": "/images/projects/urbanus-office/detail-03.webp",
+          "width": 1448,
+          "height": 1086,
+          "alt": "urbanus-office project image 3"
+        },
+        {
+          "src": "/images/projects/urbanus-office/detail-04.webp",
+          "width": 841,
+          "height": 1870,
+          "alt": "urbanus-office project image 4"
+        },
+        {
+          "src": "/images/projects/urbanus-office/detail-05.webp",
+          "width": 1431,
+          "height": 1099,
+          "alt": "urbanus-office project image 5"
+        }
+      ]
+    },
+    "lx-holdings-office": {
+      "thumbnail": {
+        "src": "/images/projects/lx-holdings-office/thumbnail.webp",
+        "width": 960,
+        "height": 640,
+        "alt": "lx-holdings-office project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/lx-holdings-office/detail-01.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "lx-holdings-office project image 1"
+        },
+        {
+          "src": "/images/projects/lx-holdings-office/detail-02.webp",
+          "width": 1492,
+          "height": 1054,
+          "alt": "lx-holdings-office project image 2"
+        },
+        {
+          "src": "/images/projects/lx-holdings-office/detail-03.webp",
+          "width": 1537,
+          "height": 1023,
+          "alt": "lx-holdings-office project image 3"
+        },
+        {
+          "src": "/images/projects/lx-holdings-office/detail-04.webp",
+          "width": 1491,
+          "height": 1055,
+          "alt": "lx-holdings-office project image 4"
+        }
+      ]
+    },
+    "beomyang-reus-cheongnyangni": {
+      "thumbnail": {
+        "src": "/images/projects/beomyang-reus-cheongnyangni/thumbnail.webp",
+        "width": 960,
+        "height": 640,
+        "alt": "beomyang-reus-cheongnyangni project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/beomyang-reus-cheongnyangni/detail-01.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "beomyang-reus-cheongnyangni project image 1"
+        },
+        {
+          "src": "/images/projects/beomyang-reus-cheongnyangni/detail-02.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "beomyang-reus-cheongnyangni project image 2"
+        },
+        {
+          "src": "/images/projects/beomyang-reus-cheongnyangni/detail-03.webp",
+          "width": 1448,
+          "height": 1086,
+          "alt": "beomyang-reus-cheongnyangni project image 3"
+        },
+        {
+          "src": "/images/projects/beomyang-reus-cheongnyangni/detail-04.webp",
+          "width": 1005,
+          "height": 1566,
+          "alt": "beomyang-reus-cheongnyangni project image 4"
+        },
+        {
+          "src": "/images/projects/beomyang-reus-cheongnyangni/detail-05.webp",
+          "width": 1309,
+          "height": 1202,
+          "alt": "beomyang-reus-cheongnyangni project image 5"
+        }
+      ]
+    },
+    "lx-international-office": {
+      "thumbnail": {
+        "src": "/images/projects/lx-international-office/thumbnail.webp",
+        "width": 960,
+        "height": 1281,
+        "alt": "lx-international-office project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/lx-international-office/detail-01.webp",
+          "width": 1086,
+          "height": 1449,
+          "alt": "lx-international-office project image 1"
+        },
+        {
+          "src": "/images/projects/lx-international-office/detail-02.webp",
+          "width": 1508,
+          "height": 1043,
+          "alt": "lx-international-office project image 2"
+        },
+        {
+          "src": "/images/projects/lx-international-office/detail-03.webp",
+          "width": 1464,
+          "height": 1074,
+          "alt": "lx-international-office project image 3"
+        },
+        {
+          "src": "/images/projects/lx-international-office/detail-04.webp",
+          "width": 1304,
+          "height": 1206,
+          "alt": "lx-international-office project image 4"
+        }
+      ]
+    },
+    "lg-chem-daesan-residence": {
+      "thumbnail": {
+        "src": "/images/projects/lg-chem-daesan-residence/thumbnail.webp",
+        "width": 960,
+        "height": 640,
+        "alt": "lg-chem-daesan-residence project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/lg-chem-daesan-residence/detail-01.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "lg-chem-daesan-residence project image 1"
+        },
+        {
+          "src": "/images/projects/lg-chem-daesan-residence/detail-02.webp",
+          "width": 1537,
+          "height": 1023,
+          "alt": "lg-chem-daesan-residence project image 2"
+        },
+        {
+          "src": "/images/projects/lg-chem-daesan-residence/detail-03.webp",
+          "width": 1452,
+          "height": 1083,
+          "alt": "lg-chem-daesan-residence project image 3"
+        },
+        {
+          "src": "/images/projects/lg-chem-daesan-residence/detail-04.webp",
+          "width": 1535,
+          "height": 1024,
+          "alt": "lg-chem-daesan-residence project image 4"
+        },
+        {
+          "src": "/images/projects/lg-chem-daesan-residence/detail-05.webp",
+          "width": 1534,
+          "height": 1025,
+          "alt": "lg-chem-daesan-residence project image 5"
+        },
+        {
+          "src": "/images/projects/lg-chem-daesan-residence/detail-06.webp",
+          "width": 1411,
+          "height": 1115,
+          "alt": "lg-chem-daesan-residence project image 6"
+        },
+        {
+          "src": "/images/projects/lg-chem-daesan-residence/detail-07.webp",
+          "width": 1493,
+          "height": 1054,
+          "alt": "lg-chem-daesan-residence project image 7"
+        }
+      ]
+    },
+    "doksan-residence": {
+      "thumbnail": {
+        "src": "/images/projects/doksan-residence/thumbnail.webp",
+        "width": 941,
+        "height": 1672,
+        "alt": "doksan-residence project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/doksan-residence/detail-01.webp",
+          "width": 941,
+          "height": 1672,
+          "alt": "doksan-residence project image 1"
+        },
+        {
+          "src": "/images/projects/doksan-residence/detail-02.webp",
+          "width": 1621,
+          "height": 970,
+          "alt": "doksan-residence project image 2"
+        },
+        {
+          "src": "/images/projects/doksan-residence/detail-03.webp",
+          "width": 941,
+          "height": 1672,
+          "alt": "doksan-residence project image 3"
+        },
+        {
+          "src": "/images/projects/doksan-residence/detail-04.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "doksan-residence project image 4"
+        },
+        {
+          "src": "/images/projects/doksan-residence/detail-05.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "doksan-residence project image 5"
+        },
+        {
+          "src": "/images/projects/doksan-residence/detail-06.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "doksan-residence project image 6"
+        },
+        {
+          "src": "/images/projects/doksan-residence/detail-07.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "doksan-residence project image 7"
+        }
+      ]
+    },
+    "hermoso-yongsan": {
+      "thumbnail": {
+        "src": "/images/projects/hermoso-yongsan/thumbnail.webp",
+        "width": 916,
+        "height": 1717,
+        "alt": "hermoso-yongsan project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/hermoso-yongsan/detail-01.webp",
+          "width": 916,
+          "height": 1717,
+          "alt": "hermoso-yongsan project image 1"
+        },
+        {
+          "src": "/images/projects/hermoso-yongsan/detail-02.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "hermoso-yongsan project image 2"
+        },
+        {
+          "src": "/images/projects/hermoso-yongsan/detail-03.webp",
+          "width": 1024,
+          "height": 1536,
+          "alt": "hermoso-yongsan project image 3"
+        },
+        {
+          "src": "/images/projects/hermoso-yongsan/detail-04.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "hermoso-yongsan project image 4"
+        },
+        {
+          "src": "/images/projects/hermoso-yongsan/detail-05.webp",
+          "width": 1023,
+          "height": 1537,
+          "alt": "hermoso-yongsan project image 5"
+        },
+        {
+          "src": "/images/projects/hermoso-yongsan/detail-06.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "hermoso-yongsan project image 6"
+        }
+      ]
+    },
+    "yongil-bojeong-residence": {
+      "thumbnail": {
+        "src": "/images/projects/yongil-bojeong-residence/thumbnail.webp",
+        "width": 960,
+        "height": 640,
+        "alt": "yongil-bojeong-residence project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/yongil-bojeong-residence/detail-01.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "yongil-bojeong-residence project image 1"
+        },
+        {
+          "src": "/images/projects/yongil-bojeong-residence/detail-02.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "yongil-bojeong-residence project image 2"
+        },
+        {
+          "src": "/images/projects/yongil-bojeong-residence/detail-03.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "yongil-bojeong-residence project image 3"
+        },
+        {
+          "src": "/images/projects/yongil-bojeong-residence/detail-04.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "yongil-bojeong-residence project image 4"
+        },
+        {
+          "src": "/images/projects/yongil-bojeong-residence/detail-05.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "yongil-bojeong-residence project image 5"
+        },
+        {
+          "src": "/images/projects/yongil-bojeong-residence/detail-06.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "yongil-bojeong-residence project image 6"
+        },
+        {
+          "src": "/images/projects/yongil-bojeong-residence/detail-07.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "yongil-bojeong-residence project image 7"
+        }
+      ]
+    },
+    "woojin-godeok-office": {
+      "thumbnail": {
+        "src": "/images/projects/woojin-godeok-office/thumbnail.webp",
+        "width": 960,
+        "height": 1440,
+        "alt": "woojin-godeok-office project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/woojin-godeok-office/detail-01.webp",
+          "width": 2000,
+          "height": 3000,
+          "alt": "woojin-godeok-office project image 1"
+        },
+        {
+          "src": "/images/projects/woojin-godeok-office/detail-02.webp",
+          "width": 2000,
+          "height": 3000,
+          "alt": "woojin-godeok-office project image 2"
+        },
+        {
+          "src": "/images/projects/woojin-godeok-office/detail-03.webp",
+          "width": 2000,
+          "height": 1333,
+          "alt": "woojin-godeok-office project image 3"
+        },
+        {
+          "src": "/images/projects/woojin-godeok-office/detail-04.webp",
+          "width": 2000,
+          "height": 1333,
+          "alt": "woojin-godeok-office project image 4"
+        },
+        {
+          "src": "/images/projects/woojin-godeok-office/detail-05.webp",
+          "width": 2000,
+          "height": 1333,
+          "alt": "woojin-godeok-office project image 5"
+        },
+        {
+          "src": "/images/projects/woojin-godeok-office/detail-06.webp",
+          "width": 2000,
+          "height": 1333,
+          "alt": "woojin-godeok-office project image 6"
+        },
+        {
+          "src": "/images/projects/woojin-godeok-office/detail-07.webp",
+          "width": 2000,
+          "height": 3000,
+          "alt": "woojin-godeok-office project image 7"
+        },
+        {
+          "src": "/images/projects/woojin-godeok-office/detail-08.webp",
+          "width": 2000,
+          "height": 1333,
+          "alt": "woojin-godeok-office project image 8"
+        },
+        {
+          "src": "/images/projects/woojin-godeok-office/detail-09.webp",
+          "width": 2000,
+          "height": 1333,
+          "alt": "woojin-godeok-office project image 9"
+        },
+        {
+          "src": "/images/projects/woojin-godeok-office/detail-10.webp",
+          "width": 2000,
+          "height": 1333,
+          "alt": "woojin-godeok-office project image 10"
+        },
+        {
+          "src": "/images/projects/woojin-godeok-office/detail-11.webp",
+          "width": 2000,
+          "height": 1334,
+          "alt": "woojin-godeok-office project image 11"
+        },
+        {
+          "src": "/images/projects/woojin-godeok-office/detail-12.webp",
+          "width": 2000,
+          "height": 1333,
+          "alt": "woojin-godeok-office project image 12"
+        },
+        {
+          "src": "/images/projects/woojin-godeok-office/detail-13.webp",
+          "width": 2000,
+          "height": 1333,
+          "alt": "woojin-godeok-office project image 13"
+        },
+        {
+          "src": "/images/projects/woojin-godeok-office/detail-14.webp",
+          "width": 2000,
+          "height": 1333,
+          "alt": "woojin-godeok-office project image 14"
+        }
+      ]
+    },
+    "ilsan-ipark-model-house": {
+      "thumbnail": {
+        "src": "/images/projects/ilsan-ipark-model-house/thumbnail.webp",
+        "width": 960,
+        "height": 639,
+        "alt": "ilsan-ipark-model-house project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/ilsan-ipark-model-house/detail-01.webp",
+          "width": 1537,
+          "height": 1023,
+          "alt": "ilsan-ipark-model-house project image 1"
+        },
+        {
+          "src": "/images/projects/ilsan-ipark-model-house/detail-02.webp",
+          "width": 1537,
+          "height": 1023,
+          "alt": "ilsan-ipark-model-house project image 2"
+        },
+        {
+          "src": "/images/projects/ilsan-ipark-model-house/detail-03.webp",
+          "width": 1540,
+          "height": 1021,
+          "alt": "ilsan-ipark-model-house project image 3"
+        }
+      ]
+    },
+    "paju-model-house": {
+      "thumbnail": {
+        "src": "/images/projects/paju-model-house/thumbnail.webp",
+        "width": 960,
+        "height": 640,
+        "alt": "paju-model-house project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/paju-model-house/detail-01.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "paju-model-house project image 1"
+        },
+        {
+          "src": "/images/projects/paju-model-house/detail-02.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "paju-model-house project image 2"
+        },
+        {
+          "src": "/images/projects/paju-model-house/detail-03.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "paju-model-house project image 3"
+        },
+        {
+          "src": "/images/projects/paju-model-house/detail-04.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "paju-model-house project image 4"
+        },
+        {
+          "src": "/images/projects/paju-model-house/detail-05.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "paju-model-house project image 5"
+        },
+        {
+          "src": "/images/projects/paju-model-house/detail-06.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "paju-model-house project image 6"
+        },
+        {
+          "src": "/images/projects/paju-model-house/detail-07.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "paju-model-house project image 7"
+        },
+        {
+          "src": "/images/projects/paju-model-house/detail-08.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "paju-model-house project image 8"
+        },
+        {
+          "src": "/images/projects/paju-model-house/detail-09.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "paju-model-house project image 9"
+        },
+        {
+          "src": "/images/projects/paju-model-house/detail-10.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "paju-model-house project image 10"
+        },
+        {
+          "src": "/images/projects/paju-model-house/detail-11.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "paju-model-house project image 11"
+        },
+        {
+          "src": "/images/projects/paju-model-house/detail-12.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "paju-model-house project image 12"
+        },
+        {
+          "src": "/images/projects/paju-model-house/detail-13.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "paju-model-house project image 13"
+        },
+        {
+          "src": "/images/projects/paju-model-house/detail-14.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "paju-model-house project image 14"
+        },
+        {
+          "src": "/images/projects/paju-model-house/detail-15.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "paju-model-house project image 15"
+        }
+      ]
+    },
+    "pocheon-soheul-house": {
+      "thumbnail": {
+        "src": "/images/projects/pocheon-soheul-house/thumbnail.webp",
+        "width": 960,
+        "height": 639,
+        "alt": "pocheon-soheul-house project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/pocheon-soheul-house/detail-01.webp",
+          "width": 1537,
+          "height": 1023,
+          "alt": "pocheon-soheul-house project image 1"
+        },
+        {
+          "src": "/images/projects/pocheon-soheul-house/detail-02.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "pocheon-soheul-house project image 2"
+        },
+        {
+          "src": "/images/projects/pocheon-soheul-house/detail-03.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "pocheon-soheul-house project image 3"
+        },
+        {
+          "src": "/images/projects/pocheon-soheul-house/detail-04.webp",
+          "width": 1538,
+          "height": 1022,
+          "alt": "pocheon-soheul-house project image 4"
+        }
+      ]
+    },
+    "pocheon-idong-house": {
+      "thumbnail": {
+        "src": "/images/projects/pocheon-idong-house/thumbnail.webp",
+        "width": 960,
+        "height": 639,
+        "alt": "pocheon-idong-house project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/pocheon-idong-house/detail-01.webp",
+          "width": 1537,
+          "height": 1023,
+          "alt": "pocheon-idong-house project image 1"
+        },
+        {
+          "src": "/images/projects/pocheon-idong-house/detail-02.webp",
+          "width": 1541,
+          "height": 1021,
+          "alt": "pocheon-idong-house project image 2"
+        },
+        {
+          "src": "/images/projects/pocheon-idong-house/detail-03.webp",
+          "width": 1537,
+          "height": 1023,
+          "alt": "pocheon-idong-house project image 3"
+        },
+        {
+          "src": "/images/projects/pocheon-idong-house/detail-04.webp",
+          "width": 1535,
+          "height": 1024,
+          "alt": "pocheon-idong-house project image 4"
+        }
+      ]
+    },
+    "bw-wedding-hall": {
+      "thumbnail": {
+        "src": "/images/projects/bw-wedding-hall/thumbnail.webp",
+        "width": 960,
+        "height": 640,
+        "alt": "bw-wedding-hall project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/bw-wedding-hall/detail-01.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "bw-wedding-hall project image 1"
+        },
+        {
+          "src": "/images/projects/bw-wedding-hall/detail-02.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "bw-wedding-hall project image 2"
+        },
+        {
+          "src": "/images/projects/bw-wedding-hall/detail-03.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "bw-wedding-hall project image 3"
+        },
+        {
+          "src": "/images/projects/bw-wedding-hall/detail-04.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "bw-wedding-hall project image 4"
+        },
+        {
+          "src": "/images/projects/bw-wedding-hall/detail-05.webp",
+          "width": 2000,
+          "height": 1123,
+          "alt": "bw-wedding-hall project image 5"
+        },
+        {
+          "src": "/images/projects/bw-wedding-hall/detail-06.webp",
+          "width": 2000,
+          "height": 1123,
+          "alt": "bw-wedding-hall project image 6"
+        },
+        {
+          "src": "/images/projects/bw-wedding-hall/detail-07.webp",
+          "width": 1540,
+          "height": 1021,
+          "alt": "bw-wedding-hall project image 7"
+        },
+        {
+          "src": "/images/projects/bw-wedding-hall/detail-08.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "bw-wedding-hall project image 8"
+        },
+        {
+          "src": "/images/projects/bw-wedding-hall/detail-09.webp",
+          "width": 1544,
+          "height": 1019,
+          "alt": "bw-wedding-hall project image 9"
+        },
+        {
+          "src": "/images/projects/bw-wedding-hall/detail-10.webp",
+          "width": 1585,
+          "height": 992,
+          "alt": "bw-wedding-hall project image 10"
+        },
+        {
+          "src": "/images/projects/bw-wedding-hall/detail-11.webp",
+          "width": 1584,
+          "height": 993,
+          "alt": "bw-wedding-hall project image 11"
+        }
+      ]
+    },
+    "lg-chem-yongseong-cafeteria": {
+      "thumbnail": {
+        "src": "/images/projects/lg-chem-yongseong-cafeteria/thumbnail.webp",
+        "width": 960,
+        "height": 720,
+        "alt": "lg-chem-yongseong-cafeteria project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/lg-chem-yongseong-cafeteria/detail-01.webp",
+          "width": 1448,
+          "height": 1086,
+          "alt": "lg-chem-yongseong-cafeteria project image 1"
+        },
+        {
+          "src": "/images/projects/lg-chem-yongseong-cafeteria/detail-02.webp",
+          "width": 1448,
+          "height": 1086,
+          "alt": "lg-chem-yongseong-cafeteria project image 2"
+        },
+        {
+          "src": "/images/projects/lg-chem-yongseong-cafeteria/detail-03.webp",
+          "width": 1449,
+          "height": 1085,
+          "alt": "lg-chem-yongseong-cafeteria project image 3"
+        },
+        {
+          "src": "/images/projects/lg-chem-yongseong-cafeteria/detail-04.webp",
+          "width": 1447,
+          "height": 1087,
+          "alt": "lg-chem-yongseong-cafeteria project image 4"
+        }
+      ]
+    },
+    "tkg-taekwang-gimhae": {
+      "thumbnail": {
+        "src": "/images/projects/tkg-taekwang-gimhae/thumbnail.webp",
+        "width": 960,
+        "height": 720,
+        "alt": "tkg-taekwang-gimhae project thumbnail"
+      },
+      "gallery": [
+        {
+          "src": "/images/projects/tkg-taekwang-gimhae/detail-01.webp",
+          "width": 1448,
+          "height": 1086,
+          "alt": "tkg-taekwang-gimhae project image 1"
+        },
+        {
+          "src": "/images/projects/tkg-taekwang-gimhae/detail-02.webp",
+          "width": 1448,
+          "height": 1086,
+          "alt": "tkg-taekwang-gimhae project image 2"
+        },
+        {
+          "src": "/images/projects/tkg-taekwang-gimhae/detail-03.webp",
+          "width": 1448,
+          "height": 1086,
+          "alt": "tkg-taekwang-gimhae project image 3"
+        },
+        {
+          "src": "/images/projects/tkg-taekwang-gimhae/detail-04.webp",
+          "width": 1448,
+          "height": 1086,
+          "alt": "tkg-taekwang-gimhae project image 4"
+        },
+        {
+          "src": "/images/projects/tkg-taekwang-gimhae/detail-05.webp",
+          "width": 1448,
+          "height": 1086,
+          "alt": "tkg-taekwang-gimhae project image 5"
+        }
+      ]
+    }
+  },
+  "homeAssetMap": {
+    "hero": [
+      {
+        "src": "/images/home/hero-01.webp",
+        "width": 1473,
+        "height": 1068,
+        "alt": "제율디앤씨 대표 공간 1"
+      },
+      {
+        "src": "/images/home/hero-02.webp",
+        "width": 1537,
+        "height": 1023,
+        "alt": "제율디앤씨 대표 공간 2"
+      },
+      {
+        "src": "/images/home/hero-03.webp",
+        "width": 1536,
+        "height": 1024,
+        "alt": "제율디앤씨 대표 공간 3"
+      },
+      {
+        "src": "/images/home/hero-04.webp",
+        "width": 2000,
+        "height": 1123,
+        "alt": "제율디앤씨 대표 공간 4"
+      },
+      {
+        "src": "/images/home/hero-05.webp",
+        "width": 1438,
+        "height": 1094,
+        "alt": "제율디앤씨 대표 공간 5"
+      },
+      {
+        "src": "/images/home/hero-06.webp",
+        "width": 1428,
+        "height": 1101,
+        "alt": "제율디앤씨 대표 공간 6"
+      },
+      {
+        "src": "/images/home/hero-07.webp",
+        "width": 1445,
+        "height": 1088,
+        "alt": "제율디앤씨 대표 공간 7"
+      },
+      {
+        "src": "/images/home/hero-08.webp",
+        "width": 1550,
+        "height": 1014,
+        "alt": "제율디앤씨 대표 공간 8"
+      }
+    ],
+    "services": {
+      "design": {
+        "src": "/images/services/design.webp",
+        "width": 2000,
+        "height": 2667,
+        "alt": "제율디앤씨 design 사업영역"
+      },
+      "construction": {
+        "src": "/images/services/construction.webp",
+        "width": 2000,
+        "height": 1125,
+        "alt": "제율디앤씨 construction 사업영역"
+      },
+      "development": {
+        "src": "/images/services/development.webp",
+        "width": 1600,
+        "height": 2399,
+        "alt": "제율디앤씨 development 사업영역"
+      },
+      "interior": {
+        "src": "/images/services/interior.webp",
+        "width": 2000,
+        "height": 1334,
+        "alt": "제율디앤씨 interior 사업영역"
+      }
+    },
+    "sectionBackgrounds": [
+      {
+        "src": "/images/home/section-01.webp",
+        "width": 2000,
+        "height": 1334,
+        "alt": ""
+      },
+      {
+        "src": "/images/home/section-02.webp",
+        "width": 2000,
+        "height": 1334,
+        "alt": ""
+      }
+    ]
+  }
+}
