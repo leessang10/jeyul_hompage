@@ -8,6 +8,10 @@ export type BrandInfo = {
   englishName: string;
   coreKeyword: string;
   officialHomepageUrl: string;
+    instagramUrl: string;
+    youtubeUrl: string;
+    blogUrl: string;
+    pinterestUrl: string;
   address: string;
   phone: string;
   email: string;
@@ -171,6 +175,10 @@ const brand: BrandInfo = {
   englishName: "JEYUL Integrated Construction Management",
   coreKeyword: "Integrated Construction Management",
   officialHomepageUrl: "http://jeyuldnc.com/",
+    instagramUrl: "https://www.instagram.com/",
+    youtubeUrl: "https://www.youtube.com/",
+    blogUrl: "https://blog.naver.com/",
+    pinterestUrl: "https://www.pinterest.com/",
   address: "서울시 노원구 동일로203가길 29, 1341호",
   phone: "02-977-0789",
   email: "3jeyul@gmail.com",
@@ -208,12 +216,12 @@ const companyProfile = {
 
 const homeHeroMedia: HomeHeroMedia = {
   eyebrow: "JEYUL Integrated Construction Management",
-  title: "주거와 업무 공간의 완성도를\n관리의 밀도로 만듭니다.",
+  title: "공간의 가치를 상승시키는 공간 디벨로퍼 제율디앤씨",
   description:
     "제율디앤씨는 고급 주거와 기업·오피스 프로젝트를 수행하며, 설계와 공정, 품질을 하나의 흐름으로 관리합니다.",
   primaryCta: "프로젝트 상담하기",
   secondaryCta: "대표 프로젝트 보기",
-  scrollCue: "SCROLL"
+  scrollCue: "Explore"
 };
 
 const featuredStories: FeaturedStoryItem[] = [
