@@ -92,21 +92,6 @@ export type CommercialProjectGroup = {
   projects: CommercialProjectItem[];
 };
 
-export type PortfolioType = "residential" | "commercial";
-
-export type PortfolioItem = {
-  slug: string;
-  title: string;
-  type: PortfolioType;
-  category: string;
-  location: string;
-  date?: string;
-  summary: string;
-  metaPrimary: string;
-  metaSecondary: string;
-  variant: "residential" | "commercial";
-};
-
 export type AboutFact = {
   label: string;
   value: string;
@@ -168,7 +153,6 @@ export type SiteContent = {
   processSteps: ProcessStep[];
   residentialPortfolio: ResidentialPortfolioItem[];
   commercialProjectGroups: CommercialProjectGroup[];
-  portfolioItems: PortfolioItem[];
   trustPoints: HomeTrustPoint[];
   organization: {
     ceoTitle: string;
@@ -751,34 +735,6 @@ const commercialProjectGroups: CommercialProjectGroup[] = [
   }
 ];
 
-const portfolioItems: PortfolioItem[] = [
-  ...residentialPortfolio.map((project, index) => ({
-    slug: `residential-${index + 1}`,
-    title: project.title,
-    type: "residential" as const,
-    category: "주거",
-    location: project.location,
-    date: project.date,
-    summary: project.scope,
-    metaPrimary: project.area,
-    metaSecondary: project.projectType,
-    variant: "residential" as const
-  })),
-  ...commercialProjectGroups.flatMap((group, groupIndex) =>
-    group.projects.map((project, projectIndex) => ({
-      slug: `commercial-${groupIndex + 1}-${projectIndex + 1}`,
-      title: project.title,
-      type: "commercial" as const,
-      category: group.title,
-      location: project.location ?? "복수 현장",
-      summary: project.description,
-      metaPrimary: project.client ?? "Corporate",
-      metaSecondary: group.title,
-      variant: "commercial" as const
-    }))
-  )
-];
-
 export const siteContent: SiteContent = {
   brand,
   companyProfile,
@@ -848,7 +804,6 @@ export const siteContent: SiteContent = {
   ],
   residentialPortfolio,
   commercialProjectGroups,
-  portfolioItems,
   trustPoints,
   organization,
   constructionArchive,
