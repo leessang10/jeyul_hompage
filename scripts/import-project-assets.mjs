@@ -1,4 +1,4 @@
-import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import sharp from "sharp";
@@ -6,6 +6,38 @@ import { homeSourceMap, projectSourceMap } from "./project-source-map.mjs";
 
 export function naturalImageSort(a, b) {
   return a.localeCompare(b, "ko", { numeric: true, sensitivity: "base" });
+}
+
+function comparablePath(value) {
+  const resolved = path.resolve(value);
+  return process.platform === "win32" ? resolved.toLowerCase() : resolved;
+}
+
+function isSameOrInside(candidate, parent) {
+  const relative = path.relative(comparablePath(parent), comparablePath(candidate));
+  return relative === "" || (!relative.startsWith(`..${path.sep}`) && relative !== "..");
+}
+
+async function cleanManagedOutput({ sourceRoot, publicRoot }) {
+  if (!path.isAbsolute(publicRoot)) throw new Error("publicRoot must be an absolute path");
+  const resolvedPublicRoot = path.resolve(publicRoot);
+  if (comparablePath(resolvedPublicRoot) === comparablePath(path.parse(resolvedPublicRoot).root)) {
+    throw new Error("Refusing to clean a filesystem root");
+  }
+
+  const managedDirectories = ["projects", "home", "services"]
+    .map((name) => path.resolve(resolvedPublicRoot, name));
+  for (const directory of managedDirectories) {
+    if (comparablePath(path.dirname(directory)) !== comparablePath(resolvedPublicRoot)) {
+      throw new Error(`Managed output escapes publicRoot: ${directory}`);
+    }
+    if (isSameOrInside(sourceRoot, directory) || isSameOrInside(directory, sourceRoot)) {
+      throw new Error(`Managed output overlaps source: ${directory}`);
+    }
+  }
+
+  await Promise.all(managedDirectories.map((directory) =>
+    rm(directory, { recursive: true, force: true })));
 }
 
 async function listWebpFiles(directory, relativeDirectory = "") {
@@ -144,6 +176,7 @@ export async function buildAssetBundle({
   homeMap,
 }) {
   if (!path.isAbsolute(sourceRoot)) throw new Error("--source must be an absolute path");
+  await cleanManagedOutput({ sourceRoot, publicRoot });
   const projectAssetMap = await buildProjectAssets({ sourceRoot, publicRoot, projectMap });
   const homeAssetMap = await buildHomeAssets({ sourceRoot, publicRoot, homeMap });
   await writeGeneratedManifest(generatedFile, projectAssetMap, homeAssetMap);
